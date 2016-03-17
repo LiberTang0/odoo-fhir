@@ -1,5 +1,5 @@
 # Update
-* cd /odoo/custom/addons
+* cd /opt/odoo/custom/addons
 * sudo rm -rf healthcare
 * sudo git clone https://github.com/luigisison/healthcare.git
 * Update a file/directory: sudo rm -rf FILENAME
