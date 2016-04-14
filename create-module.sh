@@ -12,11 +12,10 @@
 # cd /odoo/odoo-server
 # Place this script in the directory:
 # sudo wget https://raw.githubusercontent.com/luigisison/healthcare/master/create-module.sh
-
 # Make the file executable:
-# sudo chmod +x create_module.sh
+# sudo chmod +x create-module.sh
 # Execute the script to install Odoo:
-# ./create_module.sh
+# ./create-module.sh
 ################################################################################# 
 
 ./odoo.py scaffold hc_procedure addons
