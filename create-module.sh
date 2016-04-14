@@ -3,7 +3,11 @@
 # Script for creating FHIR modules
 # Author: Luigi Sison
 #-------------------------------------------------------------------------------
-# This script uses scaffold.
+# Scaffolding is the automated creation of a skeleton structure to simplify bootstrapping 
+# (of new modules, in the case of Odoo). While not necessary it avoids the tedium of setting up basic structures 
+# and looking up what all starting requirements are.
+#
+# Scaffolding is available via the odoo.py scaffold subcommand.
 #-------------------------------------------------------------------------------
 # Go to Ubuntu directory where you want to install the software. For example:
 # cd /odoo/odoo-server
