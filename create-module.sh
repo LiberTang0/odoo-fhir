@@ -11,14 +11,19 @@
 # Go to Ubuntu directory where you want to install the software. For example:
 # cd /odoo/odoo-server
 # Place this script in the directory:
-# sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo9Enterprise/odoo-install.sh
-# (Optional) Edit the file to change parameters:
-# sudo nano odoo-install.sh
-# Save changes and then make the file executable:
-# sudo chmod +x odoo-install.sh
+# sudo wget https://raw.githubusercontent.com/luigisison/healthcare/master/create-module.sh
+
+# Make the file executable:
+# sudo chmod +x create_module.sh
 # Execute the script to install Odoo:
-# ./odoo-install.sh
-################################################################################# cd /odoo/odoo-server
-./odoo.py scaffold hc_allergy_intolerance addons
+# ./create_module.sh
+################################################################################# 
+
+./odoo.py scaffold hc_procedure addons
+./odoo.py scaffold hc_family_member_history addons
 cd addons
-sudo mv hc_allergy_intolerance /odoo/custom/addons/hc_allergy_intolerance
+sudo mv hc_procedure /odoo/custom/addons/hc_procedure
+sudo mv hc_family_member_history /odoo/custom/addons/hc_family_member_history
+echo "-----------------------------------------------------------"
+echo "Done! The module directories have been created."
+echo "-----------------------------------------------------------"
