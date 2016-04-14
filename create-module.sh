@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Script for creating FHIR modules
+# Script to create Odoo module skeletons of FHIR resources.
 # Author: Luigi Sison
 #-------------------------------------------------------------------------------
 # Scaffolding is the automated creation of a skeleton structure to simplify bootstrapping 
@@ -9,13 +9,13 @@
 #
 # Scaffolding is available via the odoo.py scaffold subcommand.
 #-------------------------------------------------------------------------------
-# Go to Ubuntu directory where you want to install the software. For example:
+# Go to Ubuntu directory where odoo.py is located. For example:
 # cd /odoo/odoo-server
 # Place this script in the directory:
 # sudo wget https://raw.githubusercontent.com/luigisison/healthcare/master/create-module.sh
 # Make the file executable:
 # sudo chmod +x create-module.sh
-# Execute the script to install Odoo:
+# Execute the script to create the module skeletons:
 # ./create-module.sh
 ################################################################################# 
 
