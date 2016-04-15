@@ -1,0 +1,29 @@
+<openerp>
+    <data>
+
+    	<record model="ir.module.category" id="module_category_health_care">
+            <field name="name">Health Care</field>
+            <field name="description">The actions of prevention, treatment, and management of illness and the preservation of mental and physical well-being through the services offered by the medical and allied health professions. (NCI)</field>
+            <field name="sequence">1</field>
+        </record>
+        
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+    </data>
+</openerp>
