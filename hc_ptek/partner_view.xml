@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Top menu items -->
+        <menuitem name="Administrative" id="menu_base_hc_administrative" sequence="2"/>            
+        <menuitem name="Clinical" id="menu_base_hc_clinical" sequence="3"/> 
+		<menuitem name="Financial" id="menu_base_hc_financial" sequence="4"/>
+		<menuitem name="Infrastructure" id="menu_base_hc_infrastructure" sequence="5"/>
+
+		<!-- Sub menu items -->
+		<menuitem id="menu_base_hc_basic_info" parent="menu_base_hc_administrative" name="Basic Information" sequence="1" />
+		<menuitem id="menu_base_hc_config" parent="menu_base_hc_administrative" name="Configuration" sequence="2" />
+		
+
+        <!-- 
+        ===========================================================
+        			Address view
+        ===========================================================        
+         -->    
+
+		<record id="view_hc_address_form" model="ir.ui.view">
+            <field name="name">res.hc.address.form</field>
+            <field name="model">hc.address</field>
+            <field name="arch" type="xml">
+                <form string="Address">
+                <sheet>
+                	<div class="oe_title oe_left">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" />
+                        </h1>
+                    </div>
+                    <group>
+                    	<group>
+                    		<field name="street"/>
+                    		<field name="street2"/>
+                    		<field name="city_id"/>
+                    	</group>
+                    	<group>
+                    		<field name="state_id"/>
+                    		<field name="country_id"/>
+                    		<field name="postal_code_id"/>
+                    	</group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+						
+		<!-- 
+		=====================================================
+				city views
+		=====================================================		
+		 -->
+		 
+		<record id="view_hc_city_form" model="ir.ui.view">
+            <field name="name">res.hc.city.form</field>
+            <field name="model">hc.country.city</field>
+            <field name="arch" type="xml">
+                <form string="City">
+	                <sheet>
+	                	<div class="oe_title oe_left">
+	                        <h1>
+	                            <field name="name" default_focus="1" placeholder="Name" />
+	                        </h1>
+	                    </div>
+	                    <group>
+	                    	<field name="code"/>
+	                    	<field name="state_id"/>
+	                    	<field name="country_id"/>
+	                    	<separator string="Postal Codes" colspan="4"/>
+	                    	<field name="postal_code_ids" colspan="4" nolabel="1"/>
+	                    </group>	                   
+	                </sheet>
+                </form>
+            </field>
+        </record>
+		 
+		<record id="view_hc_city_tree" model="ir.ui.view">
+            <field name="name">hc.city.tree</field>
+            <field name="model">hc.country.city</field>
+            <field name="arch" type="xml">
+                <tree string="Country City">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                    <field name="country_id"/>
+                </tree>
+            </field>
+       	</record>
+		
+      	<record id="view_hc_city_filter" model="ir.ui.view">
+            <field name="name">hc.city.select</field>
+            <field name="model">hc.country.city</field>
+            <field name="arch" type="xml">
+                <search string="Search City">
+                	<field name="name" domain="[('name','ilike',self),"/>
+                	<field name="code" domain="[('code','ilike',self),"/>
+                	<field name="state_id" domain="[('state_id','ilike',self),"/>
+                	<field name="country_id" domain="[('country_id','ilike',self),"/>
+				</search>
+			</field>
+		</record>
+		
+       	<record id="action_hc_city_action" model="ir.actions.act_window">
+            <field name="name">Country City</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.country.city</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hc_city_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a city.
+              </p>
+            </field>
+        </record>
+		
+		<menuitem id="menu_base_hc_city" parent="menu_base_hc_config" name="Country City" action="action_hc_city_action" sequence="2" />
+
+
+		<!-- 
+		=====================================================
+				Postal Code views
+		=====================================================		
+		 -->
+		 
+		<record id="view_hc_postal_code_form" model="ir.ui.view">
+            <field name="name">res.hc.postal.code.form</field>
+            <field name="model">hc.country.postal.code</field>
+            <field name="arch" type="xml">
+                <form string="Postal Code">
+	                <sheet>
+	                	<div class="oe_title oe_left">
+	                        <h1>
+	                            <field name="code" default_focus="1" placeholder="Code" />
+	                        </h1>
+	                    </div>
+	                    <group>
+	                    	<field name="place"/>
+	                    	<field name="state_id"/>
+	                    	<field name="country_id"/>
+	                    	<separator string="Cities" colspan="4"/>
+	                    	<field name="city_ids" colspan="4" nolabel="1"/>
+	                    </group>	                   
+	                </sheet>
+                </form>
+            </field>
+        </record>
+		
+		<record id="view_hc_postal_code_tree" model="ir.ui.view">
+            <field name="name">hc.postal.code.tree</field>
+            <field name="model">hc.country.postal.code</field>
+            <field name="arch" type="xml">
+                <tree string="Postal Code">
+                    <field name="code"/>
+                    <field name="place"/>
+                    <field name="country_id"/>
+                    <field name="state_id"/>
+                </tree>
+            </field>
+       	</record>
+		
+      	<record id="view_hc_postal_code_filter" model="ir.ui.view">
+            <field name="name">hc.postal.code.select</field>
+            <field name="model">hc.country.postal.code</field>
+            <field name="arch" type="xml">
+                <search string="Search Postal Code">
+                	<field name="code" domain="[('code','ilike',self),"/>
+                	<field name="place" domain="[('place','ilike',self),"/>
+                	<field name="state_id" domain="[('state_id','ilike',self),"/>
+                	<field name="country_id" domain="[('country_id','ilike',self),"/>
+				</search>
+			</field>
+		</record>
+		
+       	<record id="action_hc_postal_code_action" model="ir.actions.act_window">
+            <field name="name">Postal Codes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.country.postal.code</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hc_postal_code_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Postal Codes.
+              </p>
+            </field>
+        </record>
+		
+		<menuitem id="menu_base_hc_postal_code" parent="menu_base_hc_config" name="Country Postal Code" action="action_hc_postal_code_action" sequence="3" />
+
+
+		<!-- 
+		=====================================================
+				Ethnicity views
+		=====================================================		
+		 -->
+		 
+		<record id="view_hc_ethnicity_form" model="ir.ui.view">
+            <field name="name">res.ethnicity.code.form</field>
+            <field name="model">hc.ethnicity</field>
+            <field name="arch" type="xml">
+                <form string="Ethnicity">
+	                <sheet>
+	                	<div class="oe_title oe_left">
+	                        <h1>
+	                            <field name="code" default_focus="1" placeholder="Code" />
+	                        </h1>
+	                    </div>
+	                    <group>
+	                    	<field name="name"/>
+	                    	<field name="parent_id"/>
+	                    	<field name="country_id"/>
+	                    </group>	                   
+	                </sheet>
+                </form>
+            </field>
+        </record>
+		 
+		<record id="view_hc_ethnicity_tree" model="ir.ui.view">
+            <field name="name">hc.ethnicity.tree</field>
+            <field name="model">hc.ethnicity</field>
+            <field name="arch" type="xml">
+                <tree string="Ethnicity">
+                    <field name="code"/>
+                    <field name="name"/>
+                   	<field name="parent_id"/>
+                   	<field name="country_id"/>
+                </tree>
+            </field>
+       	</record>
+		
+      	<record id="view_hc_ethnicity_filter" model="ir.ui.view">
+            <field name="name">hc.ethnicity.select</field>
+            <field name="model">hc.ethnicity</field>
+            <field name="arch" type="xml">
+                <search string="Search Ethnicity">
+                	<field name="code" domain="[('code','ilike',self),"/>
+                	<field name="name" domain="[('name','ilike',self),"/>
+                	<field name="country_id" domain="[('country_id','ilike',self),"/>
+				</search>
+			</field>
+		</record>
+		
+       	<record id="action_hc_ethnicity_action" model="ir.actions.act_window">
+            <field name="name">Ethnicity</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.ethnicity</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hc_ethnicity_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Ethnicity.
+              </p>
+            </field>
+        </record>
+		
+		<menuitem id="menu_base_hc_ethnicity" parent="menu_base_hc_config" name="Ethnicity" action="action_hc_ethnicity_action" sequence="4" />
+
+		<!-- 
+		=====================================================
+				Race views
+		=====================================================		
+		 -->
+		 
+		<record id="view_hc_race_form" model="ir.ui.view">
+            <field name="name">res.race.form</field>
+            <field name="model">hc.race</field>
+            <field name="arch" type="xml">
+                <form string="Race">
+	                <sheet>
+	                	<div class="oe_title oe_left">
+	                        <h1>
+	                            <field name="code" default_focus="1" placeholder="Code" />
+	                        </h1>
+	                    </div>
+	                    <group>
+	                    	<field name="name"/>
+	                    	<field name="parent_id"/>
+	                    	<field name="country_id"/>
+	                    </group>	                   
+	                </sheet>
+                </form>
+            </field>
+        </record>
+		 
+		<record id="view_hc_race_tree" model="ir.ui.view">
+            <field name="name">hc.race.tree</field>
+            <field name="model">hc.race</field>
+            <field name="arch" type="xml">
+                <tree string="Race">
+                    <field name="code"/>
+                    <field name="name"/>
+                   	<field name="parent_id"/>
+                   	<field name="country_id"/>
+                </tree>
+            </field>
+       	</record>
+		
+      	<record id="view_hc_race_filter" model="ir.ui.view">
+            <field name="name">hc.race.select</field>
+            <field name="model">hc.race</field>
+            <field name="arch" type="xml">
+                <search string="Search Race">
+                	<field name="code" domain="[('code','ilike',self),"/>
+                	<field name="name" domain="[('name','ilike',self),"/>
+                	<field name="country_id" domain="[('country_id','ilike',self),"/>
+				</search>
+			</field>
+		</record>
+		
+       	<record id="action_hc_race_action" model="ir.actions.act_window">
+            <field name="name">Race</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.race</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hc_race_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Race.
+              </p>
+            </field>
+        </record>
+		
+		<menuitem id="menu_base_hc_race" parent="menu_base_hc_config" name="Race" action="action_hc_race_action" sequence="6" />
+
+
+		<!-- 
+		=====================================================
+				Patient views
+		=====================================================		
+		 -->
+		<record id="view_hc_patient_tree" model="ir.ui.view">
+            <field name="name">hc.patient.tree</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Contacts">
+                    <field name="display_name"/>
+                    <field name="birth_date"/>
+                </tree>
+            </field>
+        </record>
+            
+		<record id="view_hc_patient_form" model="ir.ui.view">
+            <field name="name">res.hc.patient.form</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form string="Patients">
+                <sheet>
+                    <field name="image" widget='image' class="oe_left oe_avatar" options='{"preview_image": "image_medium", "size": [90, 90]}'/>
+                    <div class="oe_title oe_left">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" />
+                        </h1>
+                    </div>
+                    <div class="oe_right oe_button_box" name="buttons"> </div>
+
+                    <group>
+                        <group>
+                        
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                           	<field name="is_multiple_birth"/>
+                           	<field name="multiple_birth_count" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
+                           	<field name="multiple_birth_order" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="race_id"/>
+                            <field name="ethnicity_id" />
+                           	<field name="is_deceased"/>
+                           	<field name="deceased_date" attrs="{'invisible': [('is_deceased','=',False)]}"/>
+                           	<field name="patient" invisible='1'/>
+                        </group>
+                    </group>
+
+                    <notebook colspan="4">
+                    	<page string="Names" />
+                    	<page string="Identifiers"/>
+                    	
+                        <page string="Addresses" autofocus="autofocus">
+                            <field name="address_ids" mode="tree">
+                            	<tree string="Address">
+                            		<field name="use" widget="radio"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="city_id"/>
+                                    <field name="postal_code_id"/>
+                                    <field name="country_id"/>
+                                    <field name="is_preferred"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                            	</tree>
+                                <form string="Address">
+                                    <sheet>
+                                    	<group col="4" colspan="4">
+	                                        <field name="use" widget="radio" colspan="4"/>
+	                                        <field name="address_id" class="oe_no_button"/>
+	                                        <field name="start_date" placeholder="Valid From"/>
+	                                        <field name="is_preferred"/>
+	                                        <field name="end_date" placeholder="Valid To"/>
+	                                        <field name="acive"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Telecom" />
+                        <page string="Media" />
+                        <page string="Languages" />
+                        <page string="Related Persons" />
+                        <page string="Contacts" />
+                        <page string="Marital Status" />
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+		            
+        <record id="view_hc_patient_filter" model="ir.ui.view">
+            <field name="name">hc.patient.select</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                   <field name="name"
+                       filter_domain="['|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self)]"/>
+                   <filter help="My Partners" icon="terp-personal+" domain="[('user_id','=',uid)]"/>
+                   <separator/>
+                   <filter string="Persons" name="type_person" domain="[('is_company','=',0)]"/>
+                   <filter string="Companies" name="type_company" domain="[('is_company','=',1)]"/>
+                   <separator/>
+                   <filter string="patient" name="patient" domain="[('patient','=',1)]" help="Patients"/>
+                   <separator/>
+                   <field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>
+                   <field name="user_id"/>
+                   <field name="parent_id" domain="[('is_company','=',1)]" operator="child_of"/>
+                   <group expand="0" string="Group By">
+                       <filter string="Salesperson" icon="terp-personal" domain="[]" context="{'group_by' : 'user_id'}" />
+                       <filter string="Company" context="{'group_by': 'parent_id'}"/>
+                       <filter string="Country" context="{'group_by': 'country_id'}"/>
+                   </group>
+               </search>
+            </field>
+        </record>
+
+        <!-- Patient Kanban View -->
+        <record model="ir.ui.view" id="res_hc_patient_kanban_view">
+            <field name="name">res.hc,patient.kanban</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="color"/>
+                    <field name="display_name"/>
+                    <field name="title"/>
+                    <field name="email"/>
+                    <field name="parent_id"/>
+                    <field name="is_company"/>
+                    <field name="function"/>
+                    <field name="phone"/>
+                    <field name="street"/>
+                    <field name="street2"/>
+                    <field name="zip"/>
+                    <field name="city"/>
+                    <field name="country_id"/>
+                    <field name="mobile"/>
+                    <field name="state_id"/>
+                    <field name="category_id"/>
+                    <field name="has_image"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override">
+                                <a type="open">
+                                    <t t-if="record.has_image.raw_value === true">
+                                        <img t-att-src="kanban_image('res.partner', 'image_small', record.id.value)" class="oe_kanban_image"/>
+                                    </t>
+                                    <t t-if="record.has_image.raw_value === false">
+                                        <t t-if="record.is_company.raw_value === true">
+                                            <img t-att-src='_s + "/base/static/src/img/company_image.png"' class="oe_kanban_image"/>
+                                        </t>
+                                        <t t-if="record.is_company.raw_value === false">
+                                            <img t-att-src='_s + "/base/static/src/img/avatar.png"' class="oe_kanban_image"/>
+                                        </t>
+                                    </t>
+                                </a>
+                                <div class="oe_kanban_details">
+                                    <h4 class="oe_partner_heading"><a type="open"><field name="display_name"/></a></h4>
+                                    <ul>
+                                        <li t-if="record.parent_id.raw_value and !record.function.raw_value"><field name="parent_id"/></li>
+                                        <!-- <li t-if="record.gender.raw_value"><field name="gender"/></li> -->
+                                        <li t-if="record.birth_date.raw_value"><field name="birth_date"/></li>
+                                        <!-- <li t-if="record.ethnicity_id.raw_value and !record.race_id.raw_value"><field name="ethnicity_id"/></li>
+                                        <li t-if="record.race_id.raw_value and !record.ethnicity_id.raw_value "><field name="race_id"/></li>
+                                        <li t-if="record.race_id.raw_value and record.ethnicity_id.raw_value "><field name="race_id"/>, <field name="ethnicity_id"/></li> -->
+                                        <li t-if="record.city.raw_value and !record.country_id.raw_value"><field name="city"/></li>
+                                        <li t-if="!record.city.raw_value and record.country_id.raw_value"><field name="country_id"/></li>
+                                        <li t-if="record.city.raw_value and record.country_id.raw_value"><field name="city"/>, <field name="country_id"/></li>
+                                        <li t-if="record.email.raw_value"><a t-attf-href="mailto:#{record.email.raw_value}"><field name="email"/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_hc_patient_action" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{"search_default_patient":1, "default_patient":True}</field>
+            <field name="search_view_id" ref="view_hc_patient_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a contact in your address book.
+              </p><p>
+                Odoo helps you easily track all activities related to
+                a Patient; discussions, history,
+                documents, etc.
+              </p>
+            </field>
+        </record>
+        
+        <record id="action_hc_patient_action_view0" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="res_hc_patient_kanban_view"/>
+            <field name="act_window_id" ref="action_hc_patient_action"/>
+        </record>
+        <record id="action_hc_patient_action_view2" model="ir.actions.act_window.view">
+            <field eval="3" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hc_patient_form"/>
+            <field name="act_window_id" ref="action_hc_patient_action"/>
+        </record>
+        <record id="action_hc_patient_action_view1" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_hc_patient_tree"/>
+            <field name="act_window_id" ref="action_hc_patient_action"/>
+        </record>
+        
+        
+        <menuitem id="menu_base_hc_patient" parent="menu_base_hc_basic_info" name="Patients" sequence="1" action="action_hc_patient_action" />
+                
+        <!-- 
+		=====================================================
+				Practitioners views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_practitioner_tree" model="ir.ui.view">
+            <field name="name">hc.practitioner.tree</field>
+            <field name="model">hc.practitioner</field>
+            <field name="arch" type="xml">
+                <tree string="practitioner" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_practitioner_action" model="ir.actions.act_window">
+            <field name="name">Practitioner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.practitioner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_practitioner" parent="menu_base_hc_basic_info" action="action_hc_practitioner_action" name="Practitioners" sequence="2" />
+        
+        
+        <!-- 
+		=====================================================
+				Related persons views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_related_person_tree" model="ir.ui.view">
+            <field name="name">hc.related_person.tree</field>
+            <field name="model">hc.related.person</field>
+            <field name="arch" type="xml">
+                <tree string="Related Person" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_related_person_action" model="ir.actions.act_window">
+            <field name="name">Related person</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.related.person</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_related_person" parent="menu_base_hc_basic_info" action="action_hc_related_person_action" name="Related Persons" sequence="3" />
+        
+        <!-- 
+		=====================================================
+				Organizations views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_organization_tree" model="ir.ui.view">
+            <field name="name">hc.organization.tree</field>
+            <field name="model">hc.organization</field>
+            <field name="arch" type="xml">
+                <tree string="Organization" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_organization_action" model="ir.actions.act_window">
+            <field name="name">Organization</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.organization</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_organization" parent="menu_base_hc_basic_info" action="action_hc_organization_action" name="Organizations" sequence="4" />
+		
+		<!-- 
+		=====================================================
+				Clinical views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_clinical_tree" model="ir.ui.view">
+            <field name="name">hc.clinical.tree</field>
+            <field name="model">hc.clinical</field>
+            <field name="arch" type="xml">
+                <tree string="Clinical" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_clinical_action" model="ir.actions.act_window">
+            <field name="name">Clinical</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.clinical</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_clinical_sub" parent="menu_base_hc_clinical" name="Clinical" sequence="1" />
+		<menuitem id="menu_base_hc_clinical_sub_child" parent="menu_base_hc_clinical_sub" action="action_hc_clinical_action" name="Clinical" sequence="1" />
+		
+		
+		<!-- 
+		=====================================================
+				Financial views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_financial_tree" model="ir.ui.view">
+            <field name="name">hc.financial.tree</field>
+            <field name="model">hc.financial</field>
+            <field name="arch" type="xml">
+                <tree string="Financial" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_financial_action" model="ir.actions.act_window">
+            <field name="name">Financial</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.financial</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_financial_sub" parent="menu_base_hc_financial" name="Financial" sequence="1" />
+		<menuitem id="menu_base_hc_financial_sub_child" parent="menu_base_hc_financial_sub" action="action_hc_financial_action" name="Financial" sequence="1" />
+		
+		<!-- 
+		=====================================================
+				Infrastructure views
+		=====================================================		
+		 -->
+		 
+		
+		<record id="view_hc_infrastructure_tree" model="ir.ui.view">
+            <field name="name">hc.infrastructure.tree</field>
+            <field name="model">hc.infrastructure</field>
+            <field name="arch" type="xml">
+                <tree string="Infrastructure" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+       	</record>
+		
+		
+       	<record id="action_hc_infrastructure_action" model="ir.actions.act_window">
+            <field name="name">Infrastructure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.infrastructure</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="menu_base_hc_infrastructure_sub" parent="menu_base_hc_infrastructure" name="Infrastructure" sequence="1" />
+		<menuitem id="menu_base_hc_infrastructure_sub_child" parent="menu_base_hc_infrastructure_sub" action="action_hc_infrastructure_action" name="Infrastructure" sequence="1" />
+		
+    </data>
+</openerp>
+            
