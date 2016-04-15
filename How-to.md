@@ -1,9 +1,13 @@
 ## Upload directory from Ubuntu
 
+### Install Git
 ```
 wget https://github.com/git/git/archive/v2.8.0.zip -0 git.zip
 unzip git.zip
 cd git-*
+```
+
+```
 sudo make prefix=/usr/local install
 git config --list
 git config --global user.name "Luigi Sison"
@@ -14,6 +18,9 @@ nano ~/.gitconfig
 sudo scp -r /odoo/custom/addons/hc_condition luigisison@github.com:Odoo-FHIR
 
 mkdir -p ~/git/testing ; cd ~/git/testing
+```
+### Upload directory
+```
 cd MODULE
 git init
 git add .
