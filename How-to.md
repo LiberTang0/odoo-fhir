@@ -22,6 +22,7 @@ git config --global user.email lsison@moxylus.com
 ```
 cd odoo-fhir
 git init
+```
 
 ### Upload changes
 
@@ -32,7 +33,7 @@ sudo git commit -m "Initial Commit" -a
 sudo git push origin master
 ```
 
-###Update local repository (when ! [rejected]        master -> master (fetch first) error occurs)
+###Update local repository (when ! [rejected] master -> master (fetch first) error occurs)
 ```
 sudo git fetch origin
 sudo git pull origin master
