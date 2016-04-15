@@ -12,21 +12,23 @@ unzip git.zip
 cd git-*
 sudo make prefix=/usr/local install
 ```
+
+```
 git config --list
 git config --global user.name "Luigi Sison"
 git config --global user.email lsison@moxylus.com
-
 ```
 ### Upload directory
+
 ```
-cd odoo-fhir
+cd MODULE
 git init
 git add .
 git commit -m "Initial Commit" -a
+
 git push origin master
 git remote add origin URL
 git remote set-url origin URL
-git remote -v
-git merge origin/master
+git remote git merge origin/master
 git push origin master
 ```
