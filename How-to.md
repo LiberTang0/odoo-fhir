@@ -18,17 +18,22 @@ git config --list
 git config --global user.name "Luigi Sison"
 git config --global user.email lsison@moxylus.com
 ```
-### Upload directory
+### Create local repository
+```
+cd odoo-fhir
+git init
+
+### Upload changes
 
 ```
-cd MODULE
-git init
-git add .
-git commit -m "Initial Commit" -a
+cd odoo-fhir
+sudo git add .
+sudo git commit -m "Initial Commit" -a
+sudo git push origin master
+```
 
-git push origin master
-git remote add origin URL
-git remote set-url origin URL
-git remote git merge origin/master
-git push origin master
+###Update local repository (when ! [rejected]        master -> master (fetch first) error occurs)
+```
+sudo git fetch origin
+sudo git pull origin master
 ```
