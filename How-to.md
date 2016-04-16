@@ -1,4 +1,4 @@
-## Upload directory from Ubuntu
+## Do once
 
 ### Install Git dependencies
 ```
@@ -12,7 +12,7 @@ unzip git.zip
 cd git-*
 sudo make prefix=/usr/local install
 ```
-
+### Register GitHub account
 ```
 git config --list
 git config --global user.name "Luigi Sison"
@@ -23,9 +23,9 @@ git config --global user.email lsison@moxylus.com
 cd odoo-fhir
 git init
 ```
+## Do every time a change occurs
 
 ### Upload changes
-
 ```
 cd odoo-fhir
 sudo git add .
