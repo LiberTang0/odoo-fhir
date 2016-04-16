@@ -1,4 +1,4 @@
-## Do once
+## Setup - Do once
 
 ### Install Git dependencies
 ```
