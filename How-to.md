@@ -33,7 +33,9 @@ sudo git commit -m "Initial Commit" -a
 sudo git push origin master
 ```
 
-###Update local repository (when ! [rejected] master -> master (fetch first) error occurs)
+###Update local repository 
+
+When remote repository changes or when error "! [rejected] master -> master (fetch first) error" occurs
 ```
 sudo git fetch origin
 sudo git pull origin master
