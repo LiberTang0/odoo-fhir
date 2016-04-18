@@ -2,7 +2,7 @@
 
 from openerp import models, fields, api
 
-class ValueSetContains
+class ValueSetContains(models.Model):
 
     _name = "hc.value.set.contains"
     _description = "Value Set Contains"
