@@ -40,3 +40,15 @@ When remote repository changes or when error "! [rejected] master -> master (fet
 sudo git fetch origin
 sudo git pull origin master
 ```
+
+##Make changes
+* Change module 
+* Logout Odoo
+* Stop server
+* Close VM
+* Start VM
+* Start server
+* Login Odoo
+* Activate developer mode
+* Upgrade module
+* Verify change

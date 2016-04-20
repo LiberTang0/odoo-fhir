@@ -103,7 +103,7 @@
 ./odoo.py scaffold hc_patient addons
 ./odoo.py scaffold hc_payment_notice addons
 ./odoo.py scaffold hc_payment_reconciliation addons
-./odoo.py scaffold hc_person addons
+# ./odoo.py scaffold hc_person addons
 ./odoo.py scaffold hc_practitioner addons
 ./odoo.py scaffold hc_practitioner_role addons
 # ./odoo.py scaffold hc_procedure addons
@@ -219,7 +219,7 @@ sudo mv hc_parameters /odoo/odoo-fhir/addons/hc_parameters
 sudo mv hc_patient /odoo/odoo-fhir/addons/hc_patient
 sudo mv hc_payment_notice /odoo/odoo-fhir/addons/hc_payment_notice
 sudo mv hc_payment_reconciliation /odoo/odoo-fhir/addons/hc_payment_reconciliation
-sudo mv hc_person /odoo/odoo-fhir/addons/hc_person
+# sudo mv hc_person /odoo/odoo-fhir/addons/hc_person
 sudo mv hc_practitioner /odoo/odoo-fhir/addons/hc_practitioner
 sudo mv hc_practitioner_role /odoo/odoo-fhir/addons/hc_practitioner_role
 # sudo mv hc_procedure /odoo/odoo-fhir/addons/hc_procedure
