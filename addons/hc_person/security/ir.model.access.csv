@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hc_person_hc_person,hc_person.hc_person,model_hc_person_hc_person,,1,0,0,0
