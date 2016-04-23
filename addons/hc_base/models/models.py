@@ -37,14 +37,14 @@ class Address(models.Model):
     _name = "hc.address"
     _description = "Address"
 
-    use = fields.Selection(string="Address Use", required=True, 
+    use = fields.Selection(string="Address Use", 
         selection=[
             ("home", "Home"), 
             ("work", "Work"), 
             ("temp", "Temp"), 
             ("old", "Old")], 
         help="The purpose of this address.")
-    type = fields.Selection(string="Address Type", required=True, default="Both", 
+    type = fields.Selection(string="Address Type", default="Both", 
         selection=[
             ("postal", "Postal"), 
             ("physical", "Physical"), 
@@ -62,12 +62,25 @@ class Address(models.Model):
     start_date = fields.Datetime(string="Address Start_Date", help="Start of the time period when address was/is in use.")
     end_date = fields.Datetime(string="Address End_Date", help="End of the time period when address was/is in use.")
 
+class Attachment(models.Model): 
+    _name = "hc.attachment" 
+    _description = "Attachment"
+    _inherit = ["ir.attachment"]
+
+    mimetype = fields.Many2one(comodel_name="hc.vs.mime.type", string="Content Type", help="Mime type of the content, with charset etc.")
+    hash = fields.Binary(string="Hash", help="Hash of the data (sha-1, base64ed ).")
+
+class AttachmentMimeType(models.Model): 
+    _name = "hc.vs.attachment.mime.type"    
+    _description = "Attachment Mime Type"
+    _inherit = ["hc.value.set.contains"]
+
 class HumanName(models.Model):
 
     _name = "hc.human.name"
     _description = "Human Name"
 
-    use = fields.Selection(string="Human Name Use", required=True, 
+    use = fields.Selection(string="Human Name Use", 
         selection=[
             ("usual", "Usual"), 
             ("official", "Official"),
@@ -95,15 +108,29 @@ class Identifier(models.Model):
     _name = "hc.identifier"
     _description = "Identifier"
 
-    use = fields.Selection(string="Identifier Use", required=True, 
-        selection=[("usual", "Usual"), ("official", "Official"), ("temp", "Temporary"), ("secondary", "Secondary")], help="The purpose of this identifier.")
-#     type_id = fields.Many2one(comodel_name="hc.identifier.type", string="Type", help="Description of identifier.")
+    type_id = fields.Many2one(comodel_name="hc.vs.identifier.type", string="Type", help="Description of identifier.")
     system = fields.Char(string="System", help="The namespace for the identifier.")
-    value = fields.Char(string="Value", help="The value that is unique.")
-    start_date = fields.Datetime(string="Start Date", help="Time period when id is/was valid for use.")
-    end_date = fields.Datetime(string="End Date", help="Time period when id is/was valid for use.")
-    assigner_organization_name = fields.Char(string="Assigner Organization Name", help="Organization that issued id (may be just text).")
 #     assigner_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Identifier Assigner Organization", help="Organization that issued id (may be just text).")
+
+class IdentifierType(models.Model): 
+    _name = "hc.vs.identifier.type" 
+    _description = "Identifier Type"
+    _inherit = ["hc.value.set.contains"]
+
+class Telecom(models.Model):    
+    _name = "hc.telecom"    
+    _description = "Telecom Contact Point"
+
+    system = fields.Selection(string="Telecom System", 
+        selection=[
+            ("phone", "Phone"), 
+            ("fax", "Fax"), 
+            ("email", "Email"), 
+            ("url", "Url")], 
+        help="Telecommunications form for contact point - what communications system is required to make use of the contact.")
+    value = fields.Char(string="Value", help="The actual telecom contact point details.")
+
+
 
 # class hc_base(models.Model):
 #     _name = 'hc_base.hc_base'
