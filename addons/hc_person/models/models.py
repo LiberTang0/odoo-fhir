@@ -16,13 +16,12 @@ class Person(models.Model):
             ("male", "Male"), 
             ("female", "Female"), 
             ("other", "Other"), 
-            ("unknown", "Unknown")], 
-            
+            ("unknown", "Unknown")],          
         help="The gender of a person used for administrative purposes.")
-#     birth_date = fields.Datetime(string="Birth Date", help="The birth date for the person.")
+#     birthdate = fields.Datetime(string="Birth Date", help="The birth date for the person.")
     address_ids = fields.One2many(comodel_name="hc.person.address", inverse_name="person_id", string="Addresses", 
         help="One or more addresses for the person.")
-    photo_attachment_id = fields.Many2one(comodel_name="hc.person.attachment", string="Photo Attachment", help="Image of the Person.")
+    attachment_ids = fields.One2many(comodel_name="hc.person.attachment", inverse_name="person_id", string="Attachments", help="Image of the Person.")
 #     managing_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Managing Organization", help="The Organization that is the custodian of the person record.")
 #     is_active = fields.Boolean(string="Active", help="This person's record is in active use.")
 
@@ -37,7 +36,6 @@ class PersonLink(models.Model):
 #    target_related_practitioner_id = fields.Many2one(comodel_name="hc.res.practitioner", string="Target Practitioner", help="Practitioner who is the resource to which this actual person is associated.")
 #    target_related_person_id = fields.Many2one(comodel_name="hc.res.related.person", string="Target Related Person", help="Related Person who is the resource to which this actual person is associated.")
     target_person_id = fields.Many2one(comodel_name="hc.res.person", string="Target Person", help="Person who is the resource to which this actual person is associated.")
-
     assurance = fields.Selection(string="Link Assurance", 
         selection=[
             ("level1", "Level1"), 

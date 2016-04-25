@@ -24,10 +24,10 @@ class Annotation(models.Model):
 
 #     author_practitioner = fields.Many2one(comodel_name="hc.annotation.author.practitioner", string="Annotation Author Practitioner", 
 #         help="Practitioner responsible for the annotation.")
-#     author_patient = fields.Many2one(comodel_name="hc.annotation.author.patient", string="Annotation Author Patient", 
-#         help="Patient responsible for the annotation.")
-#     author_related_person = fields.Many2one(comodel_name="hc.annotation.author.related.person", string="Annotation Author Related Person", 
-#         help="Related Person responsible for the annotation.")
+    author_patient = fields.Many2one(comodel_name="hc.annotation.author.patient", string="Annotation Author Patient", 
+        help="Patient responsible for the annotation.")
+    author_related_person = fields.Many2one(comodel_name="hc.annotation.author.related.person", string="Annotation Author Related Person", 
+        help="Related Person responsible for the annotation.")
     author = fields.Text(string="Author", help="Individual responsible for the annotation.")
     recorded_date = fields.Datetime(string="Recorded Date", help="When the annotation was made.")
     annotation = fields.Text(string="Annotation", help="The text content.")
@@ -67,12 +67,12 @@ class Attachment(models.Model):
     _description = "Attachment"
     _inherit = ["ir.attachment"]
 
-    mimetype = fields.Many2one(comodel_name="hc.vs.mime.type", string="Content Type", help="Mime type of the content, with charset etc.")
+    mimetype = fields.Many2one(comodel_name="hc.vs.attachment.mime.type", string="Content Type", help="MIMEtype of the content, with charset etc.")
     hash = fields.Binary(string="Hash", help="Hash of the data (sha-1, base64ed ).")
 
 class AttachmentMimeType(models.Model): 
     _name = "hc.vs.attachment.mime.type"    
-    _description = "Attachment Mime Type"
+    _description = "MIME Type"
     _inherit = ["hc.value.set.contains"]
 
 class HumanName(models.Model):
