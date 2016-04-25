@@ -34,18 +34,17 @@ git config --list
 git config --global user.name "Luigi Sison"
 git config --global user.email lsison@moxylus.com
 ```
-### Create local repository odoo-fhir
-```
-cd /odoo
-sudo mkdir odoo-fhir
-cd odoo-fhir
-sudo git init
-```
-## Initialize odoo-fhir with content from GitHub
 
+### Initialize odoo-fhir with content from GitHub
 ```
 cd /odoo
 sudo git clone --depth 1 https://github.com/luigisison/odoo-fhir.git
+```
+
+### Setup addons directory /odoo/odoo-fhir/addons
+```
+sudo nano /etc/odoo-server.conf
+addons_path=/odoo/enterprise/addons,/odoo/odoo-server/addons,/odoo/odoo-fhir/addons
 ```
 
 ## Do every time a change occurs
