@@ -1,3 +1,12 @@
+# Linux
+
+## Cheatsheet
+
+```
+sudo mkdir mydir --create directory named mydir
+sudo rm -rf mydir --delete directory named mydir
+```
+
 # GitHub
 
 * Reference: [How to Install Git on Ubuntu] (https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-14-04)
