@@ -3,9 +3,8 @@
 ## Cheatsheet
 
 ```
-cd /odoo
-sudo mkdir odoo-fhir --create directory named odoo-fhir
-sudo rm -rf odoo-fhir --delete directory
+sudo mkdir mydir --create directory
+sudo rm -rf mydir --delete directory
 ```
 
 # GitHub
@@ -42,9 +41,12 @@ sudo mkdir odoo-fhir
 cd odoo-fhir
 sudo git init
 ```
-## Download content from GitHub
+## Initialize odoo-fhir with content from GitHub
 
-
+```
+cd /odoo
+sudo git clone --depth 1 https://github.com/luigisison/odoo-fhir.git
+```
 
 ## Do every time a change occurs
 
