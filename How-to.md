@@ -23,6 +23,7 @@ sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-de
 
 ### Install Git
 ```
+cd /opt
 sudo wget https://github.com/git/git/archive/v2.8.0.zip -O git.zip
 sudo unzip git.zip
 cd git-*
@@ -34,11 +35,17 @@ git config --list
 git config --global user.name "Luigi Sison"
 git config --global user.email lsison@moxylus.com
 ```
-### Create local repository
+### Create local repository odoo-fhir
 ```
+cd /odoo
+sudo mkdir odoo-fhir
 cd odoo-fhir
-git init
+sudo git init
 ```
+## Download content from GitHub
+
+
+
 ## Do every time a change occurs
 
 ### Upload changes
