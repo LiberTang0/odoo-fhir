@@ -1,9 +1,10 @@
 # GitHub
-## Setup - Do once
 
 * Reference: [How to Install Git on Ubuntu] (https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-14-04)
 * Reference: [Git - Installng Git] (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Reference: [Ubuntu Server Guide] (https://help.ubuntu.com/lts/serverguide/git.html)
+
+## Setup - Do once
 
 ### Install Git dependencies
 ```
