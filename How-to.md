@@ -7,7 +7,7 @@ sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-de
 
 ### Install Git
 ```
-wget https://github.com/git/git/archive/v2.8.0.zip -0 git.zip
+sudo wget https://github.com/git/git/archive/v2.8.0.zip -O git.zip
 unzip git.zip
 cd git-*
 sudo make prefix=/usr/local install
