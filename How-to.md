@@ -3,8 +3,9 @@
 ## Cheatsheet
 
 ```
-sudo mkdir mydir --create directory named mydir
-sudo rm -rf mydir --delete directory named mydir
+cd /odoo
+sudo mkdir odoo-fhir --create directory named odoo-fhir
+sudo rm -rf odoo-fhir --delete directory
 ```
 
 # GitHub
