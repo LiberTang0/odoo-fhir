@@ -1,5 +1,9 @@
 ## Setup - Do once
 
+* Reference: [How to Install Git on Ubuntu] (https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-14-04)
+* Reference: [Git - Installng Git] (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Reference: [Ubuntu Server Guide] (https://help.ubuntu.com/lts/serverguide/git.html)
+
 ### Install Git dependencies
 ```
 sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
@@ -8,7 +12,7 @@ sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-de
 ### Install Git
 ```
 sudo wget https://github.com/git/git/archive/v2.8.0.zip -O git.zip
-unzip git.zip
+sudo unzip git.zip
 cd git-*
 sudo make prefix=/usr/local install
 ```
