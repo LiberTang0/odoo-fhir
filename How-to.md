@@ -3,9 +3,8 @@
 ## Cheatsheet
 
 ```
-cd /odoo
-sudo mkdir odoo-fhir --create directory named odoo-fhir
-sudo rm -rf odoo-fhir --delete directory
+sudo mkdir mydir --create directory
+sudo rm -rf mydir --delete directory
 ```
 
 # GitHub
@@ -35,16 +34,18 @@ git config --list
 git config --global user.name "Luigi Sison"
 git config --global user.email lsison@moxylus.com
 ```
-### Create local repository odoo-fhir
+
+### Initialize odoo-fhir with content from GitHub
 ```
 cd /odoo
-sudo mkdir odoo-fhir
-cd odoo-fhir
-sudo git init
+sudo git clone --depth 1 https://github.com/luigisison/odoo-fhir.git
 ```
-## Download content from GitHub
 
-
+### Setup addons directory /odoo/odoo-fhir/addons
+```
+sudo nano /etc/odoo-server.conf
+addons_path=/odoo/enterprise/addons,/odoo/odoo-server/addons,/odoo/odoo-fhir/addons
+```
 
 ## Do every time a change occurs
 
@@ -75,3 +76,11 @@ sudo git pull origin master
 * Activate developer mode
 * Upgrade module
 * Verify change
+
+##Update Changes
+
+syntax: ./odoo.py -d <database> --addons-path <directories> -i <modules>
+```
+cd /odoo/odoo-server
+./odoo.py -d FHIR-DEV --addons-path /odoo/odoo-fhir/addons -u hc_base
+```
