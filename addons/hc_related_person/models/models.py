@@ -7,7 +7,7 @@ class RelatedPerson(models.Model):
     _description = "Related Person"
     _inherit = ["hc.res.person"]
 
-#    patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Patient", required=True, help="The patient this person is related to.")     
+    patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Patient", required=True, help="The patient this person is related to.")     
     relationship_id = fields.Many2one(comodel_name="hc.vs.related.person.relationship.type", string="Relationship", help="The nature of the relationship.")
     start_date = fields.Datetime(string="Start Date", help="Start of the period of time that this relationship is considered valid.")       
     end_date = fields.Datetime(string="End Date", help="End of the period of time that this relationship is considered valid.")

@@ -6,7 +6,8 @@ class Person(models.Model):
 
     _name = "hc.res.person" 
     _description = "Person"
-#    _inherit = ["res.partner"]
+    _inherits = {"res.partner": "partner_id"}
+
 
     identifier_ids = fields.One2many(comodel_name="hc.person.identifier", inverse_name="person_id", string="Identifiers", help="A human identifier for this person.")
     name_ids = fields.One2many(comodel_name="hc.person.name", inverse_name="person_id", string="Names", help="A name associated with the person.")
@@ -18,12 +19,16 @@ class Person(models.Model):
             ("other", "Other"), 
             ("unknown", "Unknown")],          
         help="The gender of a person used for administrative purposes.")
-#     birthdate = fields.Datetime(string="Birth Date", help="The birth date for the person.")
+    birthdate = fields.Datetime(string="Birth Date", help="The birth date for the person.")
     address_ids = fields.One2many(comodel_name="hc.person.address", inverse_name="person_id", string="Addresses", 
         help="One or more addresses for the person.")
     attachment_ids = fields.One2many(comodel_name="hc.person.attachment", inverse_name="person_id", string="Attachments", help="Image of the Person.")
 #     managing_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Managing Organization", help="The Organization that is the custodian of the person record.")
 #     is_active = fields.Boolean(string="Active", help="This person's record is in active use.")
+    link_ids = fields.One2many(comodel_name="hc.person.link", inverse_name="person_id", string="Person Links", help="Link to a resource that concerns the same actual person.")
+    partner_id = fields.Many2one(comodel_name="res.partner", string="Partner", required=True, ondelete="cascade", 
+        help="Partner associated with this person.")
+#     journal_id = fields.Many2one(comodel_name="account.analytic.journal", string="Analytic Journal", help="Analytic journal associated with this person.")
 
 class PersonLink(models.Model): 
 
@@ -36,7 +41,7 @@ class PersonLink(models.Model):
 #    target_related_practitioner_id = fields.Many2one(comodel_name="hc.res.practitioner", string="Target Practitioner", help="Practitioner who is the resource to which this actual person is associated.")
 #    target_related_person_id = fields.Many2one(comodel_name="hc.res.related.person", string="Target Related Person", help="Related Person who is the resource to which this actual person is associated.")
     target_person_id = fields.Many2one(comodel_name="hc.res.person", string="Target Person", help="Person who is the resource to which this actual person is associated.")
-    assurance = fields.Selection(string="Link Assurance", 
+    assurance_level = fields.Selection(string="Link Assurance Level", 
         selection=[
             ("level1", "Level1"), 
             ("level2", "Level2"), 
@@ -48,11 +53,12 @@ class PersonAddress(models.Model):
 
     _name = "hc.person.address" 
     _description = "Person Address"
+    _inherit = ["hc.basic.association"]
+    _inherits = {"hc.address": "address_id"}
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this address.")
-    address_id = fields.Many2one(comodel_name="hc.address", string="Address", help="Address associated with this entity.")      
-    is_active = fields.Boolean(string="Active", help="Whether this record is in active use.")       
-    is_preferred = fields.Boolean(string="Preferred", help="Whether this record is preferred for use.")     
+    address_id = fields.Many2one(comodel_name="hc.address", string="Address", required=True, ondelete="cascade", 
+        help="Address associated with this entity.") 
     use = fields.Selection(string="Use", 
         selection=[
             ("home", "Home"), 
@@ -66,51 +72,48 @@ class PersonAddress(models.Model):
             ("physical", "Physical"), 
             ("both", "Both")], 
         help="Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.")
-    start_date = fields.Datetime(string="Start Date", help="Start of the time period when address was/is in use.")      
-    end_date = fields.Datetime(string="End Date", help="End of the time period when address was/is in use.")        
 
 class PersonIdentifier(models.Model):   
     _name = "hc.person.identifier"  
     _description = "Person Identifier"
+    _inherits = {"hc.identifier": "identifier_id"}
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this identifier.")
-    identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", help="Identifier associated with this entity.")
-    use = fields.Selection(string="Use", 
-        selection=[
-            ("usual", "Usual"), 
-            ("official", "Official"), 
-            ("temp", "Temporary"), 
-            ("secondary", "Secondary")], 
-        help="The purpose of this identifier.")
-    value = fields.Char(string="Value", help="The value that is unique.")
-    start_date = fields.Datetime(string="Start Date", help="Start of the time period when identifier was/is in use.")
-    end_date = fields.Datetime(string="End Date", help="End of the time period when identifier was/is in use.")
+    identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", required=True, ondelete="cascade", 
+        help="Identifier associated with this entity.")
 
 class PersonName(models.Model): 
     _name = "hc.person.name"    
     _description = "Person Name"
+    _inherit = ["hc.basic.association"]
+    _inherits = {"hc.human.name": "human_name_id"}
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this name.")
+    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", required=True, ondelete="cascade", 
+        help="Name associated with this entity.")
         
 class PersonTelecom(models.Model):  
     _name = "hc.person.telecom" 
     _description = "Person Telecom"
-
-    person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this telecom contact.")
-    telecom_id = fields.Many2one(comodel_name="hc.telecom", string="Telecom", help="Telecom contact associated with this entity.")
+    _inherit = ["hc.basic.association"]
+    _inherits = {"hc.telecom": "telecom_id"}
+ 
+    person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this telecom contact point.")
+    telecom_id = fields.Many2one(comodel_name="hc.telecom", string="Telecom", required=True, ondelete="cascade", 
+        help="Telecom contact point associated with this entity.")
     use = fields.Selection(string="Person Telecom Use", 
         selection=[
             ("home", "Home"), 
             ("work", "Work"), 
             ("temp", "Temp"), 
-            ("old", "Old")], 
+            ("old", "Old"),
+            ("mobile", "Mobile")], 
         help="Purpose of this telecom contact point.")
-    start_date = fields.Datetime(string="Start Date", help="Start of the time period when the contact point was/is in use.")
-    end_date = fields.Datetime(string="End Date", help="End of the time period when the contact point was/is in use.")
      
 class PersonAttachment(models.Model):   
     _name = "hc.person.attachment"  
     _description = "Person Attachment"
+    _inherit = ["hc.basic.association"]
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this attachment.")      
     attachment_id = fields.Many2one(comodel_name="hc.attachment", string="Attachment", help="Attachment associated with this entity.")      

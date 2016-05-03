@@ -1,17 +1,26 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "hc_practitioner",
+    'name': "Practitioner",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        A person who is directly or indirectly involved in the provisioning of healthcare.
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'description': """
+        Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals. Practitioners include (but are not limited to):
+
+        * physicians, dentists, pharmacists
+        * physician assistants, nurses, scribes
+        * midwives, dietitians, therapists, optometrists, paramedics
+        * medical technicians, laboratory scientists, prosthetic technicians, radiographers
+        * social workers, professional home carers, official volunteers
+        * receptionists handling patient registration
+        * IT personnel merging or unmerging patient records
+        * Service animal (e.g., ward assigned dog capable of detecting cancer in patients)
+    """,
+
+    'author': "Luigi Sison",
+    'website': "https://hl7-fhir.github.io/practitioner.html",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
@@ -20,7 +29,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hc_base'],
+    'depends': ['base', 'hc_base', 'hc_person'],
 
     # always loaded
     'data': [

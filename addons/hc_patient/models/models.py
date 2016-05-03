@@ -7,16 +7,16 @@ class Patient(models.Model):
     _description = "Patient"
     _inherit = ["hc.res.person"]
 
-    # is_deceased = fields.Boolean(string="Deceased", help="Indicates if the patient is deceased or not.")
-    # deceased_date = fields.Datetime(string="Deceased Date", help="When the patient was deceased.")
-    # marital_status_id = fields.Many2one(comodel_name="hc.vs.marital.status", string="Marital Status", help="Marital (civil) status of a patient.")
-    # is_multiple_birth = fields.Boolean(string="Multiple Birth", help="Whether patient is part of a multiple birth.")
-    # multiple_birth_count = fields.Integer(string="Multiple Birth Count", size=1, help="Number of births in a multiple birth.")
-    # multiple_birth_order = fields.Integer(string="Multiple Birth Order", size=1, help="The actual birth order in a multiple birth.")
+    is_deceased = fields.Boolean(string="Deceased", help="Indicates if the patient is deceased or not.")
+    deceased_date = fields.Datetime(string="Deceased Date", help="When the patient was deceased.")
+    marital_status_id = fields.Many2one(comodel_name="hc.vs.marital.status", string="Marital Status", help="Marital (civil) status of a patient.")
+    is_multiple_birth = fields.Boolean(string="Multiple Birth", help="Whether patient is part of a multiple birth.")
+    multiple_birth_count = fields.Integer(string="Multiple Birth Count", size=1, help="Number of births in a multiple birth.")
+    multiple_birth_order = fields.Integer(string="Multiple Birth Order", size=1, help="The actual birth order in a multiple birth.")
     # care_provider_practitioner_ids = fields.One2many(comodel_name="hc.res.practitioner", inverse_name="patient_id", string="Care Provider Practitioners", help="Practitioner who is patient's nominated care provider.")
     # care_provider_organization_ids = fields.One2many(comodel_name="hc.res.organization", inverse_name="patient_id", string="Care Provider Organizations", help="Organization who is patient's nominated care provider.")
     # managing_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Managing Organization", help="Organization that is the custodian of the patient record.")
-    # is_active = fields.Boolean(string="Active", help="Whether this patient's record is in active use.")
+    is_active = fields.Boolean(string="Active", help="Whether this patient's record is in active use.")
 
 class MaritalStatus(models.Model):  
     _name = "hc.vs.marital.status"  

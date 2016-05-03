@@ -2,6 +2,15 @@
 
 from openerp import models, fields, api
 
+class Practitioner(models.Model):	
+	_name = "hc.res.practitioner"	
+	_description = "Practitioner"	
+	_inherit = ["hc.res.person"]
+
+class PractitionerRole(models.Model):	
+	_name = "hc.practitioner.role"	
+	_description = "Practitioner Role"	
+
 # class hc_practitioner(models.Model):
 #     _name = 'hc_practitioner.hc_practitioner'
 
