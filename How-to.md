@@ -76,3 +76,11 @@ sudo git pull origin master
 * Activate developer mode
 * Upgrade module
 * Verify change
+
+##Update Changes
+
+syntax: ./odoo.py -d <database> --addons-path <directories> -i <modules>
+```
+cd /odoo/odoo-server
+./odoo.py -d FHIR-DEV --addons-path /odoo/odoo-fhir/addons -u hc_base
+```
