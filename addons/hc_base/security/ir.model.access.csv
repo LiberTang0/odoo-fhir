@@ -13,3 +13,9 @@ access_hc_base_hc_human_name,hc.base.hc.human.name,model_hc_human_name,,1,0,0,0
 access_hc_base_hc_identifier,hc.base.hc.identifier,model_hc_identifier,,1,0,0,0
 access_hc_base_hc_vs_identifier_type,hc.base.hc.vs.identifier.type,model_hc_vs_identifier_type,,1,0,0,0
 access_hc_base_hc_telecom,hc.base.hc.telecom,model_hc_telecom,,1,0,0,0
+access_hc_base_hc_human_name_given,hc.base.hc.human.name.given,model_hc_human_name_given,,1,0,0,0
+access_hc_base_hc_human_name_family,hc.base.hc.human.name.family,model_hc_human_name_family,,1,0,0,0
+access_hc_base_hc_human_name_prefix,hc.base.hc.human.name.prefix,model_hc_human_name_prefix,,1,0,0,0
+access_hc_base_hc_human_name_suffix,hc.base.hc.human.name.suffix,model_hc_human_name_suffix,,1,0,0,0
+access_hc_base_hc_vs_suffix_human_name,hc.base.hc.vs.suffix.human.name,model_hc_vs_suffix_human_name,,1,0,0,0
+access_hc_base_hc_vs_human_name_term,hc.base.hc.vs.human.name.term,model_hc_vs_human_name_term,,1,0,0,0

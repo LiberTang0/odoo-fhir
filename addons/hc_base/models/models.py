@@ -94,7 +94,7 @@ class Address(models.Model):
     district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District", help="The name of the administrative area (e.g., county).")
     state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
     postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal Code", help="Postal code for area.")
-    region_id = fields.Many2one(comodel_name="hc.vs.county.region", string="Region", help="Group of states.")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="Group of states.")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
 
 class Attachment(models.Model): 
@@ -112,6 +112,15 @@ class AttachmentMimeType(models.Model):
     _description = "MIME Type"
     _inherit = ["hc.value.set.contains"]
 
+class SuffixHumanName(models.Model):    
+    _name = "hc.vs.suffix.human.name"   
+    _description = "Suffix Human Name"      
+    _inherit = ["hc.value.set.contains"]     
+
+class HumanNameTerm(models.Model):  
+    _name = "hc.vs.human.name.term" 
+    _description = "Human Name Term"        
+
 class HumanName(models.Model):
 
     _name = "hc.human.name"
@@ -127,18 +136,48 @@ class HumanName(models.Model):
             ("old", "Old"),
             ("maiden", "Maiden")],
         help="The use of a human name.")
-    text = fields.Char(string="Full Human Name", help="A full text representation of the human name.")
-#     family_name_ids = fields.Many2many(comodel_name="hc.vs.human.name.family", inverse_name="human_name_ids", 
-#         string="Family Names", help="Family name (often called 'Surname').")
-#     given_name_ids = fields.Many2many(comodel_name="hc.vs.human.name.given", inverse_name="human_name_ids", 
-#         string="Given Names", help="Given names (not always 'first'). Includes middle names.")
-#     prefix_name_ids = fields.Many2many(comodel_name="hc.vs.human.name.prefix", inverse_name="human_name_ids", 
-#         string="Prefix Names", help="Parts that come before the name.")
-#     suffix_name_ids = fields.Many2many(comodel_name="hc.vs.human.name.suffix", inverse_name="human_name_ids", 
-#         string="Suffix Names", help="Parts that come after the name.")
-    start_date = fields.Datetime(string="Human Name Start Date", help="Start of the time period when name was/is in use.")
-    end_date = fields.Datetime(string="Human Name End Date", help="End of the time period when name was/is in use.")
+    text = fields.Char(string="Text", help="A full text representation of the human name.")
+    family_ids = fields.One2many(comodel_name="hc.human.name.family", inverse_name="human_name_id", string="Family Names", help="Family name (often called 'Surname').")
+    given_ids = fields.One2many(comodel_name="hc.human.name.given", inverse_name="human_name_id", string="Given Names", help="Given names (not always 'first'). Includes middle names.")
+    prefix_ids = fields.One2many(comodel_name="hc.human.name.prefix", inverse_name="human_name_id", string="Prefix Names", help="Parts that come before the name.")
+    suffix_ids = fields.One2many(comodel_name="hc.human.name.suffix", inverse_name="human_name_id", string="Suffix Names", help="Parts that come after the name.")
+    preferred_name = fields.Char(string="Preferred Name", help="How the person prefers to be named.")
+    mother_maiden_family_name = fields.Char(string="Mother Maiden Family Name", help="Mother's original family name.")
+    birth_family_name = fields.Char(string="Birth Family Name", help="Person's family name at birth.")
+    is_last_before_first = fields.Boolean(string="Last Before First", help="Indicates that family name(s) are arranged before given name(s). Example: Chinese names.")
+    is_maiden_after_last = fields.Boolean(string="Maiden After Last", help="Indicates that last name(s) are arranged before maiden name(s). Example: Spanish names.")
 
+class HumanNameGiven(models.Model): 
+    _name = "hc.human.name.given"   
+    _description = "Human Name Given"
+
+    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this given name.")
+    name_id = fields.Many2one(comodel_name="hc.vs.human.name.term", string="Name", help="Given name of this human name.")
+    sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this given name.")
+    type = fields.Selection(string="Type", selection=[("first", "First"), ("middle", "Middle"), ("initial", "Initial"), ("nickname", "Nickname")], help="Type of given name.")
+
+class HumanNameFamily(models.Model):    
+    _name = "hc.human.name.family"  
+    _description = "Human Name Family"
+
+    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this family name.")
+    name_id = fields.Many2one(comodel_name="hc.vs.human.name.term", string="Name", help="Family name of this human name.")
+    sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this family name.")
+    type = fields.Selection(string="Type", selection=[("surname", "Surname"), ("patronymic", "Patronymic"), ("previous (maiden)", "Previous (Maiden)"), ("mother", "Mother")], help="Type of family name.")
+
+class HumanNamePrefix(models.Model):    
+    _name = "hc.human.name.prefix"  
+    _description = "Human Name Prefix"      
+
+    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this prefix name.")
+    prefix_id = fields.Many2one(comodel_name="res.partner.title", string="Prefix", help="Prefix name of this human name.")
+
+class HumanNameSuffix(models.Model):    
+    _name = "hc.human.name.suffix"  
+    _description = "Human Name Suffix"      
+
+    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this suffix name.")
+    suffix_id = fields.Many2one(comodel_name="hc.vs.suffix.human.name", string="Suffix", help="Suffix name of this human name.")
 
 class Identifier(models.Model):
 
