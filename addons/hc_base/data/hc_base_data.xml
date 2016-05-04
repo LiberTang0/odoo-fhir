@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+    <!-- Identifier Type -->
+    
+        <record id="identifier_type_DL" model="hc.vs.identifier.type">
+            <field name="Code">DL</field>
+            <field name="Display">Driver's license number</field>
+        </record>
+        <record id="identifier_type_PPN" model="hc.vs.identifier.type">
+            <field name="Code">PPN</field>
+            <field name="Display">Passport number</field>
+        </record>
+        <record id="identifier_type_MR" model="hc.vs.identifier.type">
+            <field name="Code">MR</field>
+            <field name="Display">Medical record number</field>
+        </record>
+        <record id="identifier_type_EN" model="hc.vs.identifier.type">
+            <field name="Code">EN</field>
+            <field name="Display">Employer number</field>
+        </record>
+        <record id="identifier_type_NIIP" model="hc.vs.identifier.type">
+            <field name="Code">NIIP</field>
+            <field name="Display">National Insurance Payor Identifier (Payor)</field>
+        </record>
+        <record id="identifier_type_MD" model="hc.vs.identifier.type">
+            <field name="Code">MD</field>
+            <field name="Display">Medical License number</field>
+        </record>
+        <record id="identifier_type_BRN" model="hc.vs.identifier.type">
+            <field name="Code">BRN</field>
+            <field name="Display">Breed Registry Number</field>
+        </record>
+        <record id="identifier_type_MCN" model="hc.vs.identifier.type">
+            <field name="Code">MCN</field>
+            <field name="Display">Microchip Number</field>
+        </record>
+        <record id="identifier_type_TAX" model="hc.vs.identifier.type">
+            <field name="Code">TAX</field>
+            <field name="Display">Tax ID number</field>
+        </record>
+        <record id="identifier_type_PRN" model="hc.vs.identifier.type">
+            <field name="Code">PRN</field>
+            <field name="Display">Provider number</field>
+        </record>
+        <record id="identifier_type_DR" model="hc.vs.identifier.type">
+            <field name="Code">DR</field>
+            <field name="Display">Donor Registration Number</field>
+        </record>
+
+    </data>
+</openerp>
