@@ -84,3 +84,26 @@ syntax: ./odoo.py -d <database> --addons-path <directories> -i <modules>
 cd /odoo/odoo-server
 ./odoo.py -d FHIR-DEV --addons-path /odoo/odoo-fhir/addons -u hc_base
 ```
+
+##Error
+
+###ERROR ? openerp.service.server: Failed to load server-wide module `web_kanban`
+```
+opt/openerp/server$ ./openerp-server --addons-path=web/addons
+```
+
+now you can assign multiple addons path,
+```
+opt/openerp/server$ ./openerp-server --addons-path=web/addons,../addons1,../addons2
+```
+
+##Save terminal output to a file
+* Start a script session and save output to output.txt in the current directory.
+```
+script output.txt
+```
+
+* End a script session
+```
+exit
+```

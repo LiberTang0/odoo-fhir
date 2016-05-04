@@ -51,12 +51,11 @@
 
 <!-- Identifier -->
     
-        <record id="identifier_NPI" model="hc.identifier">
+ <!--        <record id="identifier_NPI" model="hc.identifier">
             <field name="code">NPI</field>
             <field name="display">National Provider Identifier</field>
             <field name="type_id">PRN</field>
-        </record>
+        </record> -->
 
     </data>
 </openerp>
-odoo
