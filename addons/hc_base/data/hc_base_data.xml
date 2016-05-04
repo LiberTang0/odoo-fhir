@@ -5,49 +5,58 @@
     <!-- Identifier Type -->
     
         <record id="identifier_type_DL" model="hc.vs.identifier.type">
-            <field name="Code">DL</field>
-            <field name="Display">Driver's license number</field>
+            <field name="code">DL</field>
+            <field name="display">Driver's License Number</field>
         </record>
         <record id="identifier_type_PPN" model="hc.vs.identifier.type">
-            <field name="Code">PPN</field>
-            <field name="Display">Passport number</field>
+            <field name="code">PPN</field>
+            <field name="display">Passport Number</field>
         </record>
         <record id="identifier_type_MR" model="hc.vs.identifier.type">
-            <field name="Code">MR</field>
-            <field name="Display">Medical record number</field>
+            <field name="code">MR</field>
+            <field name="display">Medical Record Number</field>
         </record>
         <record id="identifier_type_EN" model="hc.vs.identifier.type">
-            <field name="Code">EN</field>
-            <field name="Display">Employer number</field>
+            <field name="code">EN</field>
+            <field name="display">Employer Number</field>
         </record>
         <record id="identifier_type_NIIP" model="hc.vs.identifier.type">
-            <field name="Code">NIIP</field>
-            <field name="Display">National Insurance Payor Identifier (Payor)</field>
+            <field name="code">NIIP</field>
+            <field name="display">National Insurance Payor Identifier (Payor)</field>
         </record>
         <record id="identifier_type_MD" model="hc.vs.identifier.type">
-            <field name="Code">MD</field>
-            <field name="Display">Medical License number</field>
+            <field name="code">MD</field>
+            <field name="display">Medical License Number</field>
         </record>
         <record id="identifier_type_BRN" model="hc.vs.identifier.type">
-            <field name="Code">BRN</field>
-            <field name="Display">Breed Registry Number</field>
+            <field name="code">BRN</field>
+            <field name="display">Breed Registry Number</field>
         </record>
         <record id="identifier_type_MCN" model="hc.vs.identifier.type">
-            <field name="Code">MCN</field>
-            <field name="Display">Microchip Number</field>
+            <field name="code">MCN</field>
+            <field name="display">Microchip Number</field>
         </record>
         <record id="identifier_type_TAX" model="hc.vs.identifier.type">
-            <field name="Code">TAX</field>
-            <field name="Display">Tax ID number</field>
+            <field name="code">TAX</field>
+            <field name="display">Tax ID Number</field>
         </record>
         <record id="identifier_type_PRN" model="hc.vs.identifier.type">
-            <field name="Code">PRN</field>
-            <field name="Display">Provider number</field>
+            <field name="code">PRN</field>
+            <field name="display">Provider Number</field>
         </record>
         <record id="identifier_type_DR" model="hc.vs.identifier.type">
-            <field name="Code">DR</field>
-            <field name="Display">Donor Registration Number</field>
+            <field name="code">DR</field>
+            <field name="display">Donor Registration Number</field>
+        </record>
+
+<!-- Identifier -->
+    
+        <record id="identifier_NPI" model="hc.identifier">
+            <field name="code">NPI</field>
+            <field name="display">National Provider Identifier</field>
+            <field name="type_id">PRN</field>
         </record>
 
     </data>
 </openerp>
+odoo
