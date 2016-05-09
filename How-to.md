@@ -27,6 +27,13 @@ sudo mkdir mydir --create directory
 sudo rm -rf mydir --delete directory
 clear --clear the terminal screen
 ```
+* Update GIT
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+sudo git --version
+```
 
 # GitHub
 
