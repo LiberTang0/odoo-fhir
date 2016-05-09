@@ -5,7 +5,14 @@
 * Go to Ubuntu directory where you want to install the software. For example: ```cd /opt```
 * Place install script in the directory
 ```
+# Odoo 9 Enterprise
 sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo9Enterprise/odoo-install.sh
+
+#Odoo 9 Community
+sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo9Community/install-odoo9c.sh
+
+#Odoo 8
+sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo8/odoo-install.sh
 ```
 * (Optional) Edit the file to change parameters: ```sudo nano odoo-install.sh```
 * Save changes and then make the file executable: ```sudo chmod +x odoo-install.sh```
