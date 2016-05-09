@@ -1,4 +1,17 @@
-# Linux
+#Odoo
+
+##Install Odoo in Ubuntu Desktop
+
+* Go to Ubuntu directory where you want to install the software. For example: ```cd /opt```
+* Place install script in the directory
+```
+sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo9Enterprise/odoo-install.sh
+```
+* (Optional) Edit the file to change parameters: ```sudo nano odoo-install.sh```
+* Save changes and then make the file executable: ```sudo chmod +x odoo-install.sh```
+* Execute the script to install Odoo: ```./odoo-install.sh```
+
+#Linux
 
 ## Cheatsheet
 
