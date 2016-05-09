@@ -1,5 +1,6 @@
 <openerp>
   <data>
+
     <!-- explicit list view definition -->
 
     <record model="ir.ui.view" id="hc_base.identifier_type_list">
@@ -14,35 +15,36 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="hc_base.identifier_list">
+    <!-- <record model="ir.ui.view" id="hc_base.identifier_list">
       <field name="name">identifier.tree</field>
       <field name="model">hc.identifier</field>
       <field name="arch" type="xml">
         <tree>
           <field name="type_id"/>
           <field name="use"/>
-<!--           <field name="country_id"/> -->
+          <field name="country_id"/>
         </tree>
       </field>
-    </record>
+    </record> -->
     
-    <!-- actions opening views on models -->
+<!--     actions opening views on models -->
 
     <record model="ir.actions.act_window" id="hc_base.identifier_type_window">
       <field name="name">HC Identifier Type</field>
       <field name="res_model">hc.vs.identifier.type</field>
+      <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="hc_base.identifier_window">
+<!--     <record model="ir.actions.act_window" id="hc_base.identifier_window">
       <field name="name">HC Identifier</field>
       <field name="res_model">hc.identifier</field>
       <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
-    <!-- server action to the one above -->
+<!-- server action to the one above -->
 
-    <record model="ir.actions.server" id="hc_base.action_server">
+  <!-- <record model="ir.actions.server" id="hc_base.action_server">
       <field name="name">hc_base server</field>
       <field name="model_id" ref="model_hc_vs_identifier_type"/>
       <field name="code">
@@ -52,29 +54,30 @@
           "res_model": self._name,
         }
       </field>
-    </record>
+    </record> -->
 
     <!-- Top menu item -->
 
-    <menuitem name="FHIR" id="hc_base.menu_root" sequence="1"/>
-    <menuitem name="Administrative" id="hc_base.administrative" sequence="2"/>    
-    <menuitem name="Clinical" id="hc_base.clinical" sequence="3"/> 
-    <menuitem name="Financial" id="hc_base.financial" sequence="4"/>
-    <menuitem name="Infrastructure" id="hc_base.infrastructure" sequence="5"/>
-    <menuitem name="ERP" id="hc_base.erp" sequence="5"/>
+    <menuitem name="FHIR" id="hc_base.menu_root"/>
 
     <!-- menu categories -->
   
+    <!-- <menuitem name="Administrative" id="hc_base.administrative" parent="hc_base.menu_root"sequence="2"/>    
+    <menuitem name="Clinical" id="hc_base.clinical" parent="hc_base.menu_root" sequence="3"/> 
+    <menuitem name="Financial" id="hc_base.financial" parent="hc_base.menu_root" sequence="4"/>
+    <menuitem name="Infrastructure" id="hc_base.infrastructure" parent="hc_base.menu_root" sequence="5"/>
+    <menuitem name="ERP" id="hc_base.erp" parent="hc_base.menu_root" sequence="6"/> -->
+    
     <menuitem name="Menu 1" id="hc_base.menu_1" parent="hc_base.menu_root"/>
-    <menuitem name="Identifiers" id="hc_base.menu_1" parent="hc_base.menu_root"/>
+    <menuitem name="Identifier Types" id="hc_base.menu_3" parent="hc_base.menu_1"
+      action="hc_base.identifier_type_window"/>
     <menuitem name="Menu 2" id="hc_base.menu_2" parent="hc_base.menu_root"/>
-odoo
+
     <!-- actions -->
     
-    <menuitem name="List" id="hc_base.menu_1_list" parent="hc_base.menu_1"
-              action="hc_base.identifier_type_window"/>
-    <menuitem name="Server to list" id="hc_base" parent="hc_base.menu_2"
-              action="hc_base.action_server"/>
+    <!-- <menuitem name="List" id="hc_base.menu_1_list" parent="hc_base.menu_1"/> -->
+    <!-- <menuitem name="Server to list" id="hc_base" parent="hc_base.menu_2"
+              action="hc_base.action_server"/> -->
   
   </data>
 </openerp>

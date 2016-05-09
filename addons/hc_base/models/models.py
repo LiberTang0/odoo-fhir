@@ -7,7 +7,7 @@ class ValueSetContains(models.Model):
     _name = "hc.value.set.contains"
     _description = "Value Set Contains"
 
-    system = fields.Char(string="System", help="System value for the code.")
+    system = fields.Char(string="System URL", help="System value for the code.")
     is_abstract = fields.Boolean(string="Abstract", help="If user cannot select this entry.")
     version = fields.Char(string="Version", help="Version in which this code / display is defined.")
     code = fields.Char(string="Code", help="Code - if blank, this is not a choosable code.")
@@ -179,6 +179,11 @@ class HumanNameSuffix(models.Model):
     human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this suffix name.")
     suffix_id = fields.Many2one(comodel_name="hc.vs.suffix.human.name", string="Suffix", help="Suffix name of this human name.")
 
+class IdentifierType(models.Model): 
+    _name = "hc.vs.identifier.type" 
+    _description = "Identifier Type"
+    _inherit = ["hc.value.set.contains"]
+
 class Identifier(models.Model):
 
     _name = "hc.identifier"
@@ -198,11 +203,6 @@ class Identifier(models.Model):
         help="The purpose of this identifier.")
 #     assigner_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Identifier Assigner Organization", help="Organization that issued id (may be just text).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country associated with the identifier.")
-
-class IdentifierType(models.Model): 
-    _name = "hc.vs.identifier.type" 
-    _description = "Identifier Type"
-    _inherit = ["hc.value.set.contains"]
 
 class Telecom(models.Model):    
     _name = "hc.telecom"    

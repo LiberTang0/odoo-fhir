@@ -5,6 +5,7 @@
 ```
 sudo mkdir mydir --create directory
 sudo rm -rf mydir --delete directory
+clear --clear the terminal screen
 ```
 
 # GitHub
@@ -98,7 +99,8 @@ opt/openerp/server$ ./openerp-server --addons-path=web/addons,../addons1,../addo
 ```
 
 ##Save terminal output to a file
-* Start a script session and save output to output.txt in the current directory.
+
+* Start a ```script``` session and save output to ```output.txt``` in the current directory.
 ```
 script output.txt
 ```
