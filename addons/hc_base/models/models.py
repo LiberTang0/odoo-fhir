@@ -6,6 +6,7 @@ class ValueSetContains(models.Model):
 
     _name = "hc.value.set.contains"
     _description = "Value Set Contains"
+    _order = "code asc"
 
     system = fields.Char(string="System URL", help="System value for the code.")
     is_abstract = fields.Boolean(string="Abstract", help="If user cannot select this entry.")
