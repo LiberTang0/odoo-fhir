@@ -50,6 +50,19 @@ Example: hc.address.form
   </field>
 </record>
 ```
+##View Calendar
+```
+<record id="view_sale_order_calendar" model="ir.ui.view">
+            <field name="name">sale.order.calendar</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <calendar string="Sales Orders" color="state" date_start="date_order">
+                    <field name="partner_id"/>
+                    <field name="amount_total" widget="monetary"/>
+                </calendar>
+            </field>
+        </record>
+```
 
 
 
