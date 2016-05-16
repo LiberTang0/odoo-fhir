@@ -28,13 +28,14 @@ Example: hc.address.form
 {tree,form,kanban,search,calendar,Qweb,diagram,gantt,graph,pivot}
 ```
 
-##View
+##Form View
 ```
 <!-- View -->
 <record id="[View ID]" model="ir.ui.view">
   <field name="name">[Form Name]</field>
   <field name="model">[Object Name]</field>
   <field name="arch" type="xml">
+  
     <form string="[Object Description]">
       <sheet>
         <group>
@@ -47,22 +48,34 @@ Example: hc.address.form
         </group>
       </sheet>
     </form>
+
   </field>
 </record>
 ```
 ##View Calendar
 ```
-<record id="view_sale_order_calendar" model="ir.ui.view">
-            <field name="name">sale.order.calendar</field>
-            <field name="model">sale.order</field>
-            <field name="arch" type="xml">
-                <calendar string="Sales Orders" color="state" date_start="date_order">
-                    <field name="partner_id"/>
-                    <field name="amount_total" widget="monetary"/>
-                </calendar>
-            </field>
-        </record>
+<record id="view_[object_name]_calendar" model="ir.ui.view">
+  <field name="name">[object.name].calendar</field>
+  <field name="model">[object.name]</field>
+  <field name="arch" type="xml">
+    <calendar string="Object Name" color="state" date_start="date_order">
+      <field name="partner_id"/>
+      <field name="amount_total" widget="monetary"/>
+    </calendar>
+  </field>
+</record>
 ```
 
-
+##View Graph
+```
+<record id="view_[object_name]_graph" model="ir.ui.view">
+            <field name="name">[object.name].graph</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <graph string="Sales Orders">
+                    <field name="partner_id"/>
+                    <field name="amount_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
 
