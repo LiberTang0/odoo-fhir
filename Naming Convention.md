@@ -1,18 +1,15 @@
 ##View ID
 ```
-<!-- View -->
 Pattern: [module_name].[object_name>]_[viewtype]
 Example: hc_person.value_set_contains_tree
 ```
 ##Action ID
 ```
-<!-- Action -->
 Pattern: open_view_[object_name>]_[viewtype]
 Example: open_view_value_set_contains_tree
 ```
 ##Menu Item ID
 ```
-<!-- Menu Item -->
 Pattern: [module_name].menu_[short_object_name]
 Example: hc_base.menu_clinic
 ```
@@ -29,7 +26,19 @@ Example: hc.address.kanban
 ```
 {tree,form,kanban,search,calendar,Qweb,diagram,gantt,graph,pivot}
 ```
-
+##Tree (List) View
+```
+<!-- List View -->
+<record id="[View ID]" model="ir.ui.view">
+  <field name="name">[View Name]</field>
+  <field name="model">[Object Name]</field>
+  <field name="arch" type="xml">
+    <tree colors="gray:is_done==True">
+      <!-- Content goes here -->
+      <field name="[field_name]"/>
+      <field name="[field_name]"/>
+    </tree>
+```
 ##Form View
 ```
 <!-- Form View -->
@@ -42,10 +51,14 @@ Example: hc.address.kanban
       <sheet>
         <group>
           <group>
-            <field name="[field]"/>
+            <!-- Content goes here -->
+            <field name="[field_name]"/>
+            <field name="[field_name]"/>
           </group>
           <group>
-            <field name="[field]"/>
+            <!-- Content goes here -->
+            <field name="[field_name]"/>
+            <field name="[field_name]"/>
           </group>
         </group>
       </sheet>
@@ -138,6 +151,7 @@ Example: do_clear_done
 <field name="arch" type="xml">
 
   <calendar string="[Object Name]" color="state" date_start="date_order">
+    <!-- Content goes here -->
     <field name="[field_name]"/>
     <field name="[field_name]" widget="monetary"/>
   </calendar>
@@ -155,6 +169,7 @@ Example: do_clear_done
 <field name="arch" type="xml">
   
   <graph string="[Object Name]">
+    <!-- Content goes here -->
     <field name="[field_name]"/>
     <field name="[field_name]" type="measure"/>
   </graph>
@@ -172,6 +187,7 @@ Example: do_clear_done
   <field name="arch" type="xml">
   
     <pivot string="[Object Name]">
+      <!-- Content goes here -->
       <field name="[field_name]" type="row"/>
       <field name="[field_name]" type="measure"/>
     </pivot>
