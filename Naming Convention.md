@@ -8,14 +8,16 @@ Example: hc_patient
 
 ##View ID
 ```
-Pattern: [module_name].[object_name>]_[viewtype]
+Pattern: [module_name].[object_name]_[view_type]
+Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
+
 Example: hc_person.value_set_contains_tree
 ```
 
 ##View Name
 ```
 Pattern: [model_name]_view_[view_type]
-Where view_type is {tree,form,kanban,search,calendar,Qweb,diagram,gantt,graph,pivot}
+Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
 Example: hc_address_view_tree
 Example: hc_address_view_form
