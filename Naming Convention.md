@@ -16,7 +16,7 @@ Example: hc_person.value_set_contains_tree
 
 ##View Name
 ```
-Pattern: [model_name]_view_[view_type]
+Pattern: [object_name]_view_[view_type]
 Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
 Example: hc_address_view_tree
