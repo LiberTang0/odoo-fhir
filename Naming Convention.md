@@ -1,31 +1,52 @@
+##Module Name
+```
+Pattern: hc_[FHIR_resource_name]
+FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
+
+Example: hc_patient
+```
+
 ##View ID
 ```
 Pattern: [module_name].[object_name>]_[viewtype]
 Example: hc_person.value_set_contains_tree
 ```
+
+##View Name
+```
+Pattern: [model_name]_view_[view_type]
+Where view_type is {tree,form,kanban,search,calendar,Qweb,diagram,gantt,graph,pivot}
+
+Example: hc_address_view_tree
+Example: hc_address_view_form
+Example: hc_address_view_kanban
+```
+
 ##Action ID
 ```
 Pattern: open_view_[object_name>]_[viewtype]
 Example: open_view_value_set_contains_tree
 ```
+##Action Name
+```
+Pattern for main action: [model_name]_action
+Pattern for other actions: [model_name]_action_[detail]
+
+Example: hc_address_action
+```
+
 ##Menu Item ID
 ```
+Pattern: [module_name]_menu_[short_menu_object_name]
+Example: hc_base_menu_clinic
+```
+
+##Menu Item Name
+```
 Pattern: [module_name].menu_[short_object_name]
-Example: hc_base.menu_clinic
+Example: Addresses
 ```
 
-##View Name
-```
-Pattern: [object.name].[viewtype]
-Example: hc.address.tree
-Example: hc.address.form
-Example: hc.address.kanban
-```
-
-##View Type
-```
-{tree,form,kanban,search,calendar,Qweb,diagram,gantt,graph,pivot}
-```
 ##Tree (List) View
 ```
 <!-- List View -->
@@ -194,4 +215,11 @@ Example: do_clear_done
     
   </field>
 </record>
+```
+
+##Group Name
+```
+Pattern: [model_name]_group_[group_name]
+Where group_name may be {user,manager,administrator, etc.}
+Example: hc_base_group_user
 ```
