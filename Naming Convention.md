@@ -26,13 +26,13 @@ Example: hc_address_view_kanban
 
 ##Action ID
 ```
-Pattern: open_view_[object_name>]_[viewtype]
+Pattern: open_view_[object_name]_[viewtype]
 Example: open_view_value_set_contains_tree
 ```
 ##Action Name
 ```
-Pattern for main action: [model_name]_action
-Pattern for other actions: [model_name]_action_[detail]
+Pattern for main action: [object_name]_action
+Pattern for other actions: [object_name]_action_[detail]
 
 Example: hc_address_action
 ```
