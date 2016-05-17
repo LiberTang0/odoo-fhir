@@ -175,8 +175,8 @@
 
     <!-- Address View -->
 
-    <record id="hc_base.hc_address_view_tree" model="ir.ui.view">
-      <field name="name">hc_address_view_tree</field>
+    <record id="hc_base.hc_address_view_form" model="ir.ui.view">
+      <field name="name">Address Form</field>
       <field name="model">hc.address</field>
       <field name="arch" type="xml">
         <form string="Address">
@@ -198,7 +198,7 @@
 
     <!-- Address Action -->   
     
-      <record id="hc_base.hc_address_view_tree" model="ir.actions.act_window">
+      <record id="hc_base.hc_address_view_form" model="ir.actions.act_window">
         <field name="name">Configure Address</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hc.address</field>
@@ -212,7 +212,7 @@
           parent="hc_base.menu_datatype"
           name="Addresses"
           sequence="10"
-          action="hc_base.hc_address_view_tree"/> 
+          action="hc_base.hc_address_view_form"/> 
 
   </data>
 </openerp>
