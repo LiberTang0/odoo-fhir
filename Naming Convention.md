@@ -8,33 +8,32 @@ Example: hc_patient
 
 ##View ID
 ```
-Pattern: [module_name].[object_name]_[view_type]
+Pattern: [module_name].[object_name]_view_[view_type]
 Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: hc_person.value_set_contains_tree
+Example: hc_base.hc_address_view_tree
 ```
 
 ##View Name
 ```
-Pattern: [object_name]_view_[view_type]
+Pattern: [object_description] [view_type]
 Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: hc_address_view_tree
-Example: hc_address_view_form
-Example: hc_address_view_kanban
+Example: Address Tree
 ```
 
 ##Action ID
 ```
-Pattern: open_view_[object_name]_[viewtype]
-Example: open_view_value_set_contains_tree
+Pattern for main action: [module_name].[object_name]_action
+Pattern for other actions: [module_name].[object_name]_action_[detail]
+
+Example: hc_base.hc_address_action
 ```
+
 ##Action Name
 ```
-Pattern for main action: [object_name]_action
-Pattern for other actions: [object_name]_action_[detail]
-
-Example: hc_address_action
+Pattern: [Action Word] [object_description]
+Example: Configure Address
 ```
 
 ##Menu Item ID
@@ -45,7 +44,7 @@ Example: hc_base_menu_clinic
 
 ##Menu Item Name
 ```
-Pattern: [module_name].menu_[short_object_name]
+Pattern: [object_description] plural form
 Example: Addresses
 ```
 
