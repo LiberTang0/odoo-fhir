@@ -169,8 +169,53 @@
         <menuitem name="Payment" id="hc_base.menu_fina_pmt" parent="hc_base.menu_fina" action="open_view_value_set_contains_tree" sequence="3"/>
         <menuitem name="Other" id="hc_base.menu_fina_oth" parent="hc_base.menu_fina" action="open_view_value_set_contains_tree" sequence="4"/>
     
-    <menuitem name="ERP" id="hc_base.menu_erp" parent="hc_base.menu_root" sequence="7" />
+    <!--<menuitem name="ERP" id="hc_base.menu_erp" parent="hc_base.menu_root" sequence="7"/>-->
+    
+    <menuitem name="Data Type" id="hc_base.menu_datatype" parent="hc_base.menu_root" sequence="7"/>
 
+    <!-- Address View -->
+
+    <record id="hc_base.hc_address_view_tree" model="ir.ui.view">
+      <field name="name">hc_address_view_tree</field>
+      <field name="model">hc.address</field>
+      <field name="arch" type="xml">
+        <form string="Address">
+          <sheet>
+            <field name="text"></field>
+            <field name="line1"></field>
+            <field name="line2"></field>
+            <field name="line3"></field>
+            <field name="city_id"></field>
+            <field name="district_id"></field>
+            <field name="state_id"></field>
+            <field name="postal_code_id"></field>
+            <field name="region_id"></field>
+            <field name="country_id"></field>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Address Action -->   
+    
+      <record id="hc_base.hc_address_view_tree" model="ir.actions.act_window">
+        <field name="name">Configure Address</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hc.address</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+    
+    <!-- Address Menu Item -->
+    
+    <menuitem id="hc_base.menu_datatype_addr"
+          parent="hc_base.menu_datatype"
+          name="Addresses"
+          sequence="10"
+          action="hc_base.hc_address_view_tree"/> 
+
+  </data>
+</openerp>
 
    <!--  <menuitem name="Identification" id="menu_hc_id" parent="hc_base.menu_root" sequence="2"/>
 
