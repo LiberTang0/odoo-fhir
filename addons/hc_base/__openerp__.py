@@ -25,6 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/hc_base_data.xml',
+        'data/l10n_ph/country_pl.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
