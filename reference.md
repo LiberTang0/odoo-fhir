@@ -1,7 +1,7 @@
 ###Study
 * Views: [odoo/openerp/addons/base/res/res_partner_view.xml] (https://github.com/odoo/odoo/blob/9.0/openerp/addons/base/res/res_partner_view.xml)
 
-* Fonts
+* Fonts [Source] (http://stackoverflow.com/questions/29701948/path-for-icon-used-in-smart-button)
 
   Odoo smart button uses http://fortawesome.github.io/Font-Awesome/
 
