@@ -98,13 +98,13 @@
 ./odoo.py scaffold hc_order addons
 ./odoo.py scaffold hc_order_response addons
 ./odoo.py scaffold hc_order_set addons
-./odoo.py scaffold hc_organization addons
+# ./odoo.py scaffold hc_organization addons
 ./odoo.py scaffold hc_parameters addons
-./odoo.py scaffold hc_patient addons
+# ./odoo.py scaffold hc_patient addons
 ./odoo.py scaffold hc_payment_notice addons
 ./odoo.py scaffold hc_payment_reconciliation addons
 # ./odoo.py scaffold hc_person addons
-./odoo.py scaffold hc_practitioner addons
+# ./odoo.py scaffold hc_practitioner addons
 ./odoo.py scaffold hc_practitioner_role addons
 # ./odoo.py scaffold hc_procedure addons
 ./odoo.py scaffold hc_procedure_request addons
@@ -115,7 +115,7 @@
 ./odoo.py scaffold hc_questionnaire addons
 ./odoo.py scaffold hc_questionnaire_response addons
 ./odoo.py scaffold hc_request addons
-./odoo.py scaffold hc_related_person addons
+# ./odoo.py scaffold hc_related_person addons
 ./odoo.py scaffold hc_risk_assessment addons
 ./odoo.py scaffold hc_schedule addons
 ./odoo.py scaffold hc_search_parameter addons
@@ -131,7 +131,7 @@
 ./odoo.py scaffold hc_supply_request addons
 ./odoo.py scaffold hc_task addons
 ./odoo.py scaffold hc_test_script addons
-./odoo.py scaffold hc_value_set addons
+# ./odoo.py scaffold hc_value_set addons
 ./odoo.py scaffold hc_vision_prescription addons
 
 cd addons
@@ -214,13 +214,13 @@ sudo mv hc_operation_outcome /odoo/odoo-fhir/addons/hc_operation_outcome
 sudo mv hc_order /odoo/odoo-fhir/addons/hc_order
 sudo mv hc_order_response /odoo/odoo-fhir/addons/hc_order_response
 sudo mv hc_order_set /odoo/odoo-fhir/addons/hc_order_set
-sudo mv hc_organization /odoo/odoo-fhir/addons/hc_organization
+# sudo mv hc_organization /odoo/odoo-fhir/addons/hc_organization
 sudo mv hc_parameters /odoo/odoo-fhir/addons/hc_parameters
-sudo mv hc_patient /odoo/odoo-fhir/addons/hc_patient
+# sudo mv hc_patient /odoo/odoo-fhir/addons/hc_patient
 sudo mv hc_payment_notice /odoo/odoo-fhir/addons/hc_payment_notice
 sudo mv hc_payment_reconciliation /odoo/odoo-fhir/addons/hc_payment_reconciliation
 # sudo mv hc_person /odoo/odoo-fhir/addons/hc_person
-sudo mv hc_practitioner /odoo/odoo-fhir/addons/hc_practitioner
+# sudo mv hc_practitioner /odoo/odoo-fhir/addons/hc_practitioner
 sudo mv hc_practitioner_role /odoo/odoo-fhir/addons/hc_practitioner_role
 # sudo mv hc_procedure /odoo/odoo-fhir/addons/hc_procedure
 sudo mv hc_procedure_request /odoo/odoo-fhir/addons/hc_procedure_request
@@ -231,7 +231,7 @@ sudo mv hc_provenance /odoo/odoo-fhir/addons/hc_provenance
 sudo mv hc_questionnaire /odoo/odoo-fhir/addons/hc_questionnaire
 sudo mv hc_questionnaire_response /odoo/odoo-fhir/addons/hc_questionnaire_response
 sudo mv hc_request /odoo/odoo-fhir/addons/hc_request
-sudo mv hc_related_person /odoo/odoo-fhir/addons/hc_related_person
+# sudo mv hc_related_person /odoo/odoo-fhir/addons/hc_related_person
 sudo mv hc_risk_assessment /odoo/odoo-fhir/addons/hc_risk_assessment
 sudo mv hc_schedule /odoo/odoo-fhir/addons/hc_schedule
 sudo mv hc_search_parameter /odoo/odoo-fhir/addons/hc_search_parameter
@@ -247,7 +247,7 @@ sudo mv hc_supply_delivery /odoo/odoo-fhir/addons/hc_supply_delivery
 sudo mv hc_supply_request /odoo/odoo-fhir/addons/hc_supply_request
 sudo mv hc_task /odoo/odoo-fhir/addons/hc_task
 sudo mv hc_test_script /odoo/odoo-fhir/addons/hc_test_script
-sudo mv hc_value_set /odoo/odoo-fhir/addons/hc_value_set
+# sudo mv hc_value_set /odoo/odoo-fhir/addons/hc_value_set
 sudo mv hc_vision_prescription /odoo/odoo-fhir/addons/hc_vision_prescription
 
 

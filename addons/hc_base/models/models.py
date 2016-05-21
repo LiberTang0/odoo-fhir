@@ -8,11 +8,11 @@ class ValueSetContains(models.Model):
     _description = "Value Set Contains"
     _order = "code asc"
 
-    system = fields.Char(string="System URL", help="System value for the code.")
+    system = fields.Char(string="Source URL", help="Web address of the source of the code.")
     is_abstract = fields.Boolean(string="Abstract", help="If user cannot select this entry.")
     version = fields.Char(string="Version", help="Version in which this code / display is defined.")
     code = fields.Char(string="Code", help="Code - if blank, this is not a choosable code.")
-    display = fields.Char(string="Display", help="User display for the concept.")
+    name = fields.Char(string="Display", help="User display for the concept.")
     level = fields.Integer(string="Level", help="Level in a hierarchy of codes.")
     source = fields.Char(string="Source", help="The source of the definition of the code.")
     definition = fields.Text(string="Definition", help="An explanation of the meaning of the concept.")
@@ -34,68 +34,116 @@ class Annotation(models.Model):
 
 #     author_practitioner = fields.Many2one(comodel_name="hc.annotation.author.practitioner", string="Annotation Author Practitioner", 
 #         help="Practitioner responsible for the annotation.")
-    author_patient = fields.Many2one(comodel_name="hc.annotation.author.patient", string="Annotation Author Patient", 
-        help="Patient responsible for the annotation.")
-    author_related_person = fields.Many2one(comodel_name="hc.annotation.author.related.person", string="Annotation Author Related Person", 
-        help="Related Person responsible for the annotation.")
+    # author_patient = fields.Many2one(comodel_name="hc.annotation.author.patient", string="Annotation Author Patient", 
+    #     help="Patient responsible for the annotation.")
+    # author_related_person = fields.Many2one(comodel_name="hc.annotation.author.related.person", string="Annotation Author Related Person", 
+    #     help="Related Person responsible for the annotation.")
     author = fields.Text(string="Author", help="Individual responsible for the annotation.")
     recorded_date = fields.Datetime(string="Recorded Date", help="When the annotation was made.")
     annotation = fields.Text(string="Annotation", help="The text content.")
+
+class CountryPostalCodeType(models.Model):    
+    _name = "hc.vs.country.postal.code.type"    
+    _description = "Postal Code Type"       
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(string="Postal Code Type", help="Type of postal code (e.g., standard, PO Box).")
+    country_id = fields.Many2one(comodel_name="res.country", string="Postal Code Country Owner", help="Country that maintains the postal code type.")
 
 class CountryPostalCode(models.Model):  
     _name = "hc.vs.country.postal.code" 
     _description = "Postal Code"        
     _inherit = ["hc.value.set.contains"]
 
-    city_ids = fields.Many2many(comodel_name="hc.vs.country.city", string="Cities", help="The name of the city, town, village or other community or delivery center.")
-    district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District", help="The name of the administrative area (e.g., county).")
+    name = fields.Char(string="Postal Code", help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
+    postal_place = fields.Char(string="Place", help="A geographic point of interest associated with a postal code.")
+    type_id = fields.Many2one(comodel_name="hc.vs.country.postal.code.type", string="Postal Code Type", help="Type of postal code (e.g., standard, PO Box).")
+    is_decommissioned = fields.Boolean(string="Active", help="Indicates if the postal code is in active use.")
+    latitude = fields.Float(string="Latitude", help="Average latitude for the postal code.")
+    longitude = fields.Float(string="Latitude", help="Average longitude for the postal code.")
+    postal_code_owner_country_id = fields.Many2one(comodel_name="res.country", string="Postal Code Country Owner", help="Country that maintains the postal code.")
+    city_ids = fields.Many2many(comodel_name="hc.vs.country.city", string="Cities/Places", help="The name of the city, town, village or other community or delivery center.")
+    district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District/County", help="The name of the administrative area (e.g., county).")
     state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
-    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="Group of states.")
+    division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
+
+class CountryCityType(models.Model):    
+    _name = "hc.vs.country.city.type"    
+    _description = "City/Place Type"       
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(string="City/Place Type", help="Type of place or county subdivision (e.g., city, town).")
+    country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country that maintains the city/place type.")
 
 class CountryCity(models.Model):    
     _name = "hc.vs.country.city"    
     _description = "City"       
     _inherit = ["hc.value.set.contains"]
 
-    postal_code_ids = fields.Many2many(comodel_name="hc.vs.country.postal.code", string="Postal Codes", help="Postal code for area.")
-    district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District", help="The name of the administrative area (e.g., county).")
-    state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
-    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="Group of states.")
+    name = fields.Char(string="City/Place", help="The name of the city, town, village or other community or delivery center.")
+    type_id = fields.Many2one(comodel_name="hc.vs.country.city.type", string="Place Type", help="Type of place or county subdivision (e.g., city, town)")
+    postal_code_ids = fields.Many2many(comodel_name="hc.vs.country.postal.code", string="Postal Codes", help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
+    primary_postal_code_city = fields.Boolean(string="Primary City", help="Indicates if this city is the primary city for a postal code.")
+    district_ids = fields.Many2many(comodel_name="hc.vs.country.district", string="Districts/Counties", help="The name of the administrative area (e.g., county).")
+    state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abbreviations ok).")
+    division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
-
 
 class CountryDistrict(models.Model):    
     _name = "hc.vs.country.district"    
     _description = "District"       
     _inherit = ["hc.value.set.contains"]
 
+    name = fields.Char(string="County", help="The name of the administrative area (e.g., county).")
+    city_ids = fields.Many2many(comodel_name="hc.vs.country.city", string="Cities/Places", help="The name of the city, town, village or other community or delivery center.")
     state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
-    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="Group of states.")
+    division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
 
+class CountryState(models.Model):    
+    _name = "res.country.state"    
+    _description = "Country State"       
+    _inherit = ["res.country.state"]
+
+    division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
+
+class CountryDivision(models.Model):  
+    _name = "hc.vs.country.division"  
+    _description = "Division"     
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(string="Division", help="User display for the concept.")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
+    country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
 
 class CountryRegion(models.Model):  
     _name = "hc.vs.country.region"  
     _description = "Region"     
     _inherit = ["hc.value.set.contains"]
 
+    name = fields.Char(string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
 
 class Address(models.Model):
-    
+
     _name = "hc.address"
     _description = "Address"
 
-    text = fields.Char(string="Full Address", help="A full text representation of the address.")
+    name = fields.Char(string="Full Address", help="A full text representation of the address.")
     line1 = fields.Char(string="Address Line 1", help="Street name, number, direction & P.O. Box etc.")
     line2 = fields.Char(string="Address Line 2", help="Street name, number, direction & P.O. Box etc.")
     line3 = fields.Char(string="Address Line 3", help="Street name, number, direction & P.O. Box etc.")
-    city_id = fields.Many2one(comodel_name="hc.vs.country.city", string="City", help="The name of the city, town, village or other community or delivery center.")
-    district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District", help="The name of the administrative area (e.g., county).")
+    city_id = fields.Many2one(comodel_name="hc.vs.country.city", string="City/Place", help="The name of the city, town, village or other community or delivery center.")
+    district_id = fields.Many2one(comodel_name="hc.vs.country.district", string="District/County", help="The name of the administrative area (e.g., county).")
     state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
     postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal Code", help="Postal code for area.")
-    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="Group of states.")
+    division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO 3166 3 letter code).")
 
 class Attachment(models.Model): 
@@ -137,7 +185,7 @@ class HumanName(models.Model):
             ("old", "Old"),
             ("maiden", "Maiden")],
         help="The use of a human name.")
-    text = fields.Char(string="Text", help="A full text representation of the human name.")
+    name = fields.Char(string="Text", help="A full text representation of the human name.")
     family_ids = fields.One2many(comodel_name="hc.human.name.family", inverse_name="human_name_id", string="Family Names", help="Family name (often called 'Surname').")
     given_ids = fields.One2many(comodel_name="hc.human.name.given", inverse_name="human_name_id", string="Given Names", help="Given names (not always 'first'). Includes middle names.")
     prefix_ids = fields.One2many(comodel_name="hc.human.name.prefix", inverse_name="human_name_id", string="Prefix Names", help="Parts that come before the name.")

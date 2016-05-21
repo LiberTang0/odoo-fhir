@@ -24,7 +24,7 @@ class Person(models.Model):
         help="One or more addresses for the person.")
     attachment_ids = fields.One2many(comodel_name="hc.person.attachment", inverse_name="person_id", string="Attachments", help="Image of the Person.")
 #     managing_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Managing Organization", help="The Organization that is the custodian of the person record.")
-#     is_active = fields.Boolean(string="Active", help="This person's record is in active use.")
+    is_active = fields.Boolean(string="Active", help="This person's record is in active use.")
     link_ids = fields.One2many(comodel_name="hc.person.link", inverse_name="person_id", string="Person Links", help="Link to a resource that concerns the same actual person.")
     partner_id = fields.Many2one(comodel_name="res.partner", string="Partner", required=True, ondelete="cascade", 
         help="Partner associated with this person.")

@@ -1,0 +1,14 @@
+id,name,system,source,country_id/id
+place_type_borough,borough,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_city,city,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_consolidated_government,consolidated government,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_corporation,corporation,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_county,county,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_metropolitan_government,metropolitan government,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_municipality,municipality,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_plantation,plantation,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_town,town,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_township,township,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_unified_government,unified government,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_urban_county,urban county,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
+place_type_village,village,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us

@@ -26,6 +26,7 @@
         'security/ir.model.access.csv',
         'data/hc_base_data.xml',
         'data/l10n_ph/country_pl.xml',
+        'data/hc.vs.country.city.type.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
