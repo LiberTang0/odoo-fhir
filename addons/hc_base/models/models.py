@@ -40,7 +40,7 @@ class Annotation(models.Model):
     #     help="Related Person responsible for the annotation.")
     author = fields.Text(string="Author", help="Individual responsible for the annotation.")
     recorded_date = fields.Datetime(string="Recorded Date", help="When the annotation was made.")
-    annotation = fields.Text(string="Annotation", help="The text content.")
+    name = fields.Text(string="Annotation", help="The text content.")
 
 class CountryPostalCodeType(models.Model):    
     _name = "hc.vs.country.postal.code.type"    
@@ -97,7 +97,7 @@ class CountryDistrict(models.Model):
     _description = "District"       
     _inherit = ["hc.value.set.contains"]
 
-    name = fields.Char(string="County", help="The name of the administrative area (e.g., county).")
+    name = fields.Char(string="District/County", help="The name of the administrative area (e.g., county).")
     city_ids = fields.Many2many(comodel_name="hc.vs.country.city", string="Cities/Places", help="The name of the city, town, village or other community or delivery center.")
     state_id = fields.Many2one(comodel_name="res.country.state", string="State", help="Sub-unit of country (abreviations ok).")
     division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
@@ -109,6 +109,8 @@ class CountryState(models.Model):
     _description = "Country State"       
     _inherit = ["res.country.state"]
 
+    name = fields.Char(string="Name", help="Sub-unit of country (abreviations ok).")
+    code = fields.Char(string="Code")
     division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
     region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
 
@@ -185,7 +187,7 @@ class HumanName(models.Model):
             ("old", "Old"),
             ("maiden", "Maiden")],
         help="The use of a human name.")
-    name = fields.Char(string="Text", help="A full text representation of the human name.")
+    name = fields.Char(string="Full Name", help="A full text representation of the human name.")
     family_ids = fields.One2many(comodel_name="hc.human.name.family", inverse_name="human_name_id", string="Family Names", help="Family name (often called 'Surname').")
     given_ids = fields.One2many(comodel_name="hc.human.name.given", inverse_name="human_name_id", string="Given Names", help="Given names (not always 'first'). Includes middle names.")
     prefix_ids = fields.One2many(comodel_name="hc.human.name.prefix", inverse_name="human_name_id", string="Prefix Names", help="Parts that come before the name.")

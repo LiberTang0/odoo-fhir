@@ -57,6 +57,127 @@
 
     <menuitem name="Value Set Contains" id="hc_base.menu_addr_val_set" parent="hc_base.menu_datatype" action="hc_base.hc_value_set_contains_action" sequence="1"/>    
 
+    <!-- Annotation Views -->                 
+                  
+    <record id="hc_base.hc_annotation_view_search" model="ir.ui.view">                  
+      <field name="name">hc_annotation_view_search</field>                
+      <field name="model">hc.annotation</field>               
+      <field name="arch" type="xml">                
+        <search string="Annotations">             
+          <field name="name"/>            
+          <field name="author"/>            
+          <field name="recorded_date"/>           
+        </search>             
+      </field>                
+    </record>                 
+    <record id="hc_base.hc_annotation_view_tree" model="ir.ui.view">                  
+      <field name="name">hc_annotation_view_tree</field>                
+      <field name="model">hc.annotation</field>               
+      <field name="arch" type="xml">                
+        <tree string="Annotations">             
+          <field name="name"/>            
+          <field name="author"/>            
+          <field name="recorded_date"/>           
+        </tree>             
+      </field>                
+    </record>                 
+    <record id="hc_base.hc_annotation_view_form" model="ir.ui.view">                  
+      <field name="name">hc_annotation_view_form</field>                
+      <field name="model">hc.annotation</field>               
+      <field name="arch" type="xml">                
+        <form string="Annotation">              
+          <sheet>           
+            <div class="oe_title oe_left">          
+              <h1>        
+                <field name="name" default_focus="1" placeholder="Annotation"/>     
+              </h1>       
+            </div>          
+            <group>         
+              <group>       
+                <field name="author"/>      
+                <field name="recorded_date"/>     
+              </group>        
+              <group>       
+              </group>        
+            </group>          
+          </sheet>            
+        </form>             
+      </field>                
+    </record>                 
+                      
+    <!-- Annotation Action and Menu -->                 
+                      
+    <record id="hc_base.hc_annotation_action" model="ir.actions.act_window">                  
+      <field name="name">Annotation</field>               
+      <field name="type">ir.actions.act_window</field>                
+      <field name="res_model">hc.annotation</field>               
+      <field name="view_type">form</field>                
+      <field name="view_mode">tree,form</field>               
+    </record>
+
+    <menuitem name="Annotation" id="hc_base.menu_anno" parent="hc_base.menu_datatype" action="hc_base.hc_annotation_action" sequence="20"/>
+
+        <!-- Attachment Views -->           
+            
+    <record id="hc_base.hc_attachment_view_search" model="ir.ui.view">            
+      <field name="name">hc_attachment_view_search</field>          
+      <field name="model">hc.attachment</field>         
+      <field name="arch" type="xml">          
+        <search string="Attachments">       
+          <field name="name"/>      
+          <field name="mimetype"/>      
+          <field name="language_id"/>     
+        </search>       
+      </field>          
+    </record>           
+    <record id="hc_base.hc_attachment_view_tree" model="ir.ui.view">            
+      <field name="name">hc_attachment_view_tree</field>          
+      <field name="model">hc.attachment</field>         
+      <field name="arch" type="xml">          
+        <tree string="Attachments">       
+          <field name="name"/>      
+          <field name="mimetype"/>      
+          <field name="language_id"/>     
+        </tree>       
+      </field>          
+    </record>           
+    <record id="hc_base.hc_attachment_view_form" model="ir.ui.view">            
+      <field name="name">hc_attachment_view_form</field>          
+      <field name="model">hc.attachment</field>         
+      <field name="arch" type="xml">          
+        <form string="Attachment">        
+          <sheet>     
+            <div class="oe_title oe_left">    
+              <h1>  
+                <field name="name" default_focus="1" placeholder="Name (e.g., ADT Form)"/>
+              </h1> 
+            </div>    
+            <group>   
+              <group> 
+                <field name="mimetype"/>
+                <field name="language_id"/>
+              </group>  
+              <group> 
+              </group>  
+            </group>    
+          </sheet>      
+        </form>       
+      </field>          
+    </record>           
+                
+    <!-- Attachment Action and Menu -->           
+                
+    <record id="hc_base.hc_attachment_action" model="ir.actions.act_window">            
+      <field name="name">Attachment</field>         
+      <field name="type">ir.actions.act_window</field>          
+      <field name="res_model">hc.attachment</field>         
+      <field name="view_type">form</field>          
+      <field name="view_mode">tree,form</field>         
+    </record>
+
+    <menuitem name="Attachment" id="hc_base.menu_attach" parent="hc_base.menu_datatype" sequence="30"/>
+    <menuitem name="Attachments" id="hc_base.menu_attach_attach" parent="hc_base.menu_datatype" action="hc_base.hc_attachment_action" sequence="10"/>
+       
     <!-- explicit list view definition -->
 
     <record model="ir.ui.view" id="hc_base.identifier_type_list">
@@ -213,15 +334,20 @@
       <field name="name">hc_address_view_search</field>
       <field name="model">hc.address</field>
       <field name="arch" type="xml">
-        <search string="Action Search">
+        <search string="Addresses">
           <field name="name"/>
           <field name="postal_code_id"/>
           <field name="city_id"/>
-          <field name="district_id" string="County"/>
+          <field name="district_id" string="District/County"/>
           <field name="state_id"/>
           <field name="division_id"/>
           <field name="region_id"/>
           <field name="country_id"/>
+
+          <filter name="state" string="My State" domain="[('state_id', '=', uid)]"/> 
+          <group string="Group By"> 
+            <filter name="group_by_state" string="State" context="{'group_by': 'state_id'}"/>
+          </group> 
         </search>
       </field>
     </record>
@@ -234,7 +360,7 @@
           <field name="line1" string="Street"/>
           <field name="city_id"/>
           <field name="postal_code_id"/>
-          <field name="district_id" string="County"/>
+          <field name="district_id" string="District/County"/>
           <field name="state_id"/>
           <field name="division_id"/>
           <field name="region_id"/>
@@ -262,7 +388,7 @@
                 <field name="postal_code_id"/>
               </group>
               <group>
-                <field name="district_id" string="County"/>
+                <field name="district_id" string="District/County"/>
                 <field name="state_id" placeholder="State/Province"/>
                 <field name="division_id"/>
                 <field name="region_id"/>
@@ -295,11 +421,11 @@
       <field name="name">hc_vs_country_postal_code_view_search</field>    
       <field name="model">hc.vs.country.postal.code</field>   
       <field name="arch" type="xml">    
-        <search string="Action Search"> 
+        <search string="Postal Codes"> 
           <field name="name"/>
           <field name="postal_place"/>
           <field name="city_ids"/>
-          <field name="district_id" string="County"/>
+          <field name="district_id" string="District/County"/>
           <field name="state_id"/>
           <field name="division_id"/>
           <field name="region_id"/>
@@ -316,7 +442,7 @@
           <field name="name" string="Code"/>
           <field name="postal_place"/>
           <field name="city_ids"/>
-          <field name="district_id" string="County/District"/>
+          <field name="district_id" string="District/County"/>
           <field name="state_id"/>
           <field name="division_id"/>
           <field name="region_id"/>
@@ -371,11 +497,11 @@
       <field name="name">hc_vs_country_city_view_search</field>         
       <field name="model">hc.vs.country.city</field>          
       <field name="arch" type="xml">          
-        <search string="Action Search">       
+        <search string="Cities">       
           <field name="name"/>
           <field name="code"/>      
           <field name="postal_code_ids"/>     
-          <field name="district_ids" string="Counties/Districts"/>     
+          <field name="district_ids" string="Districts/Counties"/>     
           <field name="state_id"/>      
           <field name="division_id"/>     
           <field name="region_id"/>     
@@ -392,7 +518,7 @@
           <field name="code"/>     
           <field name="name"/>     
           <field name="postal_code_ids"/>     
-          <field name="district_ids" string="Counties/Districts"/>     
+          <field name="district_ids" string="Districts/Counties"/>     
           <field name="state_id"/>      
           <field name="division_id"/>     
           <field name="region_id"/>     
@@ -434,7 +560,7 @@
       <field name="name">hc_vs_country_city_type_view_search</field>         
       <field name="model">hc.vs.country.city.type</field>          
       <field name="arch" type="xml">          
-        <search string="Action Search">       
+        <search string="City Types">       
           <field name="name"/>
           <field name="code"/>   
           <field name="country_id"/>      
@@ -533,14 +659,20 @@
       <field name="name">hc_vs_country_district_view_search</field>         
       <field name="model">hc.vs.country.district</field>          
       <field name="arch" type="xml">          
-        <search string="Action Search">       
+        <search string="Districts/Counties">       
           <field name="name"/>      
           <field name="state_id"/>      
           <field name="division_id"/>     
           <field name="region_id"/>     
-          <field name="country_id"/>      
+          <field name="country_id"/>
+          <group string="Group By"> 
+            <filter name="group_by_state" string="State" context="{'group_by': 'state_id'}"/>
+            <filter name="group_by_division" string="Division" context="{'group_by': 'division_id'}"/>
+            <filter name="group_by_region" string="Region" context="{'group_by': 'region_id'}"/>
+            <filter name="group_by_country" string="Country" context="{'group_by': 'country_id'}"/>
+          </group>
         </search>       
-      </field>          
+      </field>
     </record>           
                 
     <record id="hc_base.hc_vs_country_district_view_tree" model="ir.ui.view">           
@@ -561,11 +693,11 @@
       <field name="name">hc_vs_country_district_view_form</field>         
       <field name="model">hc.vs.country.district</field>          
       <field name="arch" type="xml">          
-        <form string="County">        
+        <form string="District/County">        
           <sheet>     
             <div class="oe_title oe_left">    
               <h1>  
-                <field name="name" default_focus="1" placeholder="County"/>
+                <field name="name" default_focus="1" placeholder="District/County"/>
               </h1> 
             </div>    
             <group>   
@@ -603,7 +735,7 @@
       <field name="name">res_country_state_view_search</field>         
       <field name="model">res.country.state</field>          
       <field name="arch" type="xml">          
-        <search string="Action Search">       
+        <search string="States">       
           <field name="name"/>
           <field name="code"/>
           <field name="division_id"/>     
@@ -618,23 +750,23 @@
       <field name="name">res_country_state_view_tree</field>    
       <field name="model">res.country.state</field>   
       <field name="inherit_id" ref="base.view_country_state_tree"/>   
-      <field name="arch" type="xml">    
-        <field name="name" position="after">  
-          <field name="division_id"/>
-          <field name="region_id"/>
-        </field>  
+      <field name="arch" type="xml">
+          <field name="code" position="after">
+            <field name="division_id"/>
+            <field name="region_id"/>
+          </field>
       </field>    
     </record>
 
     <record id="hc_base.view_country_state_form_inherited" model="ir.ui.view">     
-      <field name="name">res_country_state_view_tree</field>    
+      <field name="name">res_country_state_view_form</field>    
       <field name="model">res.country.state</field>   
       <field name="inherit_id" ref="base.view_country_state_form"/>   
-      <field name="arch" type="xml">    
-        <field name="name" position="after">  
-          <field name="division_id"/>
-          <field name="region_id"/>
-        </field>  
+      <field name="arch" type="xml">
+          <field name="code" position="after">  
+            <field name="division_id"/>
+            <field name="region_id"/>
+          </field>
       </field>    
     </record>     
 
@@ -656,7 +788,7 @@
       <field name="name">hc_vs_country_division_view_search</field>   
       <field name="model">hc.vs.country.division</field>    
       <field name="arch" type="xml">    
-        <search string="Action Search"> 
+        <search string="Divisions"> 
           <field name="name"/>
           <field name="code"/>
           <field name="region_id"/>
@@ -669,7 +801,7 @@
       <field name="name">hc_vs_country_division_view_tree</field>   
       <field name="model">hc.vs.country.division</field>    
       <field name="arch" type="xml">    
-        <tree string="Division">
+        <tree string="Divisions">
           <field name="code"/>  
           <field name="name"/>
           <field name="region_id"/>
@@ -721,7 +853,7 @@
       <field name="name">hc_vs_country_region_view_search</field>   
       <field name="model">hc.vs.country.region</field>    
       <field name="arch" type="xml">    
-        <search string="Action Search"> 
+        <search string="Regions"> 
           <field name="name"/>
           <field name="country_id"/>
         </search> 
@@ -732,7 +864,7 @@
       <field name="name">hc_vs_country_region_view_tree</field>   
       <field name="model">hc.vs.country.region</field>    
       <field name="arch" type="xml">    
-        <tree string="Region">
+        <tree string="Regions">
           <field name="code"/>  
           <field name="name"/>
           <field name="country_id"/>
