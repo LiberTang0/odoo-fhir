@@ -111,8 +111,12 @@ class CountryState(models.Model):
 
     name = fields.Char(string="Name", help="Sub-unit of country (abreviations ok).")
     code = fields.Char(string="Code")
+    fips_numeric_code = fields.Char(string="FIPS Numeric Code", help="Numeric code defined in U.S. Federal Information Processing Standard Publication (FIPS PUB) 5-2 to identify U.S. states and certain other associated areas. Replaced by INCITS 38 – 2009.")
+    status = fields.Char(string="Status", help="Type of sub-unit of country (e.g., state, province).")
     division_id = fields.Many2one(comodel_name="hc.vs.country.division", string="Division", help="Group of states (e.g., Pacific, Mountain).")
     region_id = fields.Many2one(comodel_name="hc.vs.country.region", string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
+    source = fields.Char(string="Source", help="The source of the definition of the code.")
+    system = fields.Char(string="Source URL", help="Web address of the source of the code.")
 
 class CountryDivision(models.Model):  
     _name = "hc.vs.country.division"  

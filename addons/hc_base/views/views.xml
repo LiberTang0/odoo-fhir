@@ -344,7 +344,7 @@
           <field name="region_id"/>
           <field name="country_id"/>
 
-          <filter name="state" string="My State" domain="[('state_id', '=', uid)]"/> 
+          <filter name="state" string="My State" domain="[('state_id', '=', 'base.state_us_5')]"/> 
           <group string="Group By"> 
             <filter name="group_by_state" string="State" context="{'group_by': 'state_id'}"/>
           </group> 
@@ -741,6 +741,9 @@
           <field name="division_id"/>     
           <field name="region_id"/>     
           <field name="country_id"/>      
+          <group string="Group By">
+            <filter name="group_by_country" string="Country" context="{'group_by': 'country_id'}"/>
+          </group>
         </search>       
 
       </field>          
@@ -764,6 +767,8 @@
       <field name="inherit_id" ref="base.view_country_state_form"/>   
       <field name="arch" type="xml">
           <field name="code" position="after">  
+            <field name="fips_numeric_code"/>
+            <field name="status"/>
             <field name="division_id"/>
             <field name="region_id"/>
           </field>
@@ -793,6 +798,12 @@
           <field name="code"/>
           <field name="region_id"/>
           <field name="country_id"/>
+          
+          <filter name="us" string="United States" domain="[('country_id', '=', 'base.us')]"/>
+          <group string="Group By"> 
+            <filter name="group_by_region" string="Region" context="{'group_by': 'region_id'}"/>
+            <filter name="group_by_country" string="Country" context="{'group_by': 'country_id'}"/>
+          </group>
         </search> 
       </field>    
     </record>      
@@ -856,6 +867,9 @@
         <search string="Regions"> 
           <field name="name"/>
           <field name="country_id"/>
+          <group string="Group By">
+            <filter name="group_by_country" string="Country" context="{'group_by': 'country_id'}"/>
+          </group>
         </search> 
       </field>    
     </record>      

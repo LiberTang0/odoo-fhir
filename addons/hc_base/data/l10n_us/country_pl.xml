@@ -1,1 +1,136 @@
-place
+<?xml version="1.0" encoding="utf-8"?>      
+<openerp>       
+    <data noupdate="0">     
+        
+        <!-- US Regions -->
+        
+        <record id="region_us_1" model="hc.vs.country.region">  
+            <field name="name">Northeast</field>
+            <field name="code">1</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="region_us_2" model="hc.vs.country.region">  
+            <field name="name">Midwest</field>
+            <field name="code">2</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="region_us_3" model="hc.vs.country.region">  
+            <field name="name">South</field>
+            <field name="code">3</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="region_us_4" model="hc.vs.country.region">  
+            <field name="name">West</field>
+            <field name="code">4</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>
+
+        <!-- US Divisions -->
+
+        <record id="division_us_1" model="hc.vs.country.division">  
+            <field name="name">New England</field>
+            <field name="code">1</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','1')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_2" model="hc.vs.country.division">  
+            <field name="name">Middle Atlantic</field>
+            <field name="code">2</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','1')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_3" model="hc.vs.country.division">  
+            <field name="name">East North Central</field>
+            <field name="code">3</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','2')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_4" model="hc.vs.country.division">  
+            <field name="name">West North Central</field>
+            <field name="code">4</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','2')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_5" model="hc.vs.country.division">  
+            <field name="name">South Atlantic</field>
+            <field name="code">5</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','3')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_6" model="hc.vs.country.division">  
+            <field name="name">East South Central</field>
+            <field name="code">6</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','3')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_7" model="hc.vs.country.division">  
+            <field name="name">West South Central</field>
+            <field name="code">7</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','3')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_8" model="hc.vs.country.division">  
+            <field name="name">Mountain</field>
+            <field name="code">8</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','4')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+        
+        <record id="division_us_9" model="hc.vs.country.division">  
+            <field name="name">Pacific</field>
+            <field name="code">9</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','4')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>
+
+        <!-- US States -->
+
+        <record id="base.state_us_7" model="res.country.state">  
+            <field name="name">Connecticut new</field>
+            <field name="code">CT</field>
+            <field name="fips_numeric_code">09</field>
+            <field name="source">U.S. Census Bureau</field>
+            <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
+            <field model="hc.vs.country.division" name="division_id" search="[('code','=','1')]"/>
+            <field model="hc.vs.country.region" name="region_id" search="[('code','=','1')]"/>
+            <field model="res.country" name="country_id" search="[('code','=','US')]"/>
+        </record>   
+           
+    </data>
+</openerp>
