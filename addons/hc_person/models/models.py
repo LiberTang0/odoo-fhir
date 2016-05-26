@@ -76,11 +76,11 @@ class PersonAddress(models.Model):
 class PersonIdentifier(models.Model):   
     _name = "hc.person.identifier"  
     _description = "Person Identifier"
-#    _inherits = {"hc.identifier": "identifier_id"}
+    _inherit = ["hc.identifier", "hc.basic.association"]
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this identifier.")
-    identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", required=True, ondelete="cascade", 
-        help="Identifier associated with this entity.")
+    # identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", required=True, ondelete="cascade", 
+    #     help="Identifier associated with this entity.")
     value = fields.Char(string="Value", help="The value that is unique.")
 
 class PersonName(models.Model): 
