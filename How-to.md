@@ -17,6 +17,7 @@ sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo8/odoo
 * (Optional) Edit the file to change parameters: ```sudo nano odoo-install.sh```
 * Save changes and then make the file executable: ```sudo chmod +x odoo-install.sh```
 * Execute the script to install Odoo: ```./odoo-install.sh```
+* When prompted, enter your GitHub username and password to download the enterprise package.
 
 #Linux
 
