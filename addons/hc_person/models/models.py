@@ -28,7 +28,6 @@ class Person(models.Model):
     link_ids = fields.One2many(comodel_name="hc.person.link", inverse_name="person_id", string="Person Links", help="Link to a resource that concerns the same actual person.")
     partner_id = fields.Many2one(comodel_name="res.partner", string="Partner", required=True, ondelete="cascade", 
         help="Partner associated with this person.")
-#     journal_id = fields.Many2one(comodel_name="account.analytic.journal", string="Analytic Journal", help="Analytic journal associated with this person.")
 
 class PersonLink(models.Model): 
 
@@ -36,7 +35,7 @@ class PersonLink(models.Model):
     _description = "Person Link"
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", 
-        help="Person associated with this link.")
+        help="Person associated with this person link.")
 #    target_patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Target Patient", required=True, help="Patient who is the resource to which this actual person is associated.")
 #    target_related_practitioner_id = fields.Many2one(comodel_name="hc.res.practitioner", string="Target Practitioner", help="Practitioner who is the resource to which this actual person is associated.")
 #    target_related_person_id = fields.Many2one(comodel_name="hc.res.related.person", string="Target Related Person", help="Related Person who is the resource to which this actual person is associated.")
@@ -79,8 +78,8 @@ class PersonIdentifier(models.Model):
     _inherit = ["hc.identifier", "hc.basic.association"]
 
     person_id = fields.Many2one(comodel_name="hc.res.person", string="Person", help="Entity associated with this identifier.")
-    # identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", required=True, ondelete="cascade", 
-    #     help="Identifier associated with this entity.")
+    identifier_id = fields.Many2one(comodel_name="hc.identifier", string="Identifier", required=True, ondelete="cascade", 
+        help="Identifier associated with this entity.")
     value = fields.Char(string="Value", help="The value that is unique.")
 
 class PersonName(models.Model): 

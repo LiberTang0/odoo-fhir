@@ -3,8 +3,11 @@ access_hc_base_hc_value_set_contains,hc.base.hc.value.set.contains,model_hc_valu
 access_hc_base_hc_basic_association,hc.base.hc.basic.association,model_hc_basic_association,,1,0,0,0
 access_hc_base_hc_annotation,hc.base.hc.annotation,model_hc_annotation,,1,0,0,0
 access_hc_base_hc_vs_country_postal_code,hc.base.hc.vs.country.postal.code,model_hc_vs_country_postal_code,,1,0,0,0
+access_hc_base_hc_vs_country_postal_code_type,hc.base.hc.vs.country.postal.code.type,model_hc_vs_country_postal_code_type,,1,0,0,0
 access_hc_base_hc_vs_country_city,hc.base.hc.vs.country.city,model_hc_vs_country_city,,1,0,0,0
+access_hc_base_hc_vs_country_city_type,hc.base.hc.vs.country.city.type,model_hc_vs_country_city_type,,1,0,0,0
 access_hc_base_hc_vs_country_district,hc.base.hc.vs.country.district,model_hc_vs_country_district,,1,0,0,0
+access_hc_base_hc_vs_country_division,hc.base.hc.vs.country.division,model_hc_vs_country_division,,1,0,0,0
 access_hc_base_hc_vs_country_region,hc.base.hc.vs.country.region,model_hc_vs_country_region,,1,0,0,0
 access_hc_base_hc_address,hc.base.hc.address,model_hc_address,,1,0,0,0
 access_hc_base_hc_attachment,hc.base.hc.attachment,model_hc_attachment,,1,0,0,0

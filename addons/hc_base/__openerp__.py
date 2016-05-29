@@ -30,7 +30,7 @@
         'data/l10n_us/res.country.state.csv',
         'data/hc.vs.country.city.type.csv',
         'views/views.xml',
-        'views/templates.xml',
+        'views/templates.xml',    
     ],
     # only loaded in demonstration mode
     'demo': [
