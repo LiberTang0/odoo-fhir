@@ -360,7 +360,7 @@ class HumanName(models.Model):
             ("old", "Old")],
         help="The use of a human name.")
     name = fields.Char(string="Full Name", readonly=True, help="A full text representation of the human name.")
-    family_ids = fields.One2many(comodel_name="hc.human.name.family", inverse_name="human_name_id", string="Family Names", help="Family name (often called 'Surname').")
+    # family_ids = fields.One2many(comodel_name="hc.human.name.family", inverse_name="human_name_id", string="Family Names", help="Family name (often called 'Surname').")
     # given_ids = fields.One2many(comodel_name="hc.human.name.given", inverse_name="human_name_id", string="Given Names", help="Given names (not always 'first'). Includes middle names.")
     prefix_ids = fields.Many2many(comodel_name="res.partner.title", string="Prefix Names", help="Parts that come before the name.")
     first_id = fields.Many2one(comodel_name="hc.human.name.term", string="First Name", help="Part of given name.")
@@ -408,42 +408,44 @@ class HcExtensionHumanName(models.Model):
 
         return super(HcExtensionHumanName, self).create(vals)
 
-class HumanNameGiven(models.Model): 
-    _name = "hc.human.name.given"   
-    _description = "Human Name Given"
+# class HumanNameGiven(models.Model): 
+#     _name = "hc.human.name.given"   
+#     _description = "Human Name Given"
 
-    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this given name.")
-    name_id = fields.Many2one(comodel_name="hc.human.name.term", string="Name", help="Given name of this human name.")
-    sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this given name.")
-    type = fields.Selection(string="Type", selection=[("first", "First"), ("middle", "Middle"), ("initial", "Initial"), ("nickname", "Nickname")], help="Type of given name.")
+#     human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this given name.")
+#     name_id = fields.Many2one(comodel_name="hc.human.name.term", string="Name", help="Given name of this human name.")
+#     sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this given name.")
+#     type = fields.Selection(string="Type", selection=[("first", "First"), ("middle", "Middle"), ("initial", "Initial"), ("nickname", "Nickname")], help="Type of given name.")
 
-class HumanNameFamily(models.Model):    
-    _name = "hc.human.name.family"  
-    _description = "Human Name Family"
+# class HumanNameFamily(models.Model):    
+#     _name = "hc.human.name.family"  
+#     _description = "Human Name Family"
 
-    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this family name.")
-    name_id = fields.Many2one(comodel_name="hc.human.name.term", string="Name", help="Family name of this human name.")
-    sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this family name.")
-    name_type = fields.Selection(string="Type", selection=[("surname", "Surname"), ("patronymic", "Patronymic"), ("previous (maiden)", "Previous (Maiden)"), ("mother", "Mother")], help="Type of family name.")
+#     human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this family name.")
+#     name_id = fields.Many2one(comodel_name="hc.human.name.term", string="Name", help="Family name of this human name.")
+#     sequence = fields.Integer(string="Sequence", default="1", size=1, help="Display order of this family name.")
+#     name_type = fields.Selection(string="Type", selection=[("surname", "Surname"), ("patronymic", "Patronymic"), ("previous (maiden)", "Previous (Maiden)"), ("mother", "Mother")], help="Type of family name.")
 
-class HumanNamePrefix(models.Model):    
-    _name = "hc.human.name.prefix"  
-    _description = "Human Name Prefix"      
+# class HumanNamePrefix(models.Model):    
+#     _name = "hc.human.name.prefix"  
+#     _description = "Human Name Prefix"      
 
-    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this prefix name.")
-    prefix_id = fields.Many2one(comodel_name="res.partner.title", string="Prefix", help="Prefix name of this human name.")
+#     human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this prefix name.")
+#     prefix_id = fields.Many2one(comodel_name="res.partner.title", string="Prefix", help="Prefix name of this human name.")
 
-class HumanNameSuffix(models.Model):    
-    _name = "hc.human.name.suffix"  
-    _description = "Human Name Suffix"      
+# class HumanNameSuffix(models.Model):    
+#     _name = "hc.human.name.suffix"  
+#     _description = "Human Name Suffix"      
 
-    human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this suffix name.")
-    suffix_id = fields.Many2one(comodel_name="hc.suffix.human.name", string="Suffix", help="Suffix part of a human name. May be a family title (e.g., Jr.) or initials of a credential (e.g., RN).")
+#     human_name_id = fields.Many2one(comodel_name="hc.human.name", string="Human Name", help="Human name associated with this suffix name.")
+#     suffix_id = fields.Many2one(comodel_name="hc.suffix.human.name", string="Suffix", help="Suffix part of a human name. May be a family title (e.g., Jr.) or initials of a credential (e.g., RN).")
 
 class IdentifierType(models.Model): 
     _name = "hc.vs.identifier.type" 
     _description = "Identifier Type"
     _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char( string="Identifier Type", help="Description of identifier.")
 
 class Identifier(models.Model):
 
@@ -476,7 +478,7 @@ class Telecom(models.Model):
             ("email", "Email"), 
             ("url", "Url")], 
         help="Telecommunications form for contact point - what communications system is required to make use of the contact.")   
-    value = fields.Char(string="Value", help="The actual telecom contact point details.")
+    name = fields.Char(string="Value", help="The actual telecom contact point details (e.g., Tel: +22 607 123 4567, E-mail: jdeo@isp.com, Web: www.doecorp.com).")
 
 # class hc_base(models.Model):
 #     _name = 'hc_base.hc_base'
