@@ -137,3 +137,11 @@ script output.txt
 ```
 exit
 ```
+##Synching fork with master
+sudo git remote add upstream https://github.com/luigisison/odoo-fhir.git
+sudo git remote -v (CHeck if added)
+*Be in local repository in terminal
+sudo git fetch upstream
+sudo git checkout master
+sudo git merge upstream/master
+sudo git push origin master
