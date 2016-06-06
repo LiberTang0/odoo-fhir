@@ -1,3 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+import models
+import hc_address
+import hc_annotation
+import hc_attachment
+import hc_telecom

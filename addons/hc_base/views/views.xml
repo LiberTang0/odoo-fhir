@@ -108,7 +108,7 @@
     <menuitem name="Identification" id="hc_base.menu_id" parent="hc_base.menu_root" sequence="2"/>
         <menuitem name="Individuals" id="hc_base.menu_id_ind" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Groups" id="hc_base.menu_id_grp" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="2"/>
-        <menuitem name="Entities" id="hc_base.menu_id_ent" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="3"/>
+        <menuitem name="Entities" id="hc_base.menu_id_ent" parent="hc_base.menu_id" sequence="3"/>
         <menuitem name="Devices" id="hc_base.menu_id_dev" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="4"/>
     
     <menuitem name="Workflow" id="hc_base.menu_work" parent="hc_base.menu_root" sequence="3"/>
@@ -152,13 +152,14 @@
 
     <!-- Annotation Views -->                 
                   
-    <record id="hc_base.hc_annotation_view_search" model="ir.ui.view">                  
+   <!--  <record id="hc_base.hc_annotation_view_search" model="ir.ui.view">                  
       <field name="name">hc_annotation_view_search</field>                
       <field name="model">hc.annotation</field>               
       <field name="arch" type="xml">                
         <search string="Annotations">             
           <field name="name"/>           
-          <field name="author"/>            
+          <field name="author_type"/>
+          <field name="author_id"/>            
           <field name="recorded_date"/>           
         </search>             
       </field>                
@@ -169,7 +170,8 @@
       <field name="arch" type="xml">                
         <tree string="Annotations">             
           <field name="name"/>            
-          <field name="author"/>            
+          <field name="author_type"/>
+          <field name="author_id"/>            
           <field name="recorded_date"/>           
         </tree>             
       </field>                
@@ -187,7 +189,8 @@
             </div>          
             <group>         
               <group>       
-                <field name="author"/>      
+                <field name="author_id"/>
+                <field name="author_type"/>          
                 <field name="recorded_date"/>     
               </group>        
               <group>       
@@ -196,11 +199,11 @@
           </sheet>            
         </form>             
       </field>                
-    </record>                 
+    </record>                  -->
                       
     <!-- Annotation Action and Menu -->                 
                       
-    <record id="hc_base.hc_annotation_action" model="ir.actions.act_window">                  
+    <!-- <record id="hc_base.hc_annotation_action" model="ir.actions.act_window">                  
       <field name="name">Annotation</field>               
       <field name="type">ir.actions.act_window</field>                
       <field name="res_model">hc.annotation</field>               
@@ -208,11 +211,11 @@
       <field name="view_mode">tree,form</field>               
     </record>
 
-    <menuitem name="Annotation" id="hc_base.menu_anno" parent="hc_base.menu_datatype" action="hc_base.hc_annotation_action" sequence="20"/>
+    <menuitem name="Annotation" id="hc_base.menu_anno" parent="hc_base.menu_datatype" action="hc_base.hc_annotation_action" sequence="20"/> -->
 
         <!-- Attachment Views -->           
             
-    <record id="hc_base.hc_attachment_view_search" model="ir.ui.view">            
+    <!-- <record id="hc_base.hc_attachment_view_search" model="ir.ui.view">            
       <field name="name">hc_attachment_view_search</field>          
       <field name="model">hc.attachment</field>         
       <field name="arch" type="xml">          
@@ -256,11 +259,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>            -->
                 
     <!-- Attachment Action and Menu -->           
                 
-    <record id="hc_base.hc_attachment_action" model="ir.actions.act_window">            
+    <!-- <record id="hc_base.hc_attachment_action" model="ir.actions.act_window">            
       <field name="name">Attachment</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.attachment</field>         
@@ -269,7 +272,7 @@
     </record>
 
     <menuitem name="Attachment" id="hc_base.menu_attach" parent="hc_base.menu_datatype" sequence="30"/>
-    <menuitem name="Attachments" id="hc_base.menu_attach_attach" parent="hc_base.menu_datatype" action="hc_base.hc_attachment_action" sequence="10"/>
+    <menuitem name="Attachments" id="hc_base.menu_attach_attach" parent="hc_base.menu_datatype" action="hc_base.hc_attachment_action" sequence="10"/> -->
        
     <!-- explicit list view definition -->
 
@@ -329,7 +332,7 @@
 
     <!-- Address Views -->
 
-    <record id="hc_base.hc_address_view_search" model="ir.ui.view">
+<!--     <record id="hc_base.hc_address_view_search" model="ir.ui.view">
       <field name="name">hc_address_view_search</field>
       <field name="model">hc.address</field>
       <field name="arch" type="xml">
@@ -359,7 +362,7 @@
           <field name="line1" string="Street"/>
           <field name="city_id"/>
           <field name="postal_code_id"/>
-          <field name="district_id" string="District/County"/>
+          <field name="district_id"/>
           <field name="state_id"/>
           <field name="division_id"/>
           <field name="region_id"/>
@@ -397,26 +400,26 @@
           </sheet>
         </form>
       </field>
-    </record>
+    </record> -->
 
     <!-- Address Action -->   
     
-      <record id="hc_base.hc_address_action" model="ir.actions.act_window">
+<!--       <record id="hc_base.hc_address_action" model="ir.actions.act_window">
         <field name="name">Addresses</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hc.address</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-      </record>
+      </record> -->
     
     <!-- Address Menu Item -->
 
-    <menuitem name="Address" id="hc_base.menu_addr" parent="hc_base.menu_datatype" sequence="10"/>
+<!--     <menuitem name="Address" id="hc_base.menu_addr" parent="hc_base.menu_datatype" sequence="10"/>
     <menuitem name="Addresses" id="hc_base.menu_addr_addr" parent="hc_base.menu_addr" action="hc_base.hc_address_action" sequence="10"/>
-
+ -->
     <!-- Postal Code Views -->
 
-    <record id="hc_base.hc_vs_country_postal_code_view_search" model="ir.ui.view">      
+<!--     <record id="hc_base.hc_vs_country_postal_code_view_search" model="ir.ui.view">      
       <field name="name">hc_vs_country_postal_code_view_search</field>    
       <field name="model">hc.vs.country.postal.code</field>   
       <field name="arch" type="xml">    
@@ -476,11 +479,11 @@
           </sheet>    
         </form>     
       </field>        
-    </record>         
+    </record> -->         
 
     <!-- Postal Code Action and Menu--> 
 
-    <record id="hc_base.hc_vs_country_postal_code_action" model="ir.actions.act_window">  
+<!--     <record id="hc_base.hc_vs_country_postal_code_action" model="ir.actions.act_window">  
       <field name="name">Postal Code</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">hc.vs.country.postal.code</field>
@@ -488,11 +491,11 @@
       <field name="view_mode">tree,form</field>
     </record> 
 
-    <menuitem name="Postal Codes" id="hc_base.menu_addr_post" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_postal_code_action" sequence="20"/>
+    <menuitem name="Postal Codes" id="hc_base.menu_addr_post" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_postal_code_action" sequence="20"/> -->
 
     <!-- City Views -->           
               
-    <record id="hc_base.hc_vs_country_city_view_search" model="ir.ui.view">           
+<!--     <record id="hc_base.hc_vs_country_city_view_search" model="ir.ui.view">           
       <field name="name">hc_vs_country_city_view_search</field>         
       <field name="model">hc.vs.country.city</field>          
       <field name="arch" type="xml">          
@@ -584,21 +587,9 @@
           <field name="country_id"/>     
         </tree>       
       </field>          
-    </record>
-
-<!--     <record id="hc_base.hc_vs_country_city_type_view_form" model="ir.ui.view">          
-      <field name="name">hc_vs_country_city_type_view_form</field>        
-      <field name="model">hc.vs.country.city.type</field>
-      <field name="inherit_id" ref="hc_base.hc_value_set_contains_view_form"/>     
-      <field name="arch" type="xml">
-        <field name="name" default_focus="1" placeholder="City, Town, Village"/>
-        <field name="system" position="after">  
-          <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>
-        </field>
-      </field>
     </record> -->
 
-    <record id="hc_base.hc_vs_country_city_type_view_form" model="ir.ui.view">            
+<!--     <record id="hc_base.hc_vs_country_city_type_view_form" model="ir.ui.view">            
       <field name="name">hc_vs_country_city_type_view_form</field>          
       <field name="model">hc.vs.country.city.type</field>         
       <field name="arch" type="xml">          
@@ -627,12 +618,12 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>  -->          
        
 
     <!-- City Action and Menu --> 
 
-    <record id="hc_base.hc_vs_country_city_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.hc_vs_country_city_action" model="ir.actions.act_window">           
       <field name="name">City</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.vs.country.city</field>          
@@ -658,11 +649,11 @@
     
     <menuitem name="Cities" id="hc_base.menu_addr_city" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_city_action" sequence="30"/>
     <menuitem name="City Type" id="hc_base.menu_addr_city_type" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_city_type_action" sequence="31"/>
-    <menuitem name="City Status" id="hc_base.menu_addr_city_status" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_city_status_action" sequence="32"/>
+    <menuitem name="City Status" id="hc_base.menu_addr_city_status" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_city_status_action" sequence="32"/> -->
 
     <!-- City/Place Functional Status Views -->     
       
-    <record id="hc_base.hc_vs_country_city_status_view_search" model="ir.ui.view">      
+<!--     <record id="hc_base.hc_vs_country_city_status_view_search" model="ir.ui.view">      
       <field name="name">hc_vs_country_city_status_view_search</field>    
       <field name="model">hc.vs.country.city.status</field>   
       <field name="arch" type="xml">    
@@ -684,11 +675,11 @@
           <field name="definition"/>
         </tree> 
       </field>    
-    </record>     
+    </record>  -->    
  
     <!-- District Views -->           
             
-    <record id="hc_base.hc_vs_country_district_view_search" model="ir.ui.view">           
+<!--     <record id="hc_base.hc_vs_country_district_view_search" model="ir.ui.view">           
       <field name="name">hc_vs_country_district_view_search</field>         
       <field name="model">hc.vs.country.district</field>          
       <field name="arch" type="xml">          
@@ -752,11 +743,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record> -->           
                 
     <!-- District Action and Menu -->           
                 
-    <record id="hc_base.hc_vs_country_district_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.hc_vs_country_district_action" model="ir.actions.act_window">           
       <field name="name">District</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.vs.country.district</field>          
@@ -764,11 +755,11 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="Districts" id="hc_base.menu_addr_dist" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_district_action" sequence="40"/>
+    <menuitem name="Districts" id="hc_base.menu_addr_dist" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_district_action" sequence="40"/> -->
 
     <!-- State Views -->
 
-    <record id="hc_base.res_country_state_view_search" model="ir.ui.view">           
+<!--     <record id="hc_base.res_country_state_view_search" model="ir.ui.view">           
       <field name="name">res_country_state_view_search</field>         
       <field name="model">res.country.state</field>          
       <field name="arch" type="xml">          
@@ -815,11 +806,11 @@
             <field name="region_id"/>
           </field>
       </field>    
-    </record>     
+    </record>  -->    
 
     <!-- State Action and Menu -->           
                 
-    <record id="hc_base.res_country_state_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.res_country_state_action" model="ir.actions.act_window">           
       <field name="name">State</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">res.country.state</field>          
@@ -827,11 +818,11 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="States" id="hc_base.menu_addr_state" parent="hc_base.menu_addr" action="hc_base.res_country_state_action" sequence="50"/>
+    <menuitem name="States" id="hc_base.menu_addr_state" parent="hc_base.menu_addr" action="hc_base.res_country_state_action" sequence="50"/> -->
 
     <!-- Division Views -->
 
-    <record id="hc_base.hc_vs_country_division_view_search" model="ir.ui.view">     
+<!--     <record id="hc_base.hc_vs_country_division_view_search" model="ir.ui.view">     
       <field name="name">hc_vs_country_division_view_search</field>   
       <field name="model">hc.vs.country.division</field>    
       <field name="arch" type="xml">    
@@ -892,11 +883,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>  -->          
 
     <!-- Division Action and Menu --> 
   
-    <record id="hc_base.hc_vs_country_division_action" model="ir.actions.act_window"> 
+<!--     <record id="hc_base.hc_vs_country_division_action" model="ir.actions.act_window"> 
       <field name="name">Division</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">hc.vs.country.division</field>
@@ -904,11 +895,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Divisions" id="hc_base.menu_addr_div" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_division_action" sequence="60"/>
+    <menuitem name="Divisions" id="hc_base.menu_addr_div" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_division_action" sequence="60"/> -->
 
     <!-- Region Views -->
 
-    <record id="hc_base.hc_vs_country_region_view_search" model="ir.ui.view">     
+<!--     <record id="hc_base.hc_vs_country_region_view_search" model="ir.ui.view">     
       <field name="name">hc_vs_country_region_view_search</field>   
       <field name="model">hc.vs.country.region</field>    
       <field name="arch" type="xml">    
@@ -961,11 +952,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>  -->          
 
     <!-- Region Action and Menu --> 
   
-    <record id="hc_base.hc_vs_country_region_action" model="ir.actions.act_window"> 
+<!--     <record id="hc_base.hc_vs_country_region_action" model="ir.actions.act_window"> 
       <field name="name">Region</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">hc.vs.country.region</field>
@@ -973,7 +964,7 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Regions" id="hc_base.menu_addr_reg" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_region_action" sequence="70"/>
+    <menuitem name="Regions" id="hc_base.menu_addr_reg" parent="hc_base.menu_addr" action="hc_base.hc_vs_country_region_action" sequence="70"/> -->
 
 
     <!-- Human Name Term Views -->            
@@ -1163,7 +1154,6 @@
       <field name="arch" type="xml">          
         <search string="Human Names">        
           <field name="name"/>      
-          <field name="use"/>     
         </search>       
       </field>          
     </record>           
@@ -1202,10 +1192,12 @@
               </group>  
               <group> 
                 <field name="use"/>
-                <field name="preferred_name"/>
+                <field name="preferred_name" placeholder="How you want to be addressed (e.g., Jack)"/>
                 <field name="previous_last_id"/>
-                <field name="mother_maiden_family_name_id" placeholder="If different from previous last name"/>
-                <field name="birth_family_name_id" placeholder="If different from current or previous last name"/>
+                <field name="mother_maiden_name_id"/>
+                <field name="birth_last_name_id" placeholder="If different from current or previous last name"/>
+                <field name="is_last_before_first" string="Display Order: Last Before First"/>
+                <field name="is_maiden_after_last" string="Display Order: Maiden After Last"/>
               </group>  
             </group>
           </sheet>      
@@ -1388,7 +1380,7 @@
             </div>    
             <group>   
               <group>
-                <field name="system"/>
+                <field name="system" widget="radio" colspan="1"/>
               </group>  
               <group> 
               </group>  

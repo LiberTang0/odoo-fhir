@@ -28,12 +28,16 @@
         'data/l10n_ph/country_pl.xml',
         'data/l10n_us/country_pl.xml',
         'data/l10n_us/res.country.state.csv',
-        'data/hc.vs.country.city.type.csv',
+        'data/l10n_us/hc.vs.country.city.type.csv',
         'views/views.xml',
+        'views/hc_address_views.xml',
+        'views/hc_annotation_views.xml',
+        'views/hc_attachment_views.xml',
         'views/templates.xml',    
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'demo/hc.vs.country.city.csv',
     ],
 }
