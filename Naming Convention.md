@@ -1,3 +1,7 @@
+##References
+* [Odoo Guidelines 9.0] (https://www.odoo.com/documentation/9.0/reference/guidelines.html)
+* [Python Guidelines] (https://www.python.org/dev/peps/pep-0008/)
+
 ##Module Name
 ```
 Pattern: hc_[FHIR_resource_name]
