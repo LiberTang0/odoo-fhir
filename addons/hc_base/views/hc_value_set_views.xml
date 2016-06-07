@@ -55,7 +55,7 @@
             <field name="view_mode">tree,form</field>         
         </record>
 
-
+        <menuitem id="hc_base.menu_val_set" name="Value Set Contains" parent="hc_base.menu_datatype" action="hc_base.hc_value_set_contains_action" sequence="1"/>
 
     </data>
 </openerp>
