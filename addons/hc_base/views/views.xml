@@ -3,7 +3,7 @@
 
       <!-- Value Set View --> 
 
-      <record id="hc_base.hc_value_set_contains_view_tree" model="ir.ui.view">           
+      <!-- <record id="hc_base.hc_value_set_contains_view_tree" model="ir.ui.view">           
         <field name="name">hc_value_set_contains_view_tree</field>         
         <field name="model">hc.value.set.contains</field>          
         <field name="arch" type="xml">          
@@ -43,22 +43,23 @@
             </sheet>      
           </form>       
         </field>          
-      </record>           
+      </record> -->           
                   
       <!-- Value Set Contains Action -->           
                   
-      <record id="hc_base.hc_value_set_contains_action" model="ir.actions.act_window">           
+      <!-- <record id="hc_base.hc_value_set_contains_action" model="ir.actions.act_window">           
         <field name="name">Value Set Contains</field>         
         <field name="type">ir.actions.act_window</field>          
         <field name="res_model">hc.value.set.contains</field>          
         <field name="view_type">form</field>          
         <field name="view_mode">tree,form</field>         
-      </record>  
+      </record> -->  
 
       <!-- Top menu item -->
 
-      <menuitem name="FHIR" 
+      <menuitem 
         id="hc_base.menu_root" 
+        name="FHIR"
         web_icon="hc_base,static/description/icon.png"
         sequence="1"/>
 
@@ -1148,7 +1149,7 @@
 
     <!-- Human Name Views -->           
                 
-    <!-- <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
+<!--     <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
       <field name="name">hc_human_name_view_search</field>          
       <field name="model">hc.human.name</field>         
       <field name="arch" type="xml">          
@@ -1203,9 +1204,9 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record> -->           
                 
-    <!-- Human Name Action and Menu -->           
+   <!--  Human Name Action and Menu  -->          
                 
 <!--     <record id="hc_base.hc_human_name_action" model="ir.actions.act_window">            
       <field name="name">Human Name</field>         
@@ -1217,7 +1218,7 @@
 
     <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_action" sequence="1"/> -->
 
-    <!-- Identifier Type Views -->            
+  <!--   Identifier Type Views       -->      
             
 <!--     <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
       <field name="name">hc_vs_identifier_type_view_search</field>          
@@ -1264,11 +1265,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record> -->           
+    </record>            -->
                 
     <!-- Identifier Type Action and Menu -->            
                 
-<!--     <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
+    <!-- <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
       <field name="name">Identifier Type</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.vs.identifier.type</field>         
@@ -1277,9 +1278,9 @@
     </record>           
 
     <menuitem name="Identifier" id="hc_base.menu_ident" parent="hc_base.menu_datatype" sequence="50"/>
-    <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/>
+    <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/> -->
 
-    <!-- Identifier Views -->           
+  <!--   Identifier Views   -->         
             
 <!--     <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
       <field name="name">hc_identifier_view_search</field>          
@@ -1330,7 +1331,7 @@
           </sheet>      
         </form>       
       </field>          
-    </record>  -->        
+    </record> -->         
                 
     <!-- Identifier Action and Menu -->           
                 
@@ -1344,7 +1345,7 @@
 
     <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/> -->
 
-    <!-- Telecom Views -->            
+   <!--  Telecom Views   -->          
             
 <!--     <record id="hc_base.hc_telecom_view_search" model="ir.ui.view">           
       <field name="name">hc_telecom_view_search</field>         
@@ -1388,11 +1389,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>   -->         
+    </record>      -->      
                 
     <!-- Telecom Action and Menu -->            
                 
-<!--     <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
+<!-- <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
       <field name="name">Telecom</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.telecom</field>          
