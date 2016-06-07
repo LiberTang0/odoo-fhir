@@ -139,14 +139,23 @@ exit
 ```
 
 ##Synching fork with master
+
+* Go to local repository (e.g., /odoo/odoo-fhir)
+```
+cd /odoo/odoo-fhir
+```
+* Add master repository to upstream and check if added
 ```
 sudo git remote add upstream https://github.com/luigisison/odoo-fhir.git
-sudo git remote -v (CHeck if added)
+sudo git remote -v
 ```
-* Be in local repository in terminal
+* Fetch master repository and then checkout local master
 ```
 sudo git fetch upstream
 sudo git checkout master
+```
+* Combine the changes from the master repository with your local one, then push the changes
+```
 sudo git merge upstream/master
 sudo git push origin master
 sudo git push origin master
