@@ -146,3 +146,4 @@ sudo git fetch upstream
 sudo git checkout master
 sudo git merge upstream/master
 sudo git push origin master
+sudo git push origin master
