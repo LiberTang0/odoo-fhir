@@ -2,6 +2,22 @@
 * [Odoo Guidelines 9.0] (https://www.odoo.com/documentation/9.0/reference/guidelines.html)
 * [Python Guidelines] (https://www.python.org/dev/peps/pep-0008/)
 
+## Directories
+
+* Mandatory
+
+  * *data/* : demo and data xml
+  * *models/* : models definition
+  * *controllers/* : contains controllers (HTTP routes).
+  * *views/* : contains the views and templates
+  * *static/* : contains the web assets, separated into *css/*, *js/*, *img/*, *lib/*, ...
+
+* Optional
+
+  * *wizard/* : regroups the transient models (formerly osv_memory) and their views.
+  * *report/* : contains the reports (RML report [deprecated], models based on SQL views (for reporting) and other complex reports). Python objects and XML views are included in this directory.
+  * *tests/* : contains the Python/YML tests
+
 ##Module Name
 ```
 Pattern: hc_[FHIR_resource_name]
