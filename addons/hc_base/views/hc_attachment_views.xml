@@ -27,7 +27,7 @@
             </field>          
         </record>           
         
-        record id="hc_base.hc_attachment_view_form" model="ir.ui.view">            
+        <record id="hc_base.hc_attachment_view_form" model="ir.ui.view">            
             <field name="name">hc_attachment_view_form</field>          
             <field name="model">hc.attachment</field>         
             <field name="arch" type="xml">          

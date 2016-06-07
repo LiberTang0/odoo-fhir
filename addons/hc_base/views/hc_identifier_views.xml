@@ -1,1 +1,134 @@
-xx
+<openerp>
+    <data>
+
+        <!-- Identifier Type Views -->            
+            
+        <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
+          <field name="name">hc_vs_identifier_type_view_search</field>          
+          <field name="model">hc.vs.identifier.type</field>         
+          <field name="arch" type="xml">          
+            <search string="Identifier Types">        
+              <field name="name"/>      
+            </search>       
+          </field>          
+        </record>           
+                    
+        <record id="hc_base.hc_vs_identifier_type_view_tree" model="ir.ui.view">            
+          <field name="name">hc_vs_identifier_type_view_tree</field>          
+          <field name="model">hc.vs.identifier.type</field>         
+          <field name="arch" type="xml">          
+            <tree string="Identifier Types">        
+              <field name="name"/>      
+              <field name="code"/>      
+              <field name="system"/>      
+            </tree>       
+          </field>          
+        </record>           
+                    
+        <record id="hc_base.hc_vs_identifier_type_view_form" model="ir.ui.view">            
+          <field name="name">hc_vs_identifier_type_view_form</field>          
+          <field name="model">hc.vs.identifier.type</field>         
+          <field name="arch" type="xml">          
+            <form string="Identifier Type">       
+              <sheet>     
+                <div class="oe_title oe_left">    
+                  <h1>  
+                    <field name="name" default_focus="1"/>
+                  </h1> 
+                </div>    
+                <group>   
+                  <group> 
+                    <field name="code"/>
+                    <field name="system"/>
+                    <field name="definition"/>
+                  </group>  
+                  <group> 
+                  </group>  
+                </group>    
+              </sheet>      
+            </form>       
+          </field>          
+        </record>           
+                    
+        <!-- Identifier Type Action and Menu -->            
+                    
+        <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
+          <field name="name">Identifier Type</field>          
+          <field name="type">ir.actions.act_window</field>          
+          <field name="res_model">hc.vs.identifier.type</field>         
+          <field name="view_type">form</field>          
+          <field name="view_mode">tree,form</field>         
+        </record>           
+
+        <menuitem name="Identifier" id="hc_base.menu_ident" parent="hc_base.menu_datatype" sequence="50"/>
+        <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/>
+
+        <!-- Identifier Views -->           
+                
+        <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
+          <field name="name">hc_identifier_view_search</field>          
+          <field name="model">hc.identifier</field>         
+          <field name="arch" type="xml">          
+            <search string="Identifiers">       
+              <field name="name"/>      
+              <field name="type_id"/>     
+            </search>       
+          </field>          
+        </record>           
+                    
+        <record id="hc_base.hc_identifier_view_tree" model="ir.ui.view">            
+          <field name="name">hc_identifier_view_tree</field>          
+          <field name="model">hc.identifier</field>         
+          <field name="arch" type="xml">          
+            <tree string="Identifiers">       
+              <field name="name"/>      
+              <field name="type_id"/>     
+              <field name="country_id"/>      
+            </tree>       
+          </field>          
+        </record>           
+                    
+        <record id="hc_base.hc_identifier_view_form" model="ir.ui.view">            
+          <field name="name">hc_identifier_view_form</field>          
+          <field name="model">hc.identifier</field>         
+          <field name="arch" type="xml">          
+            <form string="Identifier">        
+              <sheet>     
+                <div class="oe_title oe_left">    
+                  <h1>  
+                    <field name="name" default_focus="1" placeholder="Name"/>
+                  </h1> 
+                </div>    
+                <group>   
+                  <group> 
+                    <field name="code"/>
+                    <field name="use"/>
+                    <field name="definition"/>
+                  </group>  
+                  <group> 
+                    <field name="type_id"/>
+                    <field name="system_uri"/>
+                    <field name="country_id"/>
+                  </group>  
+                </group>    
+              </sheet>      
+            </form>       
+          </field>          
+        </record>           
+                    
+        <!-- Identifier Action and Menu -->           
+                    
+        <record id="hc_base.hc_identifier_action" model="ir.actions.act_window">            
+          <field name="name">Identifier</field>         
+          <field name="type">ir.actions.act_window</field>          
+          <field name="res_model">hc.identifier</field>         
+          <field name="view_type">form</field>          
+          <field name="view_mode">tree,form</field>         
+        </record>           
+
+        <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/>
+            
+
+
+    </data>
+</openerp>

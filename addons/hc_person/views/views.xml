@@ -48,7 +48,7 @@
                             <page string="Names"/>         
                             <page string="Identifiers"/>         
                             <page string="Addresses" autofocus="autofocus">         
-                                <field name="address_ids" mode="tree">       odoo
+                                <field name="address_ids" mode="tree">
                                     <tree>      
                                         <field name="use" widget="radio"/>    
                                         <field name="is_preferred"/>    

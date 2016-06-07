@@ -969,7 +969,7 @@
 
     <!-- Human Name Term Views -->            
             
-    <record id="hc_base.hc_human_name_term_view_search" model="ir.ui.view">           
+    <!-- <record id="hc_base.hc_human_name_term_view_search" model="ir.ui.view">           
       <field name="name">hc_human_name_term_view_search</field>         
       <field name="model">hc.human.name.term</field>          
       <field name="arch" type="xml">          
@@ -1009,11 +1009,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>            -->
                 
     <!-- Human Name Term Action and Menu -->            
                 
-    <record id="hc_base.hc_human_name_term_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.hc_human_name_term_action" model="ir.actions.act_window">           
       <field name="name">Human Name Term</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.human.name.term</field>          
@@ -1023,11 +1023,11 @@
           
 
     <menuitem name="Human Name" id="hc_base.menu_human_name" parent="hc_base.menu_datatype" sequence="40"/>
-    <menuitem name="Terms" id="hc_base.menu_human_name_term" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_term_action" sequence="10"/>
+    <menuitem name="Terms" id="hc_base.menu_human_name_term" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_term_action" sequence="10"/> -->
 
     <!-- Human Name Suffix Views -->            
                 
-    <record id="hc_base.hc_suffix_human_name_view_search" model="ir.ui.view">           
+<!--     <record id="hc_base.hc_suffix_human_name_view_search" model="ir.ui.view">           
       <field name="name">hc_suffix_human_name_view_search</field>         
       <field name="model">hc.suffix.human.name</field>          
       <field name="arch" type="xml">          
@@ -1067,11 +1067,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>  -->          
                 
     <!-- Human Name Suffix Action and Menu -->            
                 
-    <record id="hc_base.hc_suffix_human_name_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.hc_suffix_human_name_action" model="ir.actions.act_window">           
       <field name="name">Human Name Suffix</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.suffix.human.name</field>          
@@ -1080,7 +1080,7 @@
     </record>           
 
 
-    <menuitem name="Suffixes" id="hc_base.menu_human_name_suffix" parent="hc_base.menu_human_name" action="hc_base.hc_suffix_human_name_action" sequence="20"/>
+    <menuitem name="Suffixes" id="hc_base.menu_human_name_suffix" parent="hc_base.menu_human_name" action="hc_base.hc_suffix_human_name_action" sequence="20"/> -->
 
     <!-- Human Name Given Views -->           
             
@@ -1148,7 +1148,7 @@
 
     <!-- Human Name Views -->           
                 
-    <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
+    <!-- <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
       <field name="name">hc_human_name_view_search</field>          
       <field name="model">hc.human.name</field>         
       <field name="arch" type="xml">          
@@ -1184,7 +1184,7 @@
               <group> 
                 <field name="prefix_ids" string="Prefix" widget="many2many_tags"/>
                 <field name="first_id" placeholder="Single term (e.g., John)"/>
-                <field name="middle_ids" placeholder="Zero or more terms" widget="many2many_tags"/>
+                <field name="middle_ids" placeholder="Other Given Names besides First Name" widget="many2many_tags"/>
                 <field name="initial_ids" placeholder="(e.g., O., E.V.)" widget="many2many_tags"/>
                 <field name="nickname_ids" widget="many2many_tags"/>
                 <field name="surname_id" string="Last/Family Name"/>
@@ -1207,7 +1207,7 @@
                 
     <!-- Human Name Action and Menu -->           
                 
-    <record id="hc_base.hc_human_name_action" model="ir.actions.act_window">            
+<!--     <record id="hc_base.hc_human_name_action" model="ir.actions.act_window">            
       <field name="name">Human Name</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.human.name</field>         
@@ -1215,11 +1215,11 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_action" sequence="1"/>
+    <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_action" sequence="1"/> -->
 
     <!-- Identifier Type Views -->            
             
-    <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
+<!--     <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
       <field name="name">hc_vs_identifier_type_view_search</field>          
       <field name="model">hc.vs.identifier.type</field>         
       <field name="arch" type="xml">          
@@ -1264,11 +1264,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record> -->           
                 
     <!-- Identifier Type Action and Menu -->            
                 
-    <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
+<!--     <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
       <field name="name">Identifier Type</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.vs.identifier.type</field>         
@@ -1281,7 +1281,7 @@
 
     <!-- Identifier Views -->           
             
-    <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
+<!--     <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
       <field name="name">hc_identifier_view_search</field>          
       <field name="model">hc.identifier</field>         
       <field name="arch" type="xml">          
@@ -1330,11 +1330,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>  -->        
                 
     <!-- Identifier Action and Menu -->           
                 
-    <record id="hc_base.hc_identifier_action" model="ir.actions.act_window">            
+    <!-- <record id="hc_base.hc_identifier_action" model="ir.actions.act_window">            
       <field name="name">Identifier</field>         
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.identifier</field>         
@@ -1342,11 +1342,11 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/>
+    <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/> -->
 
     <!-- Telecom Views -->            
             
-    <record id="hc_base.hc_telecom_view_search" model="ir.ui.view">           
+<!--     <record id="hc_base.hc_telecom_view_search" model="ir.ui.view">           
       <field name="name">hc_telecom_view_search</field>         
       <field name="model">hc.telecom</field>          
       <field name="arch" type="xml">          
@@ -1388,11 +1388,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record>   -->         
                 
     <!-- Telecom Action and Menu -->            
                 
-    <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
+<!--     <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
       <field name="name">Telecom</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.telecom</field>          
@@ -1400,7 +1400,7 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="Telecom" id="hc_base.menu_telecom" parent="hc_base.menu_datatype" action="hc_base.hc_telecom_action" sequence="60"/>
+    <menuitem name="Telecom" id="hc_base.menu_telecom" parent="hc_base.menu_datatype" action="hc_base.hc_telecom_action" sequence="60"/> -->
 
   </data>
 </openerp>
