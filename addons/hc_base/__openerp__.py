@@ -29,6 +29,7 @@
         'data/l10n_us/country_pl.xml',
         'data/l10n_us/res.country.state.csv',
         'data/l10n_us/hc.vs.country.city.type.csv',
+        'views/hc_value_set_views.xml',
         'views/views.xml',
         'views/hc_address_views.xml',
         'views/hc_annotation_views.xml',

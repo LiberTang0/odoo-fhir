@@ -3,7 +3,7 @@
 
       <!-- Value Set View --> 
 
-      <record id="hc_base.hc_value_set_contains_view_tree" model="ir.ui.view">           
+      <!-- <record id="hc_base.hc_value_set_contains_view_tree" model="ir.ui.view">           
         <field name="name">hc_value_set_contains_view_tree</field>         
         <field name="model">hc.value.set.contains</field>          
         <field name="arch" type="xml">          
@@ -43,29 +43,39 @@
             </sheet>      
           </form>       
         </field>          
-      </record>           
+      </record> -->           
                   
       <!-- Value Set Contains Action -->           
                   
-      <record id="hc_base.hc_value_set_contains_action" model="ir.actions.act_window">           
+      <!-- <record id="hc_base.hc_value_set_contains_action" model="ir.actions.act_window">           
         <field name="name">Value Set Contains</field>         
         <field name="type">ir.actions.act_window</field>          
         <field name="res_model">hc.value.set.contains</field>          
         <field name="view_type">form</field>          
         <field name="view_mode">tree,form</field>         
-      </record>  
+      </record> -->  
 
       <!-- Top menu item -->
 
-      <menuitem name="FHIR" 
+      <menuitem 
         id="hc_base.menu_root" 
+        name="FHIR"
         web_icon="hc_base,static/description/icon.png"
         sequence="1"/>
 
-        <menuitem name="Clinical" id="hc_base.menu_clinic" parent="hc_base.menu_root" sequence="1"/>
-            <menuitem name="General" id="hc_base.menu_clinic_gen" parent="hc_base.menu_clinic"  action="hc_base.hc_value_set_contains_action" sequence="1"/>
+        <menuitem id="hc_base.menu_clinic" name="Clinical" parent="hc_base.menu_root" sequence="10"/>
+            <menuitem id="hc_base.menu_clinic_gen" name="General" parent="hc_base.menu_clinic" sequence="10"/>
+                <!-- <menuitem id="hc_allergy_intolerance.menu_allergy" name="Allergy Intolerance" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="10"/>
+                <menuitem id="hc_condition.menu_cond" name="Condition" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="20"/>
+                <menuitem id="hc_procedure.menu_proc" name="Procedure" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="30"/>
+                <menuitem id="hc_family_member_history.menu_fam_hist" name="Family Member History" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="40"/>
+                <menuitem id="hc_clinical_impression.menu_clinic_imp" name="Clinical Impression" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="50"/>
+                <menuitem id="hc_detected_issue.menu_issue" name="Detected Issue" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="60"/> -->
+
+
+<!--             <menuitem name="General" id="hc_base.menu_clinic_gen" parent="hc_base.menu_clinic"  action="hc_base.hc_value_set_contains_action" sequence="1"/> -->
             
-<!--             <menuitem name="General" id="hc_base.menu_clinic_gen" parent="hc_base.menu_clinic" sequence="1"/>
+<!--           
                 <menuitem name="Allergy Intolerance" id="hc_allergy_intolerance.menu_allergy" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="1"/>
                 <menuitem name="Condition" id="hc_condition.menu_cond" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="2"/>
                 <menuitem name="Procedure" id="hc_procedure.menu_proc" parent="hc_base.menu_clinic_gen" action="hc_base.hc_value_set_contains_action" sequence="3"/>
@@ -105,30 +115,30 @@
                 <menuitem name="Imaging Excerpt" id="hc_imaging_excerpt.menu_image_excerpt" parent="hc_base.menu_clinic_diag" action="hc_base.hc_value_set_contains_action" sequence="8"/>
                 <menuitem name="Imaging Object Selection" id="hc_imaging_object_selection.menu_image_obj_sel" parent="hc_base.menu_clinic_diag" action="hc_base.hc_value_set_contains_action" sequence="9"/> -->
 
-    <menuitem name="Identification" id="hc_base.menu_id" parent="hc_base.menu_root" sequence="2"/>
+    <menuitem id="hc_base.menu_id" name="Identification" parent="hc_base.menu_root" sequence="20"/>
         <menuitem name="Individuals" id="hc_base.menu_id_ind" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Groups" id="hc_base.menu_id_grp" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Entities" id="hc_base.menu_id_ent" parent="hc_base.menu_id" sequence="3"/>
         <menuitem name="Devices" id="hc_base.menu_id_dev" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="4"/>
     
-    <menuitem name="Workflow" id="hc_base.menu_work" parent="hc_base.menu_root" sequence="3"/>
+    <menuitem id="hc_base.menu_work" name="Workflow" parent="hc_base.menu_root" sequence="30"/>
         <menuitem name="Patient Management" id="hc_base.menu_work_pat" parent="hc_base.menu_work" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Workflow" id="hc_base.menu_work_work" parent="hc_base.menu_work" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Decision Support/Quality Measurement" id="hc_base.menu_work_dsqm" parent="hc_base.menu_work" action="hc_base.hc_value_set_contains_action" sequence="3"/>
-        <menuitem name="Infrastructure" id="hc_base.menu_infra" parent="hc_base.menu_root" sequence="4"/>
-    
-    <menuitem name="Information Tracking" id="hc_base.menu_infra_info" parent="hc_base.menu_infra" action="hc_base.hc_value_set_contains_action" sequence="1"/>
+        
+    <menuitem id="hc_base.menu_infra" name="Infrastructure" parent="hc_base.menu_root" sequence="40"/>
+        <menuitem name="Information Tracking" id="hc_base.menu_infra_info" parent="hc_base.menu_infra" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Documents and Lists" id="hc_base.menu_infra_doc" parent="hc_base.menu_infra" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Structure" id="hc_base.menu_infra_struc" parent="hc_base.menu_infra" action="hc_base.hc_value_set_contains_action" sequence="3"/>
         <menuitem name="Exchange" id="hc_base.menu_infra_exch" parent="hc_base.menu_infra" action="hc_base.hc_value_set_contains_action" sequence="4"/>
     
-    <menuitem name="Conformance" id="hc_base.menu_conf" parent="hc_base.menu_root" sequence="5"/>
+    <menuitem id="hc_base.menu_conf" name="Conformance" parent="hc_base.menu_root" sequence="50"/>
         <menuitem name="Terminology" id="hc_base.menu_conf_term" parent="hc_base.menu_conf" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Content" id="hc_base.menu_conf_cont" parent="hc_base.menu_conf" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Operations Control" id="hc_base.menu_conf_ops" parent="hc_base.menu_conf" action="hc_base.hc_value_set_contains_action" sequence="3"/>
         <menuitem name="Miscellaneous" id="hc_base.menu_conf_misc" parent="hc_base.menu_conf" action="hc_base.hc_value_set_contains_action" sequence="4"/>
     
-    <menuitem name="Financial" id="hc_base.menu_fina" parent="hc_base.menu_root" sequence="6"/>
+    <menuitem id="hc_base.menu_fina" name="Financial" parent="hc_base.menu_root" sequence="60"/>
         <menuitem name="Support" id="hc_base.menu_fina_sup" parent="hc_base.menu_fina" action="hc_base.hc_value_set_contains_action" sequence="1"/>
         <menuitem name="Billing" id="hc_base.menu_fina_bill" parent="hc_base.menu_fina" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Payment" id="hc_base.menu_fina_pmt" parent="hc_base.menu_fina" action="hc_base.hc_value_set_contains_action" sequence="3"/>
@@ -136,19 +146,7 @@
     
     <!--<menuitem name="ERP" id="hc_base.menu_erp" parent="hc_base.menu_root" sequence="7"/>-->
     
-    <menuitem name="Data Type" id="hc_base.menu_datatype" parent="hc_base.menu_root" sequence="7"/>
-
-  
-    <!-- menu categories -->
-  
-    <!-- <menuitem name="Administrative" id="hc_base.administrative" parent="hc_base.menu_root"sequence="2"/>    
-    <menuitem name="Clinical" id="hc_base.clinical" parent="hc_base.menu_root" sequence="3"/> 
-    <menuitem name="Financial" id="hc_base.financial" parent="hc_base.menu_root" sequence="4"/>
-    <menuitem name="Infrastructure" id="hc_base.infrastructure" parent="hc_base.menu_root" sequence="5"/>
-    <menuitem name="ERP" id="hc_base.erp" parent="hc_base.menu_root" sequence="6"/> -->
-
-
-    <menuitem name="Value Set Contains" id="hc_base.menu_addr_val_set" parent="hc_base.menu_datatype" action="hc_base.hc_value_set_contains_action" sequence="1"/>            
+    <menuitem id="hc_base.menu_datatype" name="Data Type" parent="hc_base.menu_root" sequence="70"/>            
 
     <!-- Annotation Views -->                 
                   
@@ -1148,7 +1146,7 @@
 
     <!-- Human Name Views -->           
                 
-    <!-- <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
+<!--     <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
       <field name="name">hc_human_name_view_search</field>          
       <field name="model">hc.human.name</field>         
       <field name="arch" type="xml">          
@@ -1203,9 +1201,9 @@
           </sheet>      
         </form>       
       </field>          
-    </record>           
+    </record> -->           
                 
-    <!-- Human Name Action and Menu -->           
+   <!--  Human Name Action and Menu  -->          
                 
 <!--     <record id="hc_base.hc_human_name_action" model="ir.actions.act_window">            
       <field name="name">Human Name</field>         
@@ -1217,7 +1215,7 @@
 
     <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_action" sequence="1"/> -->
 
-    <!-- Identifier Type Views -->            
+  <!--   Identifier Type Views       -->      
             
 <!--     <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
       <field name="name">hc_vs_identifier_type_view_search</field>          
@@ -1264,11 +1262,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record> -->           
+    </record>            -->
                 
     <!-- Identifier Type Action and Menu -->            
                 
-<!--     <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
+    <!-- <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
       <field name="name">Identifier Type</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.vs.identifier.type</field>         
@@ -1277,9 +1275,9 @@
     </record>           
 
     <menuitem name="Identifier" id="hc_base.menu_ident" parent="hc_base.menu_datatype" sequence="50"/>
-    <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/>
+    <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/> -->
 
-    <!-- Identifier Views -->           
+  <!--   Identifier Views   -->         
             
 <!--     <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
       <field name="name">hc_identifier_view_search</field>          
@@ -1330,7 +1328,7 @@
           </sheet>      
         </form>       
       </field>          
-    </record>  -->        
+    </record> -->         
                 
     <!-- Identifier Action and Menu -->           
                 
@@ -1344,7 +1342,7 @@
 
     <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/> -->
 
-    <!-- Telecom Views -->            
+   <!--  Telecom Views   -->          
             
 <!--     <record id="hc_base.hc_telecom_view_search" model="ir.ui.view">           
       <field name="name">hc_telecom_view_search</field>         
@@ -1388,11 +1386,11 @@
           </sheet>      
         </form>       
       </field>          
-    </record>   -->         
+    </record>      -->      
                 
     <!-- Telecom Action and Menu -->            
                 
-<!--     <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
+<!-- <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
       <field name="name">Telecom</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.telecom</field>          
