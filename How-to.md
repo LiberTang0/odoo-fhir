@@ -143,7 +143,7 @@ exit
 sudo git remote add upstream https://github.com/luigisison/odoo-fhir.git
 sudo git remote -v (CHeck if added)
 ```
-*Be in local repository in terminal
+* Be in local repository in terminal
 ```
 sudo git fetch upstream
 sudo git checkout master
