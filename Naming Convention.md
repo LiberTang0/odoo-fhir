@@ -2,6 +2,16 @@
 * [Odoo Guidelines 9.0] (https://www.odoo.com/documentation/9.0/reference/guidelines.html)
 * [Python Guidelines] (https://www.python.org/dev/peps/pep-0008/)
 
+##Model (Object) Name
+* Style: lower case terms separated by a dot `.`
+* Prefix: `hc.res` for all [FHIR Resources] (https://hl7-fhir.github.io/resourcelist.html)
+   * Example: *Patient* has model name `hc.res.patient`
+* Prefix: `hc.vs` for all [FHIR Value Set] (https://hl7-fhir.github.io/terminologies-valuesets.html) and other value sets
+   * Example: *PatientContactRelationship* has model name `hc.vs.patient.contact.relationship`
+* Prefix: `hc` for all [FHIR Data Types] (https://hl7-fhir.github.io/datatypes.html) objects which are not resources or value sets.
+  *  Example: *Address* data type has model name `hc.address`
+  *  Example: *Patient Contact* has model name `hc.patient.contact`
+
 ## Directories
 
 * Mandatory
@@ -19,20 +29,26 @@
   * *tests/* : contains the Python/YML tests
 
 ##Module Name
-```
-Pattern: hc_[FHIR_resource_name]
-FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
 
-Example: hc_patient
-```
+* Pattern: `hc_[FHIR_resource_name]`
+* FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
+* Example: `hc_patient`
+
+
+##File Name
+
+* Models
+  * Split by sets of models.
+  * models/*[main_model]*.py (e.g., hc_address.py)
+  * For example, `hc.address`, `hc.vs.country.postal.code` and `hc.vs.country.city` models are in the same file.
+  * models/*[inherited_main_model]*.py (e.g., inherited_hc_address.py)
 
 ##View ID
-```
-Pattern: [module_name].[object_name]_view_[view_type]
-Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: hc_base.hc_address_view_tree
-```
+* Pattern: `[module_name].[object_name]_view_[view_type]`
+* Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
+* Example: `hc_base.hc_address_view_tree`
+
 
 ##View Name
 ```
