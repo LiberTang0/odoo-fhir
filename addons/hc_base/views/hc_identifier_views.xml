@@ -3,8 +3,8 @@
 
         <!-- Identifier Type Views -->            
             
-        <record id="hc_base.hc_vs_identifier_type_view_search" model="ir.ui.view">            
-          <field name="name">hc_vs_identifier_type_view_search</field>          
+        <record id="hc_vs_identifier_type_view_search" model="ir.ui.view">            
+          <field name="name">Identifier Type Search</field>          
           <field name="model">hc.vs.identifier.type</field>         
           <field name="arch" type="xml">          
             <search string="Identifier Types">        
@@ -13,8 +13,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_vs_identifier_type_view_tree" model="ir.ui.view">            
-          <field name="name">hc_vs_identifier_type_view_tree</field>          
+        <record id="hc_vs_identifier_type_view_tree" model="ir.ui.view">            
+          <field name="name">Identifier Type Tree</field>          
           <field name="model">hc.vs.identifier.type</field>         
           <field name="arch" type="xml">          
             <tree string="Identifier Types">        
@@ -25,8 +25,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_vs_identifier_type_view_form" model="ir.ui.view">            
-          <field name="name">hc_vs_identifier_type_view_form</field>          
+        <record id="hc_vs_identifier_type_view_form" model="ir.ui.view">            
+          <field name="name">Identifier Type Form</field>          
           <field name="model">hc.vs.identifier.type</field>         
           <field name="arch" type="xml">          
             <form string="Identifier Type">       
@@ -52,7 +52,7 @@
                     
         <!-- Identifier Type Action and Menu -->            
                     
-        <record id="hc_base.hc_vs_identifier_type_action" model="ir.actions.act_window">            
+        <record id="hc_vs_identifier_type_action" model="ir.actions.act_window">            
           <field name="name">Identifier Type</field>          
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">hc.vs.identifier.type</field>         
@@ -61,12 +61,12 @@
         </record>           
 
         <menuitem name="Identifier" id="hc_base.menu_ident" parent="hc_base.menu_datatype" sequence="50"/>
-        <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_base.hc_vs_identifier_type_action" sequence="10"/>
+        <menuitem name="Identifier Types" id="hc_base.menu_ident_type" parent="hc_base.menu_ident" action="hc_vs_identifier_type_action" sequence="10"/>
 
         <!-- Identifier Views -->           
                 
-        <record id="hc_base.hc_identifier_view_search" model="ir.ui.view">            
-          <field name="name">hc_identifier_view_search</field>          
+        <record id="hc_identifier_view_search" model="ir.ui.view">            
+          <field name="name">Identifier Search</field>          
           <field name="model">hc.identifier</field>         
           <field name="arch" type="xml">          
             <search string="Identifiers">       
@@ -76,8 +76,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_identifier_view_tree" model="ir.ui.view">            
-          <field name="name">hc_identifier_view_tree</field>          
+        <record id="hc_identifier_view_tree" model="ir.ui.view">            
+          <field name="name">Identifier Tree</field>          
           <field name="model">hc.identifier</field>         
           <field name="arch" type="xml">          
             <tree string="Identifiers">       
@@ -88,8 +88,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_identifier_view_form" model="ir.ui.view">            
-          <field name="name">hc_identifier_view_form</field>          
+        <record id="hc_identifier_view_form" model="ir.ui.view">            
+          <field name="name">Identifier Form</field>          
           <field name="model">hc.identifier</field>         
           <field name="arch" type="xml">          
             <form string="Identifier">        
@@ -118,7 +118,7 @@
                     
         <!-- Identifier Action and Menu -->           
                     
-        <record id="hc_base.hc_identifier_action" model="ir.actions.act_window">            
+        <record id="hc_identifier_action" model="ir.actions.act_window">            
           <field name="name">Identifier</field>         
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">hc.identifier</field>         
@@ -126,7 +126,7 @@
           <field name="view_mode">tree,form</field>         
         </record>           
 
-        <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_base.hc_identifier_action" sequence="1"/>
+        <menuitem name="Identifiers" id="hc_base.menu_ident_ident" parent="hc_base.menu_ident" action="hc_identifier_action" sequence="1"/>
             
 
 

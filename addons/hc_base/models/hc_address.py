@@ -23,7 +23,7 @@ class CountryRegion(models.Model):
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(string="Region", help="A grouping of divisions (e.g. West and Midwest in the US).")
-    type_id = fields.Many2one(comodel_name="hc.vs.country.division.type", string="Region Type", help="Type of grouping of divisions (e.g. Region in the US).")
+    type_id = fields.Many2one(comodel_name="hc.vs.country.region.type", string="Region Type", help="Type of grouping of regions (e.g. Region in the US).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO-3166 3-letter code).")
 
 class CountryDivisionType(models.Model):    

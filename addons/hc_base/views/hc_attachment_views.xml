@@ -3,8 +3,8 @@
 
          <!-- Attachment Views -->           
                 
-        <record id="hc_base.hc_attachment_view_search" model="ir.ui.view">            
-            <field name="name">hc_attachment_view_search</field>          
+        <record id="hc_attachment_view_search" model="ir.ui.view">            
+            <field name="name">Attachment Search</field>          
             <field name="model">hc.attachment</field>         
             <field name="arch" type="xml">          
                 <search string="Attachments">       
@@ -15,8 +15,8 @@
             </field>          
         </record>           
         
-        <record id="hc_base.hc_attachment_view_tree" model="ir.ui.view">            
-            <field name="name">hc_attachment_view_tree</field>          
+        <record id="hc_attachment_view_tree" model="ir.ui.view">            
+            <field name="name">Attachment Tree</field>          
             <field name="model">hc.attachment</field>         
             <field name="arch" type="xml">          
             <tree string="Attachments">       
@@ -27,8 +27,8 @@
             </field>          
         </record>           
         
-        <record id="hc_base.hc_attachment_view_form" model="ir.ui.view">            
-            <field name="name">hc_attachment_view_form</field>          
+        <record id="hc_attachment_view_form" model="ir.ui.view">            
+            <field name="name">Attachment Form</field>          
             <field name="model">hc.attachment</field>         
             <field name="arch" type="xml">          
                 <form string="Attachment">        
@@ -53,7 +53,7 @@
                     
         <!-- Attachment Action and Menu -->           
                     
-        <record id="hc_base.hc_attachment_action" model="ir.actions.act_window">            
+        <record id="hc_attachment_action" model="ir.actions.act_window">            
             <field name="name">Attachment</field>         
             <field name="type">ir.actions.act_window</field>          
             <field name="res_model">hc.attachment</field>         
@@ -62,7 +62,7 @@
         </record>
 
         <menuitem name="Attachment" id="hc_base.menu_attach" parent="hc_base.menu_datatype" sequence="30"/>
-        <menuitem name="Attachments" id="hc_base.menu_attach_attach" parent="hc_base.menu_datatype" action="hc_base.hc_attachment_action" sequence="10"/>
+        <menuitem name="Attachments" id="hc_base.menu_attach_attach" parent="hc_base.menu_datatype" action="hc_attachment_action" sequence="10"/>
 
     </data>
 </openerp>

@@ -3,8 +3,8 @@
 
         <!-- Human Name Term Views -->            
             
-        <record id="hc_base.hc_human_name_term_view_search" model="ir.ui.view">           
-          <field name="name">hc_human_name_term_view_search</field>         
+        <record id="hc_human_name_term_view_search" model="ir.ui.view">           
+          <field name="name">Human Name Term Search</field>         
           <field name="model">hc.human.name.term</field>          
           <field name="arch" type="xml">          
             <search string="Human Name Terms">        
@@ -13,8 +13,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_human_name_term_view_tree" model="ir.ui.view">           
-          <field name="name">hc_human_name_term_view_tree</field>         
+        <record id="hc_human_name_term_view_tree" model="ir.ui.view">           
+          <field name="name">Human Name Term Tree</field>         
           <field name="model">hc.human.name.term</field>          
           <field name="arch" type="xml">          
             <tree string="Human Name Terms">        
@@ -23,8 +23,8 @@
           </field>          
         </record>           
                     
-        <record id="hc_base.hc_human_name_term_view_form" model="ir.ui.view">           
-          <field name="name">hc_human_name_term_view_form</field>         
+        <record id="hc_human_name_term_view_form" model="ir.ui.view">           
+          <field name="name">Human Name Term Form</field>         
           <field name="model">hc.human.name.term</field>          
           <field name="arch" type="xml">          
             <form string="Human Name Term">       
@@ -47,7 +47,7 @@
 
             <!-- Human Name Term Action and Menu -->            
                         
-            <record id="hc_base.hc_human_name_term_action" model="ir.actions.act_window">           
+            <record id="hc_human_name_term_action" model="ir.actions.act_window">           
               <field name="name">Human Name Term</field>          
               <field name="type">ir.actions.act_window</field>          
               <field name="res_model">hc.human.name.term</field>          
@@ -56,12 +56,12 @@
             </record>           
                   
             <menuitem name="Human Name" id="hc_base.menu_human_name" parent="hc_base.menu_datatype" sequence="40"/>
-            <menuitem name="Terms" id="hc_base.menu_human_name_term" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_term_action" sequence="10"/>
+            <menuitem name="Terms" id="hc_base.menu_human_name_term" parent="hc_base.menu_human_name" action="hc_human_name_term_action" sequence="10"/>
 
             <!-- Human Name Suffix Views -->            
                         
-            <record id="hc_base.hc_suffix_human_name_view_search" model="ir.ui.view">           
-              <field name="name">hc_suffix_human_name_view_search</field>         
+            <record id="hc_suffix_human_name_view_search" model="ir.ui.view">           
+              <field name="name">Human Name Suffix Search</field>         
               <field name="model">hc.suffix.human.name</field>          
               <field name="arch" type="xml">          
                 <search string="Human Name Suffixes">       
@@ -70,8 +70,8 @@
               </field>          
             </record>           
                         
-            <record id="hc_base.hc_suffix_human_name_view_tree" model="ir.ui.view">           
-              <field name="name">hc_suffix_human_name_view_tree</field>         
+            <record id="hc_suffix_human_name_view_tree" model="ir.ui.view">           
+              <field name="name">Human Name Suffix Tree</field>         
               <field name="model">hc.suffix.human.name</field>          
               <field name="arch" type="xml">          
                 <tree string="Human Name Suffixes">       
@@ -80,8 +80,8 @@
               </field>          
             </record>           
                         
-            <record id="hc_base.hc_suffix_human_name_view_form" model="ir.ui.view">           
-              <field name="name">hc_suffix_human_name_view_form</field>         
+            <record id="hc_suffix_human_name_view_form" model="ir.ui.view">           
+              <field name="name">Human Name Suffix Form</field>         
               <field name="model">hc.suffix.human.name</field>          
               <field name="arch" type="xml">          
                 <form string="Human Name Suffix">       
@@ -104,7 +104,7 @@
                         
             <!-- Human Name Suffix Action and Menu -->            
                         
-            <record id="hc_base.hc_suffix_human_name_action" model="ir.actions.act_window">           
+            <record id="hc_suffix_human_name_action" model="ir.actions.act_window">           
               <field name="name">Human Name Suffix</field>          
               <field name="type">ir.actions.act_window</field>          
               <field name="res_model">hc.suffix.human.name</field>          
@@ -112,12 +112,12 @@
               <field name="view_mode">tree,form</field>         
             </record>           
 
-            <menuitem name="Suffixes" id="hc_base.menu_human_name_suffix" parent="hc_base.menu_human_name" action="hc_base.hc_suffix_human_name_action" sequence="20"/>
+            <menuitem name="Suffixes" id="hc_base.menu_human_name_suffix" parent="hc_base.menu_human_name" action="hc_suffix_human_name_action" sequence="20"/>
 
             <!-- Human Name Views -->           
                 
-            <record id="hc_base.hc_human_name_view_search" model="ir.ui.view">            
-              <field name="name">hc_human_name_view_search</field>          
+            <record id="hc_human_name_view_search" model="ir.ui.view">            
+              <field name="name">Human Name Search</field>          
               <field name="model">hc.human.name</field>         
               <field name="arch" type="xml">          
                 <search string="Human Names">        
@@ -126,8 +126,8 @@
               </field>          
             </record>           
                         
-            <record id="hc_base.hc_human_name_view_tree" model="ir.ui.view">            
-              <field name="name">hc_human_name_view_tree</field>          
+            <record id="hc_human_name_view_tree" model="ir.ui.view">            
+              <field name="name">Human Name Tree</field>          
               <field name="model">hc.human.name</field>         
               <field name="arch" type="xml">          
                 <tree string="Human Names">        
@@ -137,8 +137,8 @@
               </field>          
             </record>           
                         
-            <record id="hc_base.hc_human_name_view_form" model="ir.ui.view">            
-              <field name="name">hc_human_name_view_form</field>          
+            <record id="hc_human_name_view_form" model="ir.ui.view">            
+              <field name="name">Human Name Form</field>          
               <field name="model">hc.human.name</field>         
               <field name="arch" type="xml">          
                 <form string="Human Name">        
@@ -175,7 +175,7 @@
                         
             <!-- Human Name Action and Menu -->           
                         
-            <record id="hc_base.hc_human_name_action" model="ir.actions.act_window">            
+            <record id="hc_human_name_action" model="ir.actions.act_window">            
               <field name="name">Human Name</field>         
               <field name="type">ir.actions.act_window</field>          
               <field name="res_model">hc.human.name</field>         
@@ -183,7 +183,7 @@
               <field name="view_mode">tree,form</field>         
             </record>           
 
-            <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_base.hc_human_name_action" sequence="1"/>
+            <menuitem name="Human Names" id="hc_base.menu_human_name_name" parent="hc_base.menu_human_name" action="hc_human_name_action" sequence="1"/>
     
     </data>
 </openerp>

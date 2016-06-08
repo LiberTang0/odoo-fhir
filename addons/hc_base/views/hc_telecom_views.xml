@@ -3,8 +3,8 @@
 
 <!-- Telecom Views -->            
             
-    <record id="hc_base.hc_telecom_view_search" model="ir.ui.view">           
-      <field name="name">hc_telecom_view_search</field>         
+    <record id="hc_telecom_view_search" model="ir.ui.view">           
+      <field name="name">Telecom Search</field>         
       <field name="model">hc.telecom</field>          
       <field name="arch" type="xml">          
         <search string="Telecoms">        
@@ -13,8 +13,8 @@
       </field>          
     </record>           
                 
-    <record id="hc_base.hc_telecom_view_tree" model="ir.ui.view">           
-      <field name="name">hc_telecom_view_tree</field>         
+    <record id="hc_telecom_view_tree" model="ir.ui.view">           
+      <field name="name">Telecom Tree</field>         
       <field name="model">hc.telecom</field>          
       <field name="arch" type="xml">          
         <tree string="Telecoms">        
@@ -24,8 +24,8 @@
       </field>          
     </record>           
                 
-    <record id="hc_base.hc_telecom_view_form" model="ir.ui.view">           
-      <field name="name">hc_telecom_view_form</field>         
+    <record id="hc_telecom_view_form" model="ir.ui.view">           
+      <field name="name">Telecom Form</field>         
       <field name="model">hc.telecom</field>          
       <field name="arch" type="xml">          
         <form string="Telecom">       
@@ -49,7 +49,7 @@
                 
     <!-- Telecom Action and Menu -->            
                 
-    <record id="hc_base.hc_telecom_action" model="ir.actions.act_window">           
+    <record id="hc_telecom_action" model="ir.actions.act_window">           
       <field name="name">Telecom</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.telecom</field>          
@@ -57,7 +57,7 @@
       <field name="view_mode">tree,form</field>         
     </record>           
 
-    <menuitem name="Telecom" id="hc_base.menu_telecom" parent="hc_base.menu_datatype" action="hc_base.hc_telecom_action" sequence="60"/>
+    <menuitem name="Telecom" id="hc_base.menu_telecom" parent="hc_base.menu_datatype" action="hc_telecom_action" sequence="60"/>
 
   </data>
 </openerp>

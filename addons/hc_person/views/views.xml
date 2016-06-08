@@ -1,8 +1,8 @@
 <openerp>
     <data>
       
-        <record id="hc_base.hc_res_person_view_search" model="ir.ui.view">        
-            <field name="name">hc_res_person_view_search</field>      
+        <record id="hc_res_person_view_search" model="ir.ui.view">        
+            <field name="name">Person Search</field>      
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <search string="Persons">   
@@ -11,8 +11,8 @@
             </field>      
         </record>       
                 
-        <record id="hc_base.hc_res_person_view_tree" model="ir.ui.view">        
-            <field name="name">hc_res_person_view_tree</field>      
+        <record id="hc_res_person_view_tree" model="ir.ui.view">        
+            <field name="name">Person Tree</field>      
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <tree string="Persons">   
@@ -23,8 +23,8 @@
             </field>      
         </record>       
 
-        <record id="hc_base.hc_res_person_view_form" model="ir.ui.view">                    
-            <field name="name">hc_res_person_view_form</field>                  
+        <record id="hc_res_person_view_form" model="ir.ui.view">                    
+            <field name="name">Person Form</field>                  
             <field name="model">hc.res.person</field>                 
             <field name="arch" type="xml">                  
                 <form string="Person">                
@@ -87,7 +87,7 @@
         </record>                   
 
         <record id="hc_person.hc_res_person_action" model="ir.actions.act_window">  
-            <field name="name">Person</field>
+            <field name="name">HC Persons</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.res.person</field>
             <field name="view_type">form</field>

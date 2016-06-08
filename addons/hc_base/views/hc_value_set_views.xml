@@ -3,8 +3,8 @@
 
     	<!-- Value Set View --> 
 
-        <record id="hc_base.hc_value_set_contains_view_tree" model="ir.ui.view">           
-            <field name="name">hc_value_set_contains_view_tree</field>         
+        <record id="hc_value_set_contains_view_tree" model="ir.ui.view">           
+            <field name="name">Value Set Tree</field>         
             <field name="model">hc.value.set.contains</field>          
             <field name="arch" type="xml">          
                   <tree string="Value Set Contains">       
@@ -15,8 +15,8 @@
             </field>          
         </record>           
                   
-        <record id="hc_base.hc_value_set_contains_view_form" model="ir.ui.view">           
-            <field name="name">hc_value_set_contains_view_form</field>         
+        <record id="hc_value_set_contains_view_form" model="ir.ui.view">           
+            <field name="name">Value Set Form</field>         
             <field name="model">hc.value.set.contains</field>          
             <field name="arch" type="xml">          
                 <form string="Value Set Contains">        
@@ -47,7 +47,7 @@
                   
         <!-- Value Set Contains Action -->           
                   
-        <record id="hc_base.hc_value_set_contains_action" model="ir.actions.act_window">           
+        <record id="hc_value_set_contains_action" model="ir.actions.act_window">           
             <field name="name">Value Set Contains</field>         
             <field name="type">ir.actions.act_window</field>          
             <field name="res_model">hc.value.set.contains</field>          
@@ -55,7 +55,7 @@
             <field name="view_mode">tree,form</field>         
         </record>
 
-        <menuitem id="hc_base.menu_val_set" name="Value Set Contains" parent="hc_base.menu_datatype" action="hc_base.hc_value_set_contains_action" sequence="1"/>
+        <menuitem id="hc_base.menu_val_set" name="Value Set Contains" parent="hc_base.menu_datatype" action="hc_value_set_contains_action" sequence="1"/>
 
     </data>
 </openerp>
