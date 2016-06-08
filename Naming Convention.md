@@ -34,43 +34,38 @@
 * FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
 * Example: `hc_patient`
 
-
 ##File Name
 
 * Models
   * Split by sets of models.
-  * models/*[main_model]*.py (e.g., hc_address.py)
+  * models/*[main_model]*.py* (e.g., hc_address.py)
   * For example, `hc.address`, `hc.vs.country.postal.code` and `hc.vs.country.city` models are in the same file.
   * models/*[inherited_main_model]*.py (e.g., inherited_hc_address.py)
 
 ##View ID
 
-* Pattern: `[module_name].[object_name]_view_[view_type]`
+* Pattern: `[object_name]_view_[view_type]`
 * Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
-* Example: `hc_base.hc_address_view_tree`
+* Example: `hc_address_view_tree`
 
 
 ##View Name
-```
-Pattern: [object_description] [view_type]
-Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: Address Tree
-```
+* Style: Proper
+* Pattern: `[object_description] [view_type]`
+* Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
+* Examples: `Address Tree`, `Address Form`
 
 ##Action ID
-```
-Pattern for main action: [module_name].[object_name]_action
-Pattern for other actions: [module_name].[object_name]_action_[detail]
 
-Example: hc_base.hc_address_action
-```
+* Pattern for main action: `[object_name]_action`
+* Pattern for other actions: `[object_name]_action_[detail]`
+* Example: `hc_base.hc_address_action`
 
 ##Action Name
-```
-Pattern: [Action Word] [object_description]
-Example: Configure Address
-```
+
+Pattern: Prefix `HC` + Plural form of `[object_description]`
+Example: `HC Addresses`
 
 ##Menu Item ID
 ```
