@@ -1,40 +1,71 @@
-##Module Name
-```
-Pattern: hc_[FHIR_resource_name]
-FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
+##References
+* [Odoo Guidelines 9.0] (https://www.odoo.com/documentation/9.0/reference/guidelines.html)
+* [Python Guidelines] (https://www.python.org/dev/peps/pep-0008/)
 
-Example: hc_patient
-```
+##Model (Object) Name
+* Style: lower case terms separated by a dot `.`
+* Prefix: `hc.res` for all [FHIR Resources] (https://hl7-fhir.github.io/resourcelist.html)
+   * Example: *Patient* has model name `hc.res.patient`
+* Prefix: `hc.vs` for all [FHIR Value Set] (https://hl7-fhir.github.io/terminologies-valuesets.html) and other value sets
+   * Example: *PatientContactRelationship* has model name `hc.vs.patient.contact.relationship`
+* Prefix: `hc` for all [FHIR Data Types] (https://hl7-fhir.github.io/datatypes.html) objects which are not resources or value sets.
+  *  Example: *Address* data type has model name `hc.address`
+  *  Example: *Patient Contact* has model name `hc.patient.contact`
+
+## Directories
+
+* Mandatory
+
+  * *data/* : demo and data xml
+  * *models/* : models definition
+  * *controllers/* : contains controllers (HTTP routes).
+  * *views/* : contains the views and templates
+  * *static/* : contains the web assets, separated into *css/*, *js/*, *img/*, *lib/*, ...
+
+* Optional
+
+  * *wizard/* : regroups the transient models (formerly osv_memory) and their views.
+  * *report/* : contains the reports (RML report [deprecated], models based on SQL views (for reporting) and other complex reports). Python objects and XML views are included in this directory.
+  * *tests/* : contains the Python/YML tests
+
+##Module Name
+
+* Pattern: `hc_[FHIR_resource_name]`
+* FHIR_resource_name in https://hl7-fhir.github.io/resourcelist.html
+* Example: `hc_patient`
+
+##File Name
+
+* Models
+  * Split by sets of models.
+  * models/*[main_model]*.py* (e.g., hc_address.py)
+  * For example, `hc.address`, `hc.vs.country.postal.code` and `hc.vs.country.city` models are in the same file.
+  * models/*[inherited_main_model]*.py (e.g., inherited_hc_address.py)
 
 ##View ID
-```
-Pattern: [module_name].[object_name]_view_[view_type]
-Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: hc_base.hc_address_view_tree
-```
+* Pattern: `[object_name]_view_[view_type]`
+* Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
+* Example: `hc_address_view_tree`
+
 
 ##View Name
-```
-Pattern: [object_description] [view_type]
-Where view_type is {tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}
 
-Example: Address Tree
-```
+* Style: Proper
+* Pattern: `[object_description] [view_type]`
+* Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
+* Examples: `Address Tree`, `Address Form`
 
 ##Action ID
-```
-Pattern for main action: [module_name].[object_name]_action
-Pattern for other actions: [module_name].[object_name]_action_[detail]
 
-Example: hc_base.hc_address_action
-```
+* Pattern for main action: `[object_name]_action`
+* Pattern for other actions: `[object_name]_action_[detail]`
+* Example: `hc_base.hc_address_action`
 
 ##Action Name
-```
-Pattern: [Action Word] [object_description]
-Example: Configure Address
-```
+
+Pattern: Prefix `HC` + Plural form of `[object_description]`
+Example: `HC Addresses`
 
 ##Menu Item ID
 ```
