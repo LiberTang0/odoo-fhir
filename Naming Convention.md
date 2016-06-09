@@ -80,7 +80,7 @@ Example: Addresses
 ```
 
 ##Tree (List) View
-```
+```html
 <!-- List View -->
 <record id="[View ID]" model="ir.ui.view">
   <field name="name">[View Name]</field>
@@ -93,7 +93,7 @@ Example: Addresses
     </tree>
 ```
 ##Form View
-```
+```html
 <!-- Form View -->
 <record id="[View ID]" model="ir.ui.view">
   <field name="name">[View Name]</field>
@@ -121,7 +121,7 @@ Example: Addresses
 </record>
 ```
 ##Business Document Form View
-```
+```html
 <!-- Business Document Form View -->
 <form>
   <header>
@@ -135,7 +135,7 @@ Example: Addresses
 </form>
 ```
 ##Button Name
-```
+```html
 Pattern: do_[action]_done
 Example: do_toggle_done
 Example: do_clear_done
@@ -152,7 +152,7 @@ Example: do_clear_done
 ```
 
 ##Kanban View
-```
+```html
 <!-- Kanban View  -->
 <record id="[View ID]" model="ir.ui.view">
   <field name="name">[View Name]</field>
@@ -196,7 +196,7 @@ Example: do_clear_done
 ```
 
 ##Calendar View
-```
+```html
 <!-- Calendar View -->
 <record id="view_[object_name]_calendar" model="ir.ui.view">
 <field name="name">[object.name].calendar</field>
@@ -214,7 +214,7 @@ Example: do_clear_done
 ```
 
 ##Graph View
-```
+```html
 <!-- Graph View -->
 <record id="view_[object_name]_graph" model="ir.ui.view">
 <field name="name">[object.name].graph</field>
@@ -232,7 +232,7 @@ Example: do_clear_done
 ```
 
 ##Pivot View
-```
+```html
 <!-- Pivot View -->
 <record model="ir.ui.view" id="view_sale_order_pivot">
   <field name="name">sale.order.pivot</field>
@@ -250,8 +250,7 @@ Example: do_clear_done
 ```
 
 ##Group Name
-```
-Pattern: [model_name]_group_[group_name]
-Where group_name may be {user,manager,administrator, etc.}
-Example: hc_base_group_user
-```
+
+* Pattern: `[model_name]_group_[group_name]`
+* Where group_name may be `{user,manager,administrator, etc.}` 
+* Example: `hc_base_group_user`
