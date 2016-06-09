@@ -48,7 +48,6 @@
 * Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
 * Example: `hc_address_view_tree`
 
-
 ##View Name
 
 * Style: Proper
@@ -56,13 +55,14 @@
 * Where `view_type` is `{tree,form,kanban,search,calendar,qweb,diagram,gantt,graph,pivot}`
 * Examples: `Address Tree`, `Address Form`
 
-##Action ID
+##Action
+###Action ID
 
 * Pattern for main action: `[object_name]_action`
 * Pattern for other actions: `[object_name]_action_[detail]`
 * Example: `hc_base.hc_address_action`
 
-##Action Name
+###Action Name
 
 * Pattern: Prefix `HC` + Plural form of `[object_description]`
 * Example: `HC Addresses`
