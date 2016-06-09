@@ -64,19 +64,40 @@
 
 ##Action Name
 
-Pattern: Prefix `HC` + Plural form of `[object_description]`
-Example: `HC Addresses`
+* Pattern: Prefix `HC` + Plural form of `[object_description]`
+* Example: `HC Addresses`
 
-##Menu Item ID
+
+##Group
+###Group ID
+
+* Pattern: `[model_name]_group_[group_name]`
+* Where group_name may be `{user,manager,administrator, etc.}` 
+* Example: `hc_base_group_user`
+
+##Menu
+###Menu Item ID
 ```
 Pattern: [module_name]_menu_[short_menu_object_name]
 Example: hc_base_menu_clinic
 ```
 
-##Menu Item Name
+###Menu Item Name
 ```
 Pattern: [object_description] plural form
 Example: Addresses
+```
+###Menu XML
+```html
+<menuitem 
+        id="[module_name]_menu_[short_menu_object_name]" 
+        name="[object_description] plural form"
+        parent="[module_name]_menu_[short_menu_object_name]"
+        action="[object_name]_action"
+        icon="[module_name],static/description/icon.png"
+        web_icon="[module_name],static/description/icon.png"
+        groups="[model_name]_group_[group_name]"
+        sequence="1"/>
 ```
 
 ##Tree (List) View
@@ -249,8 +270,3 @@ Example: do_clear_done
 </record>
 ```
 
-##Group Name
-
-* Pattern: `[model_name]_group_[group_name]`
-* Where group_name may be `{user,manager,administrator, etc.}` 
-* Example: `hc_base_group_user`
