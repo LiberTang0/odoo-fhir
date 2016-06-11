@@ -28,7 +28,7 @@
         'data/l10n_ph/country_pl.xml',
         'data/l10n_us/country_pl.xml',
         'data/l10n_us/res.country.state.csv',
-        'data/l10n_us/hc.vs.country.city.type.csv',
+        # 'data/l10n_us/hc.vs.country.city.type.csv',
         'views/hc_value_set_views.xml',
         'views/views.xml',
         'views/hc_address_views.xml',
@@ -42,6 +42,6 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-        'demo/hc.vs.country.city.csv',
+        # 'demo/hc.vs.country.city.csv',
     ],
 }

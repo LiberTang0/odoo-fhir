@@ -152,6 +152,61 @@
           </field>        
         </record>         
 
+        <!-- Country Postal/ZIP Code Type Views -->                             
+                                
+        <record id="hc_vs_country_postal_code_type_view_search" model="ir.ui.view">                             
+            <field name="name">Country Postal/ZIP Code Type Search</field>                          
+            <field name="model">hc.vs.country.postal.code.type</field>                          
+            <field name="arch" type="xml">                          
+                <search string="Postal/ZIP Code Types">                     
+                    <field name="name"/>                    
+                    <field name="country_id"/>                  
+                </search>                       
+            </field>                            
+        </record>                               
+        
+        <record id="hc_vs_country_postal_code_type_view_tree" model="ir.ui.view">                               
+            <field name="name">Country Postal/ZIP Code Type Tree</field>                            
+            <field name="model">hc.vs.country.postal.code.type</field>                          
+            <field name="arch" type="xml">                          
+                <tree string="Postal/ZIP Code Types">                                     
+                    <field name="name"/>                
+                    <field name="country_id"/>                              
+                </tree>                     
+            </field>                            
+        </record>                               
+        
+        <record id="hc_vs_country_postal_code_type_view_form" model="ir.ui.view">                               
+            <field name="name">Country Postal/ZIP Code Type Form</field>                            
+            <field name="model">hc.vs.country.postal.code.type</field>                          
+            <field name="arch" type="xml">                          
+                <form string="Postal/ZIP Code Type">                        
+                    <sheet>                 
+                        <div class="oe_title oe_left">              
+                            <h1>            
+                                <field name="name" default_focus="1" placeholder="Name"/>       
+                            </h1>           
+                            <field name="code" placeholder="Code"/>         
+                        </div>              
+                        <group>             
+                            <group>         
+                                <field name="definition"/>      
+                                <field name="comments"/>        
+                                <field name="is_abstract" widget="upgrade_boolean"/>        
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>     
+                                <field name="version" placeholder="e.g., v2.5"/>        
+                            </group>            
+                            <group>         
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                                <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>       
+                            </group>            
+                        </group>                
+                    </sheet>                    
+                </form>                     
+            </field>                            
+        </record>                               
+
         <!-- Postal/ZIP Code Action and Menu--> 
 
         <record id="hc_vs_country_postal_code_action" model="ir.actions.act_window">  
@@ -163,6 +218,16 @@
         </record> 
 
         <menuitem name="Postal/ZIP Codes" id="hc_base.menu_addr_post" parent="hc_base.menu_addr" action="hc_vs_country_postal_code_action" sequence="20"/>
+
+        <record id="hc_vs_country_postal_code_type_action" model="ir.actions.act_window">   
+            <field name="name">HC Country Postal/ZIP Code Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.vs.country.postal.code.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>   
+
+        <menuitem id="hc_base.menu_addr_post_type" name="Postal/ZIP Code Types" parent="hc_base.menu_addr" action="hc_vs_country_postal_code_type_action" sequence="21"/>
 
         <!-- City Views -->           
                   
@@ -253,8 +318,8 @@
           <field name="model">hc.vs.country.city.type</field>          
           <field name="arch" type="xml">          
             <tree string="City/Place Types">
-              <field name="code"/>     
-              <field name="name"/>
+              <field name="name"/>     
+              <field name="code"/>
               <field name="country_id"/>     
             </tree>       
           </field>          
@@ -281,16 +346,42 @@
                     <field name="version" placeholder="e.g., v2.5"/>
                   </group>  
                   <group> 
-                    <field name="source" placeholder="e.g., U.S. Census Bureau"/>
-                    <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                    <field name="country_id"/>
+                    <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
+                    <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                    <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>
                   </group>  
                 </group>    
               </sheet>      
             </form>       
           </field>          
         </record>           
-           
+        
+        <!-- City/Place Functional Status Views -->     
+          
+        <record id="hc_vs_country_city_status_view_search" model="ir.ui.view">      
+          <field name="name">Country City Status Search</field>    
+          <field name="model">hc.vs.country.city.status</field>   
+          <field name="arch" type="xml">    
+            <search string="Functional Status"> 
+              <field name="code"/>
+              <field name="name"/>
+              <field name="definition"/>
+            </search> 
+          </field>    
+        </record>     
+              
+        <record id="hc_vs_country_city_status_view_tree" model="ir.ui.view">      
+          <field name="name">Country City Status Tree</field>    
+          <field name="model">hc.vs.country.city.status</field>   
+          <field name="arch" type="xml">    
+            <tree string="Functional Statuses"> 
+              <field name="name"/>
+              <field name="code"/>
+              <field name="definition"/>
+              <field name="country_id"/>
+            </tree> 
+          </field>    
+        </record>     
 
         <!-- City Action and Menu --> 
 
@@ -318,40 +409,14 @@
           <field name="view_mode">tree,form</field>   
         </record>              
         
-        <menuitem name="Cities" id="hc_base.menu_addr_city" parent="hc_base.menu_addr" action="hc_vs_country_city_action" sequence="30"/>
-        <menuitem name="City/Place Type" id="hc_base.menu_addr_city_type" parent="hc_base.menu_addr" action="hc_vs_country_city_type_action" sequence="31"/>
+        <menuitem name="Cities/Places" id="hc_base.menu_addr_city" parent="hc_base.menu_addr" action="hc_vs_country_city_action" sequence="30"/>
+        <menuitem name="City/Place Types" id="hc_base.menu_addr_city_type" parent="hc_base.menu_addr" action="hc_vs_country_city_type_action" sequence="31"/>
         <menuitem name="City/Place Status" id="hc_base.menu_addr_city_status" parent="hc_base.menu_addr" action="hc_vs_country_city_status_action" sequence="32"/>
-
-        <!-- City/Place Functional Status Views -->     
-          
-        <record id="hc_vs_country_city_status_view_search" model="ir.ui.view">      
-          <field name="name">Country City Status Search</field>    
-          <field name="model">hc.vs.country.city.status</field>   
-          <field name="arch" type="xml">    
-            <search string="Functional Status"> 
-              <field name="code"/>
-              <field name="name"/>
-              <field name="definition"/>
-            </search> 
-          </field>    
-        </record>     
-              
-        <record id="hc_vs_country_city_status_view_tree" model="ir.ui.view">      
-          <field name="name">Country City Status Tree</field>    
-          <field name="model">hc.vs.country.city.status</field>   
-          <field name="arch" type="xml">    
-            <tree string="Functional Statuses"> 
-              <field name="code"/>
-              <field name="name"/>
-              <field name="definition"/>
-            </tree> 
-          </field>    
-        </record>     
      
         <!-- District Views -->           
                 
         <record id="hc_vs_country_district_view_search" model="ir.ui.view">           
-          <field name="name">Country District Search</field>         
+          <field name="name">District Search</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <search string="Districts/Counties">       
@@ -373,7 +438,7 @@
         </record>           
                     
         <record id="hc_vs_country_district_view_tree" model="ir.ui.view">           
-          <field name="name">Country District Tree</field>         
+          <field name="name">District Tree</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <tree string="Districts/Counties">
@@ -388,7 +453,7 @@
         </record>           
                     
         <record id="hc_vs_country_district_view_form" model="ir.ui.view">           
-          <field name="name">Country District Form</field>         
+          <field name="name">District Form</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <form string="District/County">        
@@ -416,86 +481,86 @@
           </field>          
         </record>            
             
-            <record id="hc_vs_country_district_type_view_search" model="ir.ui.view">            
-              <field name="name">Country District Type Search</field>         
-              <field name="model">hc.vs.country.district.type</field>         
-              <field name="arch" type="xml">          
-                <search string="District Types">        
-                  <field name="name"/>      
-                  <field name="country_id"/>      
-                </search>       
-              </field>          
-            </record>           
-            <record id="hc_vs_country_district_type_view_tree" model="ir.ui.view">            
-              <field name="name">Country District Type Tree</field>         
-              <field name="model">hc.vs.country.district.type</field>         
-              <field name="arch" type="xml">          
-                <form string="District Types">        
-                  <group>     
-                    <field name="name"/>    
-                    <field name="country_id"/>    
-                  </group>      
-                </form>       
-              </field>          
-            </record>           
-            <record id="hc_vs_country_district_type_view_form" model="ir.ui.view">            
-              <field name="name">Country District Type Form</field>         
-              <field name="model">hc.vs.country.district.type</field>         
-              <field name="arch" type="xml">          
-                <form string="District Type">       
-                  <sheet>     
-                    <div class="oe_title oe_left">    
-                      <h1>  
-                        <field name="name" default_focus="1" placeholder="Name (e.g., County in US)"/>
-                      </h1> 
-                      <field name="code" placeholder="Code"/>  
-                    </div>    
-                    <field name="definition" string="Definition" placeholder="Definition"/> 
-                    <field name="comments" string="Comments" placeholder="Comments"/>  
-                    <group>   
-                      <group>
-                        <field name="is_abstract" widget="upgrade_boolean"/>
-                        <field name="level" placeholder="An integer (e.g., 1, 2)"/>
-                        <field name="version" placeholder="e.g., v2.5"/>
-                      </group>  
-                      <group> 
-                        <field name="source" placeholder="e.g., U.S. Census Bureau"/>
-                        <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                        <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>
-                      </group>  
-                    </group>    
-                  </sheet>      
-                </form>       
-              </field>          
-            </record>           
+        <record id="hc_vs_country_district_type_view_search" model="ir.ui.view">            
+          <field name="name">District/County Type Search</field>         
+          <field name="model">hc.vs.country.district.type</field>         
+          <field name="arch" type="xml">          
+            <search string="District/County Types">        
+              <field name="name"/>      
+              <field name="country_id"/>      
+            </search>       
+          </field>          
+        </record>           
+        
+        <record id="hc_vs_country_district_type_view_tree" model="ir.ui.view">            
+          <field name="name">District/County Type Tree</field>         
+          <field name="model">hc.vs.country.district.type</field>         
+          <field name="arch" type="xml">          
+            <tree string="District/County Types">        
+                <field name="name"/>    
+                <field name="country_id"/>
+            </tree>       
+          </field>          
+        </record>           
+        
+        <record id="hc_vs_country_district_type_view_form" model="ir.ui.view">            
+          <field name="name">District/County Type Form</field>         
+          <field name="model">hc.vs.country.district.type</field>         
+          <field name="arch" type="xml">          
+            <form string="District/County Type">       
+              <sheet>     
+                <div class="oe_title oe_left">    
+                  <h1>  
+                    <field name="name" default_focus="1" placeholder="Name (e.g., County in US)"/>
+                  </h1> 
+                  <field name="code" placeholder="Code"/>  
+                </div>    
+                <field name="definition" string="Definition" placeholder="Definition"/> 
+                <field name="comments" string="Comments" placeholder="Comments"/>  
+                <group>   
+                  <group>
+                    <field name="is_abstract" widget="upgrade_boolean"/>
+                    <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                    <field name="version" placeholder="e.g., v2.5"/>
+                  </group>  
+                  <group> 
+                    <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
+                    <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                    <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>
+                  </group>  
+                </group>    
+              </sheet>      
+            </form>       
+          </field>          
+        </record>           
           
                     
         <!-- District Action and Menu -->           
                     
         <record id="hc_vs_country_district_action" model="ir.actions.act_window">           
-          <field name="name">HC Country Districts</field>         
+          <field name="name">HC Country Districts/Counties</field>         
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">hc.vs.country.district</field>          
           <field name="view_type">form</field>          
           <field name="view_mode">tree,form</field>         
         </record>           
 
-        <menuitem name="Districts" id="hc_base.menu_addr_dist" parent="hc_base.menu_addr" action="hc_vs_country_district_action" sequence="40"/>
+        <menuitem name="Districts/Counties" id="hc_base.menu_addr_dist" parent="hc_base.menu_addr" action="hc_vs_country_district_action" sequence="40"/>
 
         <record id="hc_vs_country_district_type_action" model="ir.actions.act_window">  
-            <field name="name">HC Country District Types</field>
+            <field name="name">HC Country District/County Types</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.vs.country.district.type</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>   
 
-        <menuitem name="District Types" id="hc_base.menu_addr_dist_type" parent="hc_base.menu_addr" action="hc_vs_country_district_type_action" sequence="41"/>
+        <menuitem name="District/County Types" id="hc_base.menu_addr_dist_type" parent="hc_base.menu_addr" action="hc_vs_country_district_type_action" sequence="41"/>
 
         <!-- State Views -->
 
         <record id="hc_base.res_country_state_view_search" model="ir.ui.view">           
-          <field name="name">Country State Search</field>         
+          <field name="name">State/Province Search</field>         
           <field name="model">res.country.state</field>          
           <field name="arch" type="xml">          
             <search string="States/Provinces">       
@@ -516,7 +581,7 @@
         </record>  
 
         <record id="hc_base.view_country_state_tree_inherited" model="ir.ui.view">     
-          <field name="name">Country State Tree</field>    
+          <field name="name">State/Province Tree</field>    
           <field name="model">res.country.state</field>   
           <field name="inherit_id" ref="base.view_country_state_tree"/>   
           <field name="arch" type="xml">
@@ -530,7 +595,7 @@
         </record>
 
         <record id="hc_base.view_country_state_form_inherited" model="ir.ui.view">     
-          <field name="name">Country State Form</field>    
+          <field name="name">State/Province Form</field>    
           <field name="model">res.country.state</field>   
           <field name="inherit_id" ref="base.view_country_state_form"/>   
           <field name="arch" type="xml">
@@ -543,17 +608,84 @@
           </field>    
         </record>     
 
+        <!-- State/Province Type Views -->                                      
+                                        
+        <record id="hc_vs_country_state_type_view_search" model="ir.ui.view">                                       
+            <field name="name">State/Province Type Search</field>                                   
+            <field name="model">hc.vs.country.state.type</field>                                    
+            <field name="arch" type="xml">                                  
+                <search string="State/Province Types">                              
+                    <field name="name"/>                            
+                    <field name="country_id"/>                          
+                </search>                               
+            </field>                                    
+        </record>                                       
+       
+        <record id="hc_vs_country_state_type_view_tree" model="ir.ui.view">                                     
+            <field name="name">State/Province Type Tree</field>                                 
+            <field name="model">hc.vs.country.state.type</field>                                    
+            <field name="arch" type="xml">                                  
+                <tree string="State/Province Types">                                                       
+                    <field name="name"/>                        
+                    <field name="country_id"/>                                                 
+                </tree>                             
+            </field>                                    
+        </record>                                       
+        
+        <record id="hc_vs_country_state_type_view_form" model="ir.ui.view">                                     
+            <field name="name">State/Province Type Form</field>                                 
+            <field name="model">hc.vs.country.state.type</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="State/Province Type">                             
+                    <sheet>                         
+                        <div class="oe_title oe_left">                      
+                            <h1>                    
+                                <field name="name" default_focus="1" placeholder="Name"/>               
+                            </h1>                   
+                            <field name="code" placeholder="Code"/>                 
+                        </div>                      
+                        <group>                     
+                            <group>                 
+                                <field name="definition"/>              
+                                <field name="comments"/>                
+                                <field name="is_abstract" widget="upgrade_boolean"/>                
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>             
+                                <field name="version" placeholder="e.g., v2.5"/>                
+                            </group>                    
+                            <group>                 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>               
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>             
+                                <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>               
+                            </group>                    
+                        </group>                        
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>
+
         <!-- State/Province Action and Menu -->           
                     
         <record id="hc_base.res_country_state_action" model="ir.actions.act_window">           
-          <field name="name">HC Country States</field>         
+          <field name="name">HC Country States/Provinces</field>         
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">res.country.state</field>          
           <field name="view_type">form</field>          
           <field name="view_mode">tree,form</field>         
         </record>           
 
-        <menuitem name="States/Provinces" id="hc_base.menu_addr_state" parent="hc_base.menu_addr" action="hc_base.res_country_state_action" sequence="50"/>
+        <menuitem id="hc_base.menu_addr_state" name="States/Provinces" parent="hc_base.menu_addr" action="res_country_state_action" sequence="50"/>
+
+        <record id="hc_vs_country_state_type_action" model="ir.actions.act_window"> 
+            <field name="name">HC Country State/Province Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hc.vs.country.state.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>   
+
+
+        <menuitem id="hc_base.menu_addr_state_type" name="State/Province Types" parent="hc_base.menu_addr" action="hc_vs_country_state_type_action" sequence="51"/>
+
 
         <!-- Division Views -->
 
@@ -579,7 +711,7 @@
         </record>      
           
         <record id="hc_vs_country_division_view_tree" model="ir.ui.view">     
-          <field name="name">Country Division Tree</field>   
+          <field name="name">Division Tree</field>   
           <field name="model">hc.vs.country.division</field>    
           <field name="arch" type="xml">    
             <tree string="Divisions">
@@ -593,7 +725,7 @@
         </record>     
 
         <record id="hc_vs_country_division_view_form" model="ir.ui.view">           
-          <field name="name">Country Division Form</field>         
+          <field name="name">Division Form</field>         
           <field name="model">hc.vs.country.division</field>          
           <field name="arch" type="xml">          
             <form string="Division">       
@@ -620,6 +752,61 @@
           </field>          
         </record>           
 
+        <!-- Division Type Views -->                        
+                        
+        <record id="hc_vs_country_division_type_view_search" model="ir.ui.view">                        
+            <field name="name">Division Type Search</field>                 
+            <field name="model">hc.vs.country.division.type</field>                 
+            <field name="arch" type="xml">                  
+                <search string="Division Types">                
+                    <field name="name"/>            
+                    <field name="country_id"/>          
+                </search>               
+            </field>                    
+        </record>                       
+        
+        <record id="hc_vs_country_division_type_view_tree" model="ir.ui.view">                      
+            <field name="name">Division Type Tree</field>                   
+            <field name="model">hc.vs.country.division.type</field>                 
+            <field name="arch" type="xml">                  
+                <tree string="Division Types">                    
+                    <field name="name"/>        
+                    <field name="country_id"/>           
+                </tree>             
+            </field>                    
+        </record>                       
+        
+        <record id="hc_vs_country_division_type_view_form" model="ir.ui.view">                      
+            <field name="name">Division Type Form</field>                   
+            <field name="model">hc.vs.country.division.type</field>                 
+            <field name="arch" type="xml">                  
+                <form string="Division Type">               
+                    <sheet>         
+                        <div class="oe_title oe_left">      
+                            <h1>    
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                            </h1>   
+                            <field name="code" placeholder="Code"/> 
+                        </div>      
+                        <group>     
+                            <group> 
+                                <field name="definition"/>
+                                <field name="comments"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                                <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                                                           
+
         <!-- Division Action and Menu --> 
       
         <record id="hc_vs_country_division_action" model="ir.actions.act_window"> 
@@ -631,6 +818,16 @@
         </record>
 
         <menuitem name="Divisions" id="hc_base.menu_addr_div" parent="hc_base.menu_addr" action="hc_vs_country_division_action" sequence="60"/>
+
+        <record id="hc_vs_country_division_type_action" model="ir.actions.act_window">                      
+            <field name="name">HC Country Division Types</field>                    
+            <field name="type">ir.actions.act_window</field>                    
+            <field name="res_model">hc.vs.country.division.type</field>                 
+            <field name="view_type">form</field>                    
+            <field name="view_mode">tree,form</field>                   
+        </record>
+
+        <menuitem name="Division Types" id="hc_base.menu_addr_div_type" parent="hc_base.menu_addr" action="hc_vs_country_division_type_action" sequence="61"/>
 
         <!-- Region Views -->
 
@@ -680,14 +877,17 @@
                     <field name="country_id"/>
                   </group>  
                   <group>
-                   <field name="source"/>
-                   <field name="system"/> 
+                        <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
+                        <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                        <field name="country_id" placeholder="Country maintainer (e.g., United States)"/> 
                   </group>  
                 </group>    
               </sheet>      
             </form>       
           </field>          
         </record>           
+
+        <!-- Country Region Type Views --> 
 
         <record id="hc_vs_country_region_type_view_search" model="ir.ui.view">                          
             <field name="name">Country Region Type Search</field>                       
@@ -699,23 +899,23 @@
                 </search>                   
             </field>                        
         </record>                           
+        
         <record id="hc_vs_country_region_type_view_tree" model="ir.ui.view">                            
             <field name="name">Country Region Type Tree</field>                     
             <field name="model">hc.vs.country.region.type</field>                       
             <field name="arch" type="xml">                      
-                <form string="Region Types">                    
-                    <group>             
-                        <field name="name"/>            
-                        <field name="country_id"/>          
-                    </group>                
-                </form>                 
+                <tree string="Region Types">                        
+                    <field name="name"/>            
+                    <field name="country_id"/>                        
+                </tree>                 
             </field>                        
         </record>                           
+        
         <record id="hc_vs_country_region_type_view_form" model="ir.ui.view">                            
             <field name="name">Country Region Type Form</field>                     
             <field name="model">hc.vs.country.region.type</field>                       
             <field name="arch" type="xml">                      
-                <form string="District Type">                   
+                <form string="Region Type">                   
                     <sheet>             
                         <div class="oe_title oe_left">          
                             <h1>        
@@ -732,7 +932,7 @@
                                 <field name="version" placeholder="e.g., v2.5"/>    
                             </group>        
                             <group>     
-                                <field name="source" placeholder="e.g., U.S. Census Bureau"/>   
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>   
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
                                 <field name="country_id" placeholder="Country maintainer (e.g., United States)"/>   
                             </group>        

@@ -1,4 +1,4 @@
-id,name,system,source,country_id/id
+id,name,system,source_id,country_id/id
 place_type_borough,borough,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
 place_type_city,city,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us
 place_type_consolidated_government,consolidated government,https://www.census.gov/geo/reference/codes/place.html,U.S. Census Bureau,base.us

@@ -8,30 +8,37 @@ class CountryRegionType(models.Model):
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
-    	string="Region Type", 
-    	help="Type of grouping of divisions (e.g. Region in the US)."
-    	)
-    country_id = fields.Many2one(
-    	comodel_name="res.country", 
-    	string="Country", 
-    	help="Country that maintains the region type."
-    	)
+        string="Region Type", 
+        help="Type of grouping of divisions (e.g. Region in the US).")
+    country_id = fields.Many2one(comodel_name="res.country", 
+        string="Country", 
+        help="Country that maintains the region type.")
 
 class CountryRegion(models.Model):  
     _name = "hc.vs.country.region"  
     _description = "Region"     
     _inherit = ["hc.value.set.contains"]
 
-    name = fields.Char(string="Region", help="A grouping of divisions (e.g. West and Midwest in the US).")
-    type_id = fields.Many2one(comodel_name="hc.vs.country.region.type", string="Region Type", help="Type of grouping of regions (e.g. Region in the US).")
-    country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country (can be ISO-3166 3-letter code).")
+    name = fields.Char(
+        string="Region", 
+        help="A grouping of divisions (e.g. West and Midwest in the US).")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.country.region.type", 
+        string="Region Type", 
+        help="Type of grouping of regions (e.g. Region in the US).")
+    country_id = fields.Many2one(
+        comodel_name="res.country", 
+        string="Country", 
+        help="Country (can be ISO-3166 3-letter code).")
 
 class CountryDivisionType(models.Model):    
     _name = "hc.vs.country.division.type"    
     _description = "Division Type"       
     _inherit = ["hc.value.set.contains"]
 
-    name = fields.Char(string="Division Type", help="Type of grouping of principal subdivisions (e.g., Division in the US).")
+    name = fields.Char(
+        string="Division Type", 
+        help="Type of grouping of principal subdivisions (e.g., Division in the US).")
     country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country that maintains the division type.")
 
 class CountryDivision(models.Model):  
@@ -46,12 +53,11 @@ class CountryDivision(models.Model):
 
 class CountryStateType(models.Model):    
     _name = "hc.vs.country.state.type"    
-    _description = "State Type"       
+    _description = "State/Province Type"       
     _inherit = ["hc.value.set.contains"]
 
-    name = fields.Char(string="State Type", help="Type of principal subdivision of a country (e.g., state, province, two-tier county).")
-    country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country that maintains the city/place type.")
-    source = fields.Char(default="ISO 3166-2")
+    name = fields.Char(string="State/Province Type", help="Type of principal subdivision of a country (e.g., state, province, two-tier county).")
+    country_id = fields.Many2one(comodel_name="res.country", string="Country", help="Country that maintains the state/province type.")
 
 class CountryState(models.Model):    
     _name = "res.country.state"    
@@ -192,82 +198,195 @@ class Address(models.Model):
 class HcExtensionAddress(models.Model):
     _inherit = 'hc.address'
 
-    postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal/ZIP Code", help="Postal code for area.")
+    # postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal/ZIP Code", help="Postal code for area.")
     
-    division_id = fields.Many2one(related='postal_code_id.division_id', string="Division", help="Group of primary subdivisions (e.g., Pacific and Mountain in the US).")
-    region_id = fields.Many2one(related='postal_code_id.region_id', string="Region", help="A grouping of divisions or states (e.g. West, Midwest).")
-    country_id = fields.Many2one(related='postal_code_id.country_id', string="Country", help="Country (can be ISO-3166 3-letter code).")
+    # division_id = fields.Many2one(related='postal_code_id.division_id', string="Division", help="Group of primary subdivisions (e.g., Pacific and Mountain in the US).")
+    # region_id = fields.Many2one(related='postal_code_id.region_id', string="Region", help="A grouping of divisions or states (e.g. West, Midwest).")
+    # country_id = fields.Many2one(related='postal_code_id.country_id', string="Country", help="Country (can be ISO-3166 3-letter code).")
 
-    @api.model
+    # class HcExtension(models.Model):
+    # _inherit = 'hc.address'
+    
+    #This model will extends hc.address and override fields defined below. 
+    #I am redefining below fields in this new models so it will override fields definition in the parent model
+    #Made all the fields related, related fields are kind of computed fields so they have the value of the subfield that we have defined as related.
+
+
+    #This is the method for computed field and it id depends on fileds we listed in bracket, so it will call every time when there is 
+    # any changes ni listed fields and change the value of our name fields accordingly
+    
+    @api.depends('line1','line2','line3','city_id','postal_code_id', 'district_id', 'state_id', 'division_id', 'region_id', 'country_id')
+    def compute_address(self):
+        address = ''
+        lines = ''
+        line1 = self.line1 and self.line1 or ''
+        line2 = self.line2 and ', '+self.line2 or ''
+        line3 = self.line3 and ', '+self.line3 or ''
+        city = self.city_id and ', '+self.city_id.name or ''
+        postal = self.postal_code_id and ', '+self.postal_code_id.name or ''
+        district = self.district_id and ', '+self.district_id.name or ''
+        state = self.state_id and ', '+self.state_id.code or ''
+        division = self.division_id and ', '+self.division_id.name or ''
+        region = self.region_id and ', '+self.region_id.name or ''
+        country = self.country_id and ', '+self.country_id.name or ''
+        lines = line1+line2+line3+city+postal+district+state+division+region+country
+        self.name = lines
+    
+    # postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal/ZIP Code", help="Postal code for area.")
+    name = fields.Char(compute='compute_address', store=True)
+    # district_id = fields.Many2one(related='postal_code_id.district_id', string="District/County", help="The name of the administrative area (e.g., county).")
+    # state_id = fields.Many2one(related='postal_code_id.state_id', string="State", help="Sub-unit of country (abreviations ok).")
+    
+    division_id = fields.Many2one(related='postal_code_id.division_id', string="Division", help="Group of states (e.g., Pacific, Mountain).")
+    region_id = fields.Many2one(related='postal_code_id.region_id', string="Region", help="First level subdivision of a country (e.g. West, Midwest).")
+    country_id = fields.Many2one(related='postal_code_id.country_id', string="Country", help="Country (can be ISO 3166 3 letter code).")
+
+    #Overriding create method, this method get called by framework everytime when record gets created.
+    '''@api.model
     def create(self, vals):
-
-        lines = vals['line1']+', '+vals['line2']+', '+vals['line3']+', '
-        city = self.env['hc.vs.country.city'].browse(vals['city_id']).name
-        state = self.env['res.country.state'].browse(vals['state_id']).name
-        postal = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name
-        district = self.env['hc.vs.country.district'].browse(vals['district_id']).name
-        division = self.env['hc.vs.country.division'].browse(vals['division_id']).name
-        region = self.env['hc.vs.country.region'].browse(vals['region_id']).name
-        country = self.env['res.country'].browse(vals['country_id']).name
-        address = lines+city+', '+state+', '+postal+', '+country
+        #@param: vals - contains value of all the fields.
+        #Concating fields line1, line2 and line3 in new variable lines.
+        lines = vals['line1']+', '+vals['line2']+', ' or '' +vals['line3']+', ' or ''
+        #All other fields are not simple character fields but many2one fields, so we need to fetch it's name from the datbase.
+        #Therefore used browse method, browse method used to get recordset from database for given id of record.
+        city = self.env['hc.vs.country.city'].browse(vals['city_id']).name or ''
+        state = self.env['res.country.state'].browse(vals['state_id']).code or ''
+        pin = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name or ''
+        district = self.env['hc.vs.country.district'].browse(vals['district_id']).name or ''
+        division = self.env['hc.vs.country.division'].browse(vals['division_id']).name or ''
+        region = self.env['hc.vs.country.region'].browse(vals['region_id']).name or ''
+        country = self.env['res.country'].browse(vals['country_id']).name or ''
+        #Concating all the value in single in variable address.
+        address = lines+city+', '+pin+', '+district+', '+division+', '+region+', '+country
+        #Assigning value of address to field name of the record.
         vals['name'] = address
+        #Calling super method and returning the newly updated values.
+        return super(HcExtension, self).create(vals)'''
 
-        return super(HcExtensionAddress, self).create(vals)
 
-    @api.multi
+    '''@api.multi
     def write(self, vals):
-        #I think this code can be improved but time is constraint so...
+        #This method gets called when updating the record.
+        #@param: vals - vals contains only fields which are updated.
+        #Here we are updating the value of name field of the record but vals paramaeter of write method only contains the field which has updated
+        #we need to check every field 
         if 'line1' in vals:
             line1 = vals['line1']
         else:
             line1 = self.line1
-
         if 'line2' in vals:
             line2 = vals['line2']
         else: 
             line2 = self.line2
-
         if 'line3' in vals:
             line3 = vals['line3']
         else:
             line3 = self.line3
-
         if 'city_id' in vals:   
             city = self.env['hc.vs.country.postal.city'].browse(vals['city_id']).name
         else:
             city = self.city_id.name
-
         if 'postal_code_id' in vals:    
-            postal = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name
+            pin = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name
         else:
-            postal = self.city_id.name
-
+            pin = self.city_id.name
         if 'state_id' in vals:  
             state = self.env['res.country.state'].browse(vals['state_id']).name
         else:
             state = self.state_id.name
-
         if 'district_id' in vals:
             district = self.env['hc.vs.country.district'].browse(vals['district_id']).name
         else:
             district = self.district_id.name
-
         if 'division_id' in vals:
             division = self.env['hc.vs.country.division'].browse(vals['division_id']).name
         else:
             division = self.division_id.name
-
         if 'region_id' in vals:
             region = self.env['hc.vs.country.region'].browse(vals['region_id']).name
         else:
             region = self.region_id.name
-
         if 'country_id' in vals:
             country = self.env['res.country'].browse(vals['country_id']).name
         else:
             country = self.country_id.name
-
-        address = lines+city+', '+state+', '+postal+', '+country
+        #Concating and same procedure as create method.
+        address = line1+', '+line2+', '+line3+', '+city+', '+pin+', '+district+', '+division+', '+region+', '+country
         vals['name'] = address
+        return super(HcExtension, self).write(vals)'''
 
-        return super(HcExtensionAddress, self).write(vals)
+
+
+    # @api.model
+    # def create(self, vals):
+
+    #     lines = vals['line1']+', '+vals['line2']+', '+vals['line3']+', '
+    #     city = self.env['hc.vs.country.city'].browse(vals['city_id']).name
+    #     state = self.env['res.country.state'].browse(vals['state_id']).name
+    #     postal = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name
+    #     district = self.env['hc.vs.country.district'].browse(vals['district_id']).name
+    #     division = self.env['hc.vs.country.division'].browse(vals['division_id']).name
+    #     region = self.env['hc.vs.country.region'].browse(vals['region_id']).name
+    #     country = self.env['res.country'].browse(vals['country_id']).name
+    #     address = lines+city+', '+state+', '+postal+', '+country
+    #     vals['name'] = address
+
+    #     return super(HcExtensionAddress, self).create(vals)
+
+    # @api.multi
+    # def write(self, vals):
+    #     #I think this code can be improved but time is constraint so...
+    #     if 'line1' in vals:
+    #         line1 = vals['line1']
+    #     else:
+    #         line1 = self.line1
+
+    #     if 'line2' in vals:
+    #         line2 = vals['line2']
+    #     else: 
+    #         line2 = self.line2
+
+    #     if 'line3' in vals:
+    #         line3 = vals['line3']
+    #     else:
+    #         line3 = self.line3
+
+    #     if 'city_id' in vals:   
+    #         city = self.env['hc.vs.country.postal.city'].browse(vals['city_id']).name
+    #     else:
+    #         city = self.city_id.name
+
+    #     if 'postal_code_id' in vals:    
+    #         postal = self.env['hc.vs.country.postal.code'].browse(vals['postal_code_id']).name
+    #     else:
+    #         postal = self.city_id.name
+
+    #     if 'state_id' in vals:  
+    #         state = self.env['res.country.state'].browse(vals['state_id']).name
+    #     else:
+    #         state = self.state_id.name
+
+    #     if 'district_id' in vals:
+    #         district = self.env['hc.vs.country.district'].browse(vals['district_id']).name
+    #     else:
+    #         district = self.district_id.name
+
+    #     if 'division_id' in vals:
+    #         division = self.env['hc.vs.country.division'].browse(vals['division_id']).name
+    #     else:
+    #         division = self.division_id.name
+
+    #     if 'region_id' in vals:
+    #         region = self.env['hc.vs.country.region'].browse(vals['region_id']).name
+    #     else:
+    #         region = self.region_id.name
+
+    #     if 'country_id' in vals:
+    #         country = self.env['res.country'].browse(vals['country_id']).name
+    #     else:
+    #         country = self.country_id.name
+
+    #     address = lines+city+', '+state+', '+postal+', '+country
+    #     vals['name'] = address
+
+    #     return super(HcExtensionAddress, self).write(vals)
