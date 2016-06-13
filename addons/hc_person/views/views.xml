@@ -45,9 +45,39 @@
                             </group>          
                         </group>            
                         <notebook colspan="4">           
-                            <page string="Names"/>         
-                            <page string="Identifiers"/>         
-                            <page string="Addresses" autofocus="autofocus">         
+                            <page string="Names">
+                                <field name="name_ids" mode="tree">
+                                    <tree>
+                                        <field name="first_id"/>
+                                        <field name="surname_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
+                                                <field name="first_id"/>
+                                                <field name="surname_id"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>   
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="identifier_id"/>
+                                        <field name="value"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
+                                                <field name="identifier_id"/>
+                                                <field name="value"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>         
+                            <page string="Addresses">         
                                 <field name="address_ids" mode="tree">
                                     <tree>      
                                         <field name="use" widget="radio"/>    
@@ -74,9 +104,54 @@
                                     </form>     
                                 </field>        
                             </page>         
-                            <page string="Telecom"/>          
-                            <page string="Media"/>          
-                            <page string="Languages"/>          
+                            <page string="Telecom">
+                                <field name="telecom_contact_ids" mode="tree">
+                                    <tree>
+                                        <field name="telecom_id"/>
+                                        <field name="use"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="telecom_id"/>
+                                                    <field name="use"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>          
+                            <page string="Attachments">
+                                <field name="attachment_ids" mode="tree">
+                                    <tree>
+                                        <field name="attachment_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="attachment_id"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Languages">
+                            </page>         
                             <page string="Related Persons"/>          
                             <page string="Contacts"/>         
                             <page string="Marital Status"/>         
@@ -91,6 +166,12 @@
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_res_person_view_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
+                    <!-- As the structure of model is something like that so we have to use the value of same address_id field but
+                    for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->
+                    <field name="first_id" invisible="1"/>   
+                    <field name="surname_id" invisible="1"/>
+                </xpath>
                 <xpath expr="//field[@name='address_ids']//form//field[@name='end_date']" position="after">
                     <!-- As the structure of model is something like that so we have to use the value of same address_id field but
                     for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->

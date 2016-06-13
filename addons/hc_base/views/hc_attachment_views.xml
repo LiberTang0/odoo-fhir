@@ -20,9 +20,11 @@
             <field name="model">hc.attachment</field>         
             <field name="arch" type="xml">          
             <tree string="Attachments">       
-                <field name="name"/>      
-                <field name="mimetype"/>      
-                <field name="language_id"/>     
+                <field name="name"/>
+                <field name="creation_date"/>
+                <field name="attachment_type_id"/>           
+                <field name="mimetype"/>
+                <field name="language_id"/>
             </tree>       
             </field>          
         </record>           
@@ -40,6 +42,8 @@
                         </div>    
                         <group>   
                             <group> 
+                                <field name="creation_date"/> 
+                                <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/> 
                                 <field name="mimetype"/>
                                 <field name="language_id"/>
                             </group>  

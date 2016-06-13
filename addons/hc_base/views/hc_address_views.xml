@@ -35,8 +35,9 @@
               <field name="postal_code_id" string="Postal/ZIP Code"/>
               <field name="district_id" string="District/County"/>
               <field name="state_id" string="State/Province"/>
-              <field name="division_id"/>
-              <field name="region_id"/>
+              <field name="division_id" invisible="1"/>
+              <field name="region_id" invisible="1"/>
+              <field name="country_id"/>
             </tree>
           </field>
         </record>
