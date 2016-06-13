@@ -12,7 +12,7 @@ class ValueSetContains(models.AbstractModel):
     is_abstract = fields.Boolean(string="Abstract", help="If user cannot select this entry.")
     version = fields.Char(string="Version", help="Version in which this code / display is defined.")
     code = fields.Char(string="Code", help="Code - if blank, this is not a choosable code.")
-    name = fields.Char(string="Display", help="User display for the concept.")
+    name = fields.Char(string="Name", help="User display for the concept.")
     level = fields.Integer(string="Level", help="Level in a hierarchy of codes.")
     source_id = fields.Many2one(comodel_name="res.partner", string="Source", help="The source of the definition of the code.")
     definition = fields.Text(string="Definition", help="An explanation of the meaning of the concept.")
