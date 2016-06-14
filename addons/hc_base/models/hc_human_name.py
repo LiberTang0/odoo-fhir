@@ -9,6 +9,12 @@ class HumanNameTerm(models.Model):
 
     name = fields.Char( string="Human Name Term", help="Term part of a human name (e.g., John, Smith).")
 
+    _sql_constraints = [
+        ('name_unique',
+        'UNIQUE(name)',
+        "The term must be unique."),
+        ]
+
 class SuffixHumanName(models.Model):    
     _name = "hc.suffix.human.name"   
     _description = "Suffix Human Name"      
@@ -36,9 +42,9 @@ class HumanName(models.Model):
     # given_ids = fields.One2many(comodel_name="hc.human.name.given", inverse_name="human_name_id", string="Given Names", help="Given names (not always 'first'). Includes middle names.")
     prefix_ids = fields.Many2many(comodel_name="res.partner.title", string="Prefix Names", help="Parts that come before the name.")
     first_id = fields.Many2one(comodel_name="hc.human.name.term", string="First Name", help="Part of given name.")
-    middle_ids = fields.Many2many(comodel_name="hc.human.name.term", string="Middle Names", help="Part of given name.")
-    initial_ids = fields.Many2many(comodel_name="hc.human.name.term", string="Initial Names", help="Part of given name.")
-    nickname_ids = fields.Many2many(comodel_name="hc.human.name.term", string="Nickname", help="Part of given name.")
+    middle_ids = fields.Many2many(comodel_name="hc.human.name.term", relation="middle_name_human_term_rel", string="Middle Names", help="Part of given name.")
+    initial_ids = fields.Many2many(comodel_name="hc.human.name.term", relation="initial_name_human_term_rel", string="Initial Names", help="Part of given name.")
+    nickname_ids = fields.Many2many(comodel_name="hc.human.name.term", relation="nick_name_human_term_rel", string="Nickname", help="Part of given name.")
     surname_id = fields.Many2one(comodel_name="hc.human.name.term", string="Surname", help="Part of last name.")
     previous_last_id = fields.Many2one(comodel_name="hc.human.name.term", string="Previous Surname", help="Part of last name.")
     suffix_ids = fields.Many2many(comodel_name="hc.suffix.human.name", string="Suffix Names", help="Parts that come after the name.")

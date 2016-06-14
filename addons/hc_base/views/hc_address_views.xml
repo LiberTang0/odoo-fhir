@@ -92,7 +92,7 @@
         <!-- Postal/ZIP Code Views -->
 
         <record id="hc_vs_country_postal_code_view_search" model="ir.ui.view">      
-          <field name="name">Postal Code Search</field>    
+          <field name="name">Country Postal Code Search</field>    
           <field name="model">hc.vs.country.postal.code</field>   
           <field name="arch" type="xml">    
             <search string="Postal/ZIP Codes"> 
@@ -109,7 +109,7 @@
         </record>     
 
         <record id="hc_vs_country_postal_code_view_tree" model="ir.ui.view">     
-          <field name="name">Postal Code Tree</field>    
+          <field name="name">Country Postal Code Tree</field>    
           <field name="model">hc.vs.country.postal.code</field>   
           <field name="arch" type="xml">   
             <tree string="Postal/ZIP Codes">
@@ -125,7 +125,7 @@
         </record>     
 
         <record id="hc_vs_country_postal_code_view_form" model="ir.ui.view">          
-          <field name="name">Postal Code Form</field>        
+          <field name="name">Country Postal Code Form</field>        
           <field name="model">hc.vs.country.postal.code</field>       
           <field name="arch" type="xml">        
             <form string="Postal/ZIP Code">      
@@ -417,7 +417,7 @@
         <!-- District Views -->           
                 
         <record id="hc_vs_country_district_view_search" model="ir.ui.view">           
-          <field name="name">District Search</field>         
+          <field name="name">Country District Search</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <search string="Districts/Counties">       
@@ -439,7 +439,7 @@
         </record>           
                     
         <record id="hc_vs_country_district_view_tree" model="ir.ui.view">           
-          <field name="name">District Tree</field>         
+          <field name="name">Country District Tree</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <tree string="Districts/Counties">
@@ -454,7 +454,7 @@
         </record>           
                     
         <record id="hc_vs_country_district_view_form" model="ir.ui.view">           
-          <field name="name">District Form</field>         
+          <field name="name">Country District Form</field>         
           <field name="model">hc.vs.country.district</field>          
           <field name="arch" type="xml">          
             <form string="District/County">        
@@ -483,7 +483,7 @@
         </record>            
             
         <record id="hc_vs_country_district_type_view_search" model="ir.ui.view">            
-          <field name="name">District/County Type Search</field>         
+          <field name="name">Country District/County Type Search</field>         
           <field name="model">hc.vs.country.district.type</field>         
           <field name="arch" type="xml">          
             <search string="District/County Types">        
@@ -494,7 +494,7 @@
         </record>           
         
         <record id="hc_vs_country_district_type_view_tree" model="ir.ui.view">            
-          <field name="name">District/County Type Tree</field>         
+          <field name="name">Country District/County Type Tree</field>         
           <field name="model">hc.vs.country.district.type</field>         
           <field name="arch" type="xml">          
             <tree string="District/County Types">        
@@ -505,7 +505,7 @@
         </record>           
         
         <record id="hc_vs_country_district_type_view_form" model="ir.ui.view">            
-          <field name="name">District/County Type Form</field>         
+          <field name="name">Country District/County Type Form</field>         
           <field name="model">hc.vs.country.district.type</field>         
           <field name="arch" type="xml">          
             <form string="District/County Type">       
@@ -561,7 +561,7 @@
         <!-- State Views -->
 
         <record id="hc_base.res_country_state_view_search" model="ir.ui.view">           
-          <field name="name">State/Province Search</field>         
+          <field name="name">Country State Search</field>         
           <field name="model">res.country.state</field>          
           <field name="arch" type="xml">          
             <search string="States/Provinces">       
@@ -582,7 +582,7 @@
         </record>  
 
         <record id="hc_base.view_country_state_tree_inherited" model="ir.ui.view">     
-          <field name="name">State/Province Tree</field>    
+          <field name="name">Country State Tree</field>    
           <field name="model">res.country.state</field>   
           <field name="inherit_id" ref="base.view_country_state_tree"/>   
           <field name="arch" type="xml">
@@ -596,7 +596,7 @@
         </record>
 
         <record id="hc_base.view_country_state_form_inherited" model="ir.ui.view">     
-          <field name="name">State/Province Form</field>    
+          <field name="name">Country State Form</field>    
           <field name="model">res.country.state</field>   
           <field name="inherit_id" ref="base.view_country_state_form"/>   
           <field name="arch" type="xml">
@@ -612,7 +612,7 @@
         <!-- State/Province Type Views -->                                      
                                         
         <record id="hc_vs_country_state_type_view_search" model="ir.ui.view">                                       
-            <field name="name">State/Province Type Search</field>                                   
+            <field name="name">Country State Type Search</field>                                   
             <field name="model">hc.vs.country.state.type</field>                                    
             <field name="arch" type="xml">                                  
                 <search string="State/Province Types">                              
@@ -623,7 +623,7 @@
         </record>                                       
        
         <record id="hc_vs_country_state_type_view_tree" model="ir.ui.view">                                     
-            <field name="name">State/Province Type Tree</field>                                 
+            <field name="name">Country State Type Tree</field>                                 
             <field name="model">hc.vs.country.state.type</field>                                    
             <field name="arch" type="xml">                                  
                 <tree string="State/Province Types">                                                       
@@ -634,7 +634,7 @@
         </record>                                       
         
         <record id="hc_vs_country_state_type_view_form" model="ir.ui.view">                                     
-            <field name="name">State/Province Type Form</field>                                 
+            <field name="name">Country State Type Form</field>                                 
             <field name="model">hc.vs.country.state.type</field>                                    
             <field name="arch" type="xml">                                  
                 <form string="State/Province Type">                             
@@ -667,7 +667,7 @@
         <!-- State/Province Action and Menu -->           
                     
         <record id="hc_base.res_country_state_action" model="ir.actions.act_window">           
-          <field name="name">HC Country States/Provinces</field>         
+          <field name="name">HC Country States</field>         
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">res.country.state</field>          
           <field name="view_type">form</field>          
@@ -677,7 +677,7 @@
         <menuitem id="hc_base.menu_addr_state" name="States/Provinces" parent="hc_base.menu_addr" action="res_country_state_action" sequence="50"/>
 
         <record id="hc_vs_country_state_type_action" model="ir.actions.act_window"> 
-            <field name="name">HC Country State/Province Types</field>
+            <field name="name">HC Country State Types</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.vs.country.state.type</field>
             <field name="view_type">form</field>
@@ -712,7 +712,7 @@
         </record>      
           
         <record id="hc_vs_country_division_view_tree" model="ir.ui.view">     
-          <field name="name">Division Tree</field>   
+          <field name="name">Country Division Tree</field>   
           <field name="model">hc.vs.country.division</field>    
           <field name="arch" type="xml">    
             <tree string="Divisions">
@@ -726,7 +726,7 @@
         </record>     
 
         <record id="hc_vs_country_division_view_form" model="ir.ui.view">           
-          <field name="name">Division Form</field>         
+          <field name="name">Country Division Form</field>         
           <field name="model">hc.vs.country.division</field>          
           <field name="arch" type="xml">          
             <form string="Division">       
@@ -756,7 +756,7 @@
         <!-- Division Type Views -->                        
                         
         <record id="hc_vs_country_division_type_view_search" model="ir.ui.view">                        
-            <field name="name">Division Type Search</field>                 
+            <field name="name">Country Division Type Search</field>                 
             <field name="model">hc.vs.country.division.type</field>                 
             <field name="arch" type="xml">                  
                 <search string="Division Types">                
@@ -767,7 +767,7 @@
         </record>                       
         
         <record id="hc_vs_country_division_type_view_tree" model="ir.ui.view">                      
-            <field name="name">Division Type Tree</field>                   
+            <field name="name">Country Division Type Tree</field>                   
             <field name="model">hc.vs.country.division.type</field>                 
             <field name="arch" type="xml">                  
                 <tree string="Division Types">                    
@@ -778,7 +778,7 @@
         </record>                       
         
         <record id="hc_vs_country_division_type_view_form" model="ir.ui.view">                      
-            <field name="name">Division Type Form</field>                   
+            <field name="name">Country Division Type Form</field>                   
             <field name="model">hc.vs.country.division.type</field>                 
             <field name="arch" type="xml">                  
                 <form string="Division Type">               

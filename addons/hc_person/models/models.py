@@ -35,7 +35,7 @@ class Person(models.Model):
             ("other", "Other"), 
             ("unknown", "Unknown")],          
         help="The gender of a person used for administrative purposes.")
-    birthdate = fields.Datetime(
+    birthdate = fields.Date(
         string="Birth Date", 
         help="The birth date for the person.")
     address_ids = fields.One2many(

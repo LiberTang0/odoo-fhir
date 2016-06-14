@@ -58,7 +58,7 @@
         <!-- Attachment Type Views -->                      
                         
         <record id="hc_vs_attachment_type_view_search" model="ir.ui.view">                      
-            <field name="name">hc_vs_attachment_type_view_search</field>                    
+            <field name="name">Attachment Type Search</field>                    
             <field name="model">hc.vs.attachment.type</field>                   
             <field name="arch" type="xml">                  
                 <search string="Attachment Types">               
@@ -69,7 +69,7 @@
         </record>                       
         
         <record id="hc_vs_attachment_type_view_tree" model="ir.ui.view">                        
-            <field name="name">hc_vs_attachment_type_view_tree</field>                  
+            <field name="name">Attachment Type Tree</field>                  
             <field name="model">hc.vs.attachment.type</field>                   
             <field name="arch" type="xml">                  
                 <tree string="Attachment Types">                
@@ -80,7 +80,7 @@
         </record>                       
         
         <record id="hc_vs_attachment_type_view_form" model="ir.ui.view">                        
-            <field name="name">hc_vs_attachment_type_view_form</field>                  
+            <field name="name">Attachment Type Form</field>                  
             <field name="model">hc.vs.attachment.type</field>                   
             <field name="arch" type="xml">                  
                 <form string="Attachment Type">             
@@ -105,7 +105,7 @@
          <!-- MIME Type Views -->
                                                                        
         <record id="hc_vs_mime_type_view_search" model="ir.ui.view">                        
-            <field name="name">hc_vs_mime_type_view_search</field>                  
+            <field name="name">MIME Type Search</field>                  
             <field name="model">hc.vs.mime.type</field>                 
             <field name="arch" type="xml">                  
                 <search string="MIME Types">                
@@ -115,7 +115,7 @@
             </field>                    
         </record>                       
         <record id="hc_vs_mime_type_view_tree" model="ir.ui.view">                      
-            <field name="name">hc_vs_mime_type_view_tree</field>                    
+            <field name="name">MIME Type Tree</field>                    
             <field name="model">hc.vs.mime.type</field>                 
             <field name="arch" type="xml">                  
                 <tree string="MIME Types">              
@@ -125,7 +125,7 @@
             </field>                    
         </record>                       
         <record id="hc_vs_mime_type_view_form" model="ir.ui.view">                      
-            <field name="name">hc_vs_mime_type_view_form</field>                    
+            <field name="name">MIME Type Form</field>                    
             <field name="model">hc.vs.mime.type</field>                 
             <field name="arch" type="xml">                  
                 <form string="MIME Type">               
@@ -150,7 +150,7 @@
 <!-- Attachment Action and Menu -->           
                     
         <record id="hc_attachment_action" model="ir.actions.act_window">            
-            <field name="name">Attachment</field>         
+            <field name="name">HC Attachments</field>         
             <field name="type">ir.actions.act_window</field>          
             <field name="res_model">hc.attachment</field>         
             <field name="view_type">form</field>          

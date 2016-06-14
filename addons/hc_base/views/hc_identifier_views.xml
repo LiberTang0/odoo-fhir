@@ -118,7 +118,7 @@
         <!-- Identifier Action and Menu -->           
                     
         <record id="hc_identifier_action" model="ir.actions.act_window">            
-          <field name="name">Identifier</field>         
+          <field name="name">HC Identifiers</field>         
           <field name="type">ir.actions.act_window</field>          
           <field name="res_model">hc.identifier</field>         
           <field name="view_type">form</field>          

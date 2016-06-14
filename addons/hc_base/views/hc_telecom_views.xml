@@ -50,7 +50,7 @@
     <!-- Telecom Action and Menu -->            
                 
     <record id="hc_telecom_action" model="ir.actions.act_window">           
-      <field name="name">Telecom</field>          
+      <field name="name">HC Telecoms</field>          
       <field name="type">ir.actions.act_window</field>          
       <field name="res_model">hc.telecom</field>          
       <field name="view_type">form</field>          

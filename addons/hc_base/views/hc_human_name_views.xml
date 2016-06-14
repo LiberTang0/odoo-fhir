@@ -176,7 +176,7 @@
             <!-- Human Name Action and Menu -->           
                         
             <record id="hc_human_name_action" model="ir.actions.act_window">            
-              <field name="name">Human Name</field>         
+              <field name="name">HC Human Names</field>         
               <field name="type">ir.actions.act_window</field>          
               <field name="res_model">hc.human.name</field>         
               <field name="view_type">form</field>          

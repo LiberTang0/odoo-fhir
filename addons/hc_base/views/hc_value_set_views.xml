@@ -48,7 +48,7 @@
         <!-- Value Set Contains Action -->           
                   
         <record id="hc_value_set_contains_action" model="ir.actions.act_window">           
-            <field name="name">Value Set Contains</field>         
+            <field name="name">HC Value Set Contains</field>         
             <field name="type">ir.actions.act_window</field>          
             <field name="res_model">hc.value.set.contains</field>          
             <field name="view_type">form</field>          

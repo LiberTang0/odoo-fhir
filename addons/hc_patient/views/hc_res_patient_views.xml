@@ -1,5 +1,6 @@
 <openerp>
-  <data>
+  <data>  
+
     <!-- explicit list view definition -->
     <!--
     <record model="ir.ui.view" id="hc_patient.list">

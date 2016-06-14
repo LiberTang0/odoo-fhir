@@ -229,7 +229,7 @@ class HcExtensionAddress(models.Model):
         division = self.division_id and ', '+self.division_id.name or ''
         region = self.region_id and ', '+self.region_id.name or ''
         country = self.country_id and ', '+self.country_id.name or ''
-        lines = line1+line2+line3+city+postal+district+state+division+region+country
+        lines = line1+line2+line3+city+postal+district+state+division+region+country+lines
         self.name = lines
     
     # postal_code_id = fields.Many2one(comodel_name="hc.vs.country.postal.code", string="Postal/ZIP Code", help="Postal code for area.")

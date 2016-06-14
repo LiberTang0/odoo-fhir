@@ -57,7 +57,7 @@
         <!-- Annotation Action and Menu -->                 
                           
         <record id="hc_annotation_action" model="ir.actions.act_window">                  
-              <field name="name">Annotation</field>               
+              <field name="name">HC Annotations</field>               
               <field name="type">ir.actions.act_window</field>                
               <field name="res_model">hc.annotation</field>               
               <field name="view_type">form</field>                
