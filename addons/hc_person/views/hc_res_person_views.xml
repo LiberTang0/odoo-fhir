@@ -6,7 +6,7 @@
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <search string="Persons">   
-                    <field name="name_id"/>
+                    <field name="name"/>
                 </search>   
             </field>      
         </record>       
@@ -16,7 +16,7 @@
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <tree string="Persons">   
-                    <field name="name_id"/>  
+                    <field name="name"/>  
                     <field name="gender"/>  
                     <field name="birthdate"/> 
                 </tree>   
@@ -50,12 +50,22 @@
                                     <tree>
                                         <field name="first_id"/>
                                         <field name="surname_id"/>
+                                        <field name="given"/>
+                                        <field name="family"/>
                                     </tree>
                                     <form>
                                         <sheet>
-                                            <group col="4" colspan="4">
+                                            <group>
+                                                <field name="human_name_id"/>
+                                            </group>
+                                            <group>
                                                 <field name="first_id"/>
+                                                <field name="middle_ids" widget="many2many_tags"/>
+                                                <field name="mother_maiden_name_id"/>
                                                 <field name="surname_id"/>
+                                                <field name="name"/>
+                                                <field name="family"/>
+                                                <field name="given"/>
                                             </group>
                                         </sheet>
                                     </form>
@@ -166,12 +176,10 @@
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_res_person_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
-                    <!-- As the structure of model is something like that so we have to use the value of same address_id field but
-                    for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->
-                    <field name="first_id" invisible="1"/>   
+<!--                 <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
+                    <field name="first_id" invisible="1"/>
                     <field name="surname_id" invisible="1"/>
-                </xpath>
+                </xpath> -->
                 <xpath expr="//field[@name='address_ids']//form//field[@name='end_date']" position="after">
                     <!-- As the structure of model is something like that so we have to use the value of same address_id field but
                     for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->

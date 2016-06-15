@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hc_patient_hc_patient,hc_patient.hc_patient,model_hc_patient_hc_patient,,1,0,0,0
+access_hc_patient_hc_patient_contact,hc.patient.hc.patient.contact,model_hc_patient_contact,,1,0,0,0
+access_hc_patient_hc_patient_animal,hc.patient.hc.patient.animal,model_hc_patient_animal,,1,0,0,0
+access_hc_patient_hc_patient_communication,hc.patient.hc.patient.communication,model_hc_patient_communication,,1,0,0,0
+access_hc_patient_hc_patient_link,hc.patient.hc.patient.link,model_hc_patient_link,,1,0,0,0
+access_hc_patient_hc_res_patient,hc.patient.hc.res.patient,model_hc_res_patient,,1,0,0,0
