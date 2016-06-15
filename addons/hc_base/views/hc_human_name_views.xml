@@ -136,7 +136,16 @@
                 </tree>       
               </field>          
             </record>           
-                        
+          
+ <!--            Requirements
+
+            No mandatory fields
+
+            Display Full Name
+            If Display Order = Given Maiden Last, Then Display Full Name = Full
+            If Display Order = Maiden Last First, Then Display Full Name = Full Reverse
+            If Display Order: First Last Maiden, Then Display Full Name = Full_Family_Reverse -->
+
             <record id="hc_human_name_view_form" model="ir.ui.view">            
               <field name="name">Human Name Form</field>          
               <field name="model">hc.human.name</field>         
