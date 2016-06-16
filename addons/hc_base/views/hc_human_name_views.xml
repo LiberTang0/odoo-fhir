@@ -161,7 +161,6 @@
 <!--                       <label for="first_id" string="Given"/>  -->  
                       <group> 
                         <field name="prefix_ids" string="Prefix" widget="many2many_tags" default_focus="1"/>
-                        <label for="first_id" string="Given"/>
                         <field name="first_id" placeholder="Single term (e.g., John)"/>
                         <field name="middle_ids" placeholder="Other Given Names besides First Name" widget="many2many_tags"/>
                         <field name="initial_ids" placeholder="(e.g., O., E.V.)" widget="many2many_tags"/>

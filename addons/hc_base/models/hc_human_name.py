@@ -31,7 +31,8 @@ class HumanName(models.Model):
     _name = "hc.human.name"
     _description = "Human Name"
     
-    use = fields.Selection(string="Human Name Use", 
+    use = fields.Selection(
+        string="Human Name Use", 
         selection=[
             ("usual", "Usual"), 
             ("official", "Official"),
