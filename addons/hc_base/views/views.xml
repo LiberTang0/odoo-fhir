@@ -116,7 +116,7 @@
                 <menuitem name="Imaging Object Selection" id="hc_imaging_object_selection.menu_image_obj_sel" parent="hc_base.menu_clinic_diag" action="hc_base.hc_value_set_contains_action" sequence="9"/> -->
 
     <menuitem id="hc_base.menu_id" name="Identification" parent="hc_base.menu_root" sequence="20"/>
-        <menuitem name="Individuals" id="hc_base.menu_id_ind" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="1"/>
+        <!-- <menuitem name="Individuals" id="hc_base.menu_id_ind" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="1"/> -->
         <menuitem name="Groups" id="hc_base.menu_id_grp" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="2"/>
         <menuitem name="Entities" id="hc_base.menu_id_ent" parent="hc_base.menu_id" sequence="3"/>
         <menuitem name="Devices" id="hc_base.menu_id_dev" parent="hc_base.menu_id" action="hc_base.hc_value_set_contains_action" sequence="4"/>

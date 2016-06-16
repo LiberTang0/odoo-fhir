@@ -1,60 +1,90 @@
 <openerp>
-  <data>  
+    <data>  
 
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="hc_patient.list">
-      <field name="name">hc_patient list</field>
-      <field name="model">hc_patient.hc_patient</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
+        <!-- Patient Views -->                      
+                        
+<!--         <record id="hc_res_person_view_search_inherited" model="ir.ui.view">   -->
+         <record id="hc_res_patient_view_search" model="ir.ui.view">             
+            <field name="name">Patient Search</field>                   
+            <field name="model">hc.res.patient</field>                  
+<!--             <field name="inherit_id" ref="hc_res_person_view_search">                   
+ -->            <field name="arch" type="xml">                  
+                <search string="Patients">              
+                    <field name="name"/>
+                    <field name="birthdate" string="DOB"/>            
+                </search>               
+            </field>                    
+        </record>                       
+        
+        <record id="hc_res_patient_view_tree" model="ir.ui.view">                       
+            <field name="name">Patient Tree</field>                 
+            <field name="model">hc.res.patient</field>                  
+            <field name="arch" type="xml">                  
+                <tree string="Patients">                
+                    <field name="name"/>
+                    <field name="birthdate" string="DOB"/>             
+                </tree>             
+            </field>                    
+        </record>                       
+        
+        <record id="hc_res_patient_view_form" model="ir.ui.view">                                       
+            <field name="name">Patient Form</field>                                
+            <field name="model">hc.res.patient</field>                                  
+            <field name="arch" type="xml">                                  
+                <form string="Patient">                             
+                    <sheet>                         
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>                        
+                        <div class="oe_title oe_left">                     
+                            <h1>                    
+                                <field name="person_id" default_focus="1" placeholder="Name"/>               
+                            </h1>                   
+                        </div>                      
+                        <div name="buttons" class="oe_right oe_button_box"></div>                       
+                        <group>                     
+                            <group>                 
+                                <field name="gender"/>              
+                                <field name="birthdate"/>
+                                <field name="birth_time"/>              
+                                <field name="is_multiple_birth"/>               
+                                <field name="multiple_birth_count" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>               
+                                <field name="multiple_birth_order" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
+                                <field name="is_deceased"/>             
+                                <field name="deceased_date" attrs="{'invisible': [('is_deceased','=',False)]}"/>                 
+                            </group>                    
+                            <group>                   
+                                <field name="race_ids" widget="many2many_tags"/>             
+                                <field name="ethnicity_ids" widget="many2many_tags"/>
+                            </group>                    
+                        </group>                        
+                        <notebook colspan="4">                      
+                            <page string="Names"/>                  
+                            <page string="Identifiers"/>                    
+                            <page string="Addresses"/>                                               
+                            <page string="Telecom"/>                    
+                            <page string="Attachments"/>
+                            <page string="Marital Statuses"/>                   
+                            <page string="Languages"/>                  
+                            <page string="Related Persons"/>                    
+                            <page string="Contacts"/>                   
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                      
+                                
+        <!-- Patient Action and Menu -->                        
+                                
+        <record id="hc_res_patient_action" model="ir.actions.act_window">                       
+            <field name="name">HC Patients</field>                  
+            <field name="type">ir.actions.act_window</field>                    
+            <field name="res_model">hc.res.patient</field>                                
+            <field name="view_type">form</field>                    
+            <field name="view_mode">tree,form</field>                   
+        </record>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="hc_patient.action_window">
-      <field name="name">hc_patient window</field>
-      <field name="res_model">hc_patient.hc_patient</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="hc_patient.action_server">
-      <field name="name">hc_patient server</field>
-      <field name="model_id" ref="model_hc_patient_hc_patient"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="hc_patient" id="hc_patient.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="hc_patient.menu_1" parent="hc_patient.menu_root"/>
-    <menuitem name="Menu 2" id="hc_patient.menu_2" parent="hc_patient.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="hc_patient.menu_1_list" parent="hc_patient.menu_1"
-              action="hc_patient.action_window"/>
-    <menuitem name="Server to list" id="hc_patient" parent="hc_patient.menu_2"
-              action="hc_patient.action_server"/>
-    -->
-  </data>
+        <menuitem id="hc_base.menu_id_ind" name="Individuals" parent="hc_base.menu_id" sequence="10"/>
+        <menuitem id="hc_patient.menu_pat" name="Patients" parent="hc_base.menu_id_ind" action="hc_res_patient_action" sequence="10"/>
+                      
+    </data>
 </openerp>
