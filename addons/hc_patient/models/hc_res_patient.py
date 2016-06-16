@@ -13,10 +13,19 @@ class Patient(models.Model):
         required=True,
         ondelete="restrict",
         help="Person who is this patient.")
-    birth_time = fields.Char(string="Birth Time", help="The time when the patient was born.")
-    is_deceased = fields.Boolean(string="Deceased", default=False, help="Indicates if the patient is deceased or not.")
-    deceased_date = fields.Date(string="Deceased Date", help="The date when the patient died.")
-    deceased_time = fields.Char(string="Deceased Time", help="The time when the patient died.")
+    birth_time = fields.Char(
+        string="Birth Time", 
+        help="The time when the patient was born.")
+    is_deceased = fields.Boolean(
+        string="Deceased", 
+        default=False, 
+        help="Indicates if the patient is deceased or not.")
+    deceased_date = fields.Date(
+        string="Deceased Date", 
+        help="The date when the patient died.")
+    deceased_time = fields.Char(
+        string="Deceased Time", 
+        help="The time when the patient died.")
     marital_status_ids = fields.One2many(
         comodel_name="hc.patient.marital.status",
         inverse_name="patient_id", 
@@ -32,13 +41,24 @@ class Patient(models.Model):
         relation="ethnicity_patient_rel", 
         string="Ethnicities", 
         help="General ethnicity category reported by the patient - subject may have more than one.")
-    is_multiple_birth = fields.Boolean(string="Multiple Birth", help="Whether patient is part of a multiple birth.")
-    multiple_birth_count = fields.Integer(string="Multiple Birth Count", size=1, help="Number of births in a multiple birth.")
-    multiple_birth_order = fields.Integer(string="Multiple Birth Order", size=1, help="The actual birth order in a multiple birth.")
+    is_multiple_birth = fields.Boolean(
+        string="Multiple Birth", 
+        help="Whether patient is part of a multiple birth.")
+    multiple_birth_count = fields.Integer(
+        string="Multiple Birth Count", 
+        size=1, 
+        help="Number of births in a multiple birth.")
+    multiple_birth_order = fields.Integer(
+        string="Multiple Birth Order", 
+        size=1, 
+        help="The actual birth order in a multiple birth.")
     # care_provider_practitioner_ids = fields.One2many(comodel_name="hc.res.practitioner", inverse_name="patient_id", string="Care Provider Practitioners", help="Practitioner who is patient's nominated care provider.")
     # care_provider_organization_ids = fields.One2many(comodel_name="hc.res.organization", inverse_name="patient_id", string="Care Provider Organizations", help="Organization who is patient's nominated care provider.")
     # managing_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Managing Organization", help="Organization that is the custodian of the patient record.")
-    is_active_patient = fields.Boolean(string="Active Patient", default=True, help="Whether this patient's record is in active use.")
+    is_active_patient = fields.Boolean(
+        string="Active Patient", 
+        adefault=True, 
+        help="Whether this patient's record is in active use.")
     is_patient = fields.Boolean(string="Patient", default=True, help="Indicates a patient record.")
 
 class MaritalStatus(models.Model):  
@@ -75,6 +95,10 @@ class PatientContact(models.Model):
     _description = "Patient Contact"    
     _inherit = ["hc.res.person"]
 
+
+
+
+ 
 class ContactRelationship(models.Model):    
     _name = "hc.vs.contact.relationship"    
     _description = "Contact Relationship"   

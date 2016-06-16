@@ -60,7 +60,30 @@
                             <page string="Names"/>                  
                             <page string="Identifiers"/>                    
                             <page string="Addresses"/>                                               
-                            <page string="Telecom"/>                    
+                            <page string="Telecom">
+                                <field name="telecom_contact_ids" mode="tree">
+                                    <tree>
+                                        <field name="telecom_id"/>
+                                        <field name="use"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="telecom_id"/>
+                                                    <field name="use"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>                    
                             <page string="Attachments"/>
                             <page string="Marital Statuses"/>                   
                             <page string="Languages"/>                  
