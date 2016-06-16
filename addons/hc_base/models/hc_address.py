@@ -390,3 +390,32 @@ class HcExtensionAddress(models.Model):
     #     vals['name'] = address
 
     #     return super(HcExtensionAddress, self).write(vals)
+
+class EntityAddress(models.Model):
+
+    _name = "hc.entity.address" 
+    _description = "Entity Address"
+    _inherit = ["hc.basic.association"]
+    _inherits = {"hc.address": "address_id"}
+
+    address_id = fields.Many2one(
+        comodel_name="hc.address", 
+        string="Address", 
+        required=True,
+        ondelete="restrict", 
+        help="Address associated with this entity.") 
+    use = fields.Selection(string="Use",
+        selection=[
+            ("home", "Home"), 
+            ("work", "Work"), 
+            ("temp", "Temp"), 
+            ("old", "Old")],
+        default="home",  
+        help="The purpose of this address.")
+    type = fields.Selection(string="Type", 
+        selection=[
+            ("postal", "Postal"), 
+            ("physical", "Physical"), 
+            ("both", "Both")], 
+        default="both", 
+        help="Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.")

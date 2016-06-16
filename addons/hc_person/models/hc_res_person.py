@@ -165,29 +165,17 @@ class PersonName(models.Model):
         help="Name associated with this entity.")
         
 class PersonTelecom(models.Model):  
-    _name = "hc.person.telecom" 
-    _description = "Person Telecom"
-    _inherit = ["hc.basic.association"]
-    _inherits = {"hc.telecom": "telecom_id"}
+    _name = "hc.organization.telecom" 
+    _description = "Organization Telecom"
+    _inherit = ["hc.entity.telecom"]
  
     person_id = fields.Many2one(
         comodel_name="hc.res.person", 
         string="Person", 
         help="Entity associated with this telecom contact point.")
+
     telecom_id = fields.Many2one(
-        comodel_name="hc.telecom", 
-        string="Telecom", 
-        required=True,
-        ondelete="restrict", 
-        help="Telecom contact point associated with this entity.")
-    use = fields.Selection(string="Telecom Use", 
-        selection=[
-            ("home", "Home"), 
-            ("work", "Work"), 
-            ("temp", "Temp"), 
-            ("old", "Old"),
-            ("mobile", "Mobile")], 
-        help="Purpose of this telecom contact point.")
+        help="Telecom contact point associated with this person.")
      
 class PersonAttachment(models.Model):   
     _name = "hc.person.attachment"  

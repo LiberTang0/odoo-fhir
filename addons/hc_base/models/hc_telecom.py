@@ -21,3 +21,24 @@ class Telecom(models.Model):
         required=True, 
         help="The actual telecom contact point details (e.g., Tel: +22 607 123 4567, E-mail: jdeo@isp.com, Web: www.doecorp.com)."
         )
+
+class EntityTelecom(models.Model):  
+    _name = "hc.entity.telecom" 
+    _description = "Entity Telecom"
+    _inherit = ["hc.basic.association"]
+    _inherits = {"hc.telecom": "telecom_id"}
+ 
+    telecom_id = fields.Many2one(
+        comodel_name="hc.telecom", 
+        string="Telecom", 
+        required=True,
+        ondelete="restrict", 
+        help="Telecom contact point associated with this entity.")
+    use = fields.Selection(string="Telecom Use", 
+        selection=[
+            ("home", "Home"), 
+            ("work", "Work"), 
+            ("temp", "Temp"), 
+            ("old", "Old"),
+            ("mobile", "Mobile")], 
+        help="Purpose of this telecom contact point.")
