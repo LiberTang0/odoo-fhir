@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hc_organization_hc_organization,hc_organization.hc_organization,model_hc_organization_hc_organization,,1,0,0,0
+access_hc_organization_hc_res_organization,hc.organization.hc.res.organization,model_hc_res_organization,,1,0,0,0
+access_hc_organization_hc_organization_telecom,hc.organization.hc.organization.telecom,model_hc_organization_telecom,,1,0,0,0

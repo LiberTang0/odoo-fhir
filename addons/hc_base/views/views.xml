@@ -57,11 +57,11 @@
 
       <!-- Top menu item -->
 
-      <menuitem 
+<!--       <menuitem 
         id="hc_base.menu_root" 
         name="FHIR"
         web_icon="hc_base,static/description/icon.png"
-        sequence="1"/>
+        sequence="1"/> -->
 
         <menuitem id="hc_base.menu_clinic" name="Clinical" parent="hc_base.menu_root" sequence="10"/>
             <menuitem id="hc_base.menu_clinic_gen" name="General" parent="hc_base.menu_clinic" sequence="10"/>
@@ -146,7 +146,7 @@
     
     <!--<menuitem name="ERP" id="hc_base.menu_erp" parent="hc_base.menu_root" sequence="7"/>-->
     
-    <menuitem id="hc_base.menu_datatype" name="Data Type" parent="hc_base.menu_root" sequence="70"/>            
+    <!-- <menuitem id="hc_base.menu_datatype" name="Data Type" parent="hc_base.menu_root" sequence="70"/> -->            
 
     <!-- Annotation Views -->                 
                   

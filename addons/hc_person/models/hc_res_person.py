@@ -165,8 +165,8 @@ class PersonName(models.Model):
         help="Name associated with this entity.")
         
 class PersonTelecom(models.Model):  
-    _name = "hc.organization.telecom" 
-    _description = "Organization Telecom"
+    _name = "hc.person.telecom" 
+    _description = "Person Telecom"
     _inherit = ["hc.entity.telecom"]
  
     person_id = fields.Many2one(

@@ -128,10 +128,10 @@
                                                     <field name="use"/>
                                                 </group>
                                                 <group>
-                                                    <!-- <field name="is_preferred"/>
+                                                    <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/> -->
+                                                    <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                             </group>
                                         </sheet>
@@ -150,10 +150,10 @@
                                                     <field name="attachment_id"/>
                                                 </group>
                                                 <group>
-                                                    <!-- <field name="is_preferred"/>
+                                                    <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/> -->
+                                                    <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                             </group>
                                         </sheet>
