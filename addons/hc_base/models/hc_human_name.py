@@ -31,18 +31,6 @@ class HumanName(models.Model):
     _name = "hc.human.name"
     _description = "Human Name"
     
-    use = fields.Selection(
-        string="Human Name Use", 
-        selection=[
-            ("usual", "Usual"), 
-            ("official", "Official"),
-            ("temp", "Temp"),
-            ("nickname", "Nickname"),
-            ("anonymous", "Anonymous"),
-            ("old", "Old"),
-            ("maiden", "Maiden")],
-        default="usual",
-        help="The use of a human name.")
     name = fields.Char(
         store=True,
         string="Full Name",
@@ -103,7 +91,20 @@ class HumanName(models.Model):
         comodel_name="hc.human.name.term", 
         string="Birth Last Name", 
         help="Person's surname at birth.")
-    display_order = fields.Selection(string="Display Name Order", 
+    use = fields.Selection(
+        string="Human Name Use", 
+        selection=[
+            ("usual", "Usual"), 
+            ("official", "Official"),
+            ("temp", "Temp"),
+            ("nickname", "Nickname"),
+            ("anonymous", "Anonymous"),
+            ("old", "Old"),
+            ("maiden", "Maiden")],
+        default="usual",
+        help="The use of a human name.")
+    display_order = fields.Selection(
+        string="Display Name Order", 
         selection=[
             ("given maiden last", "Given Maiden Last (e.g., American name)"), 
             ("maiden last first", "Maiden Last First (e.g., Chinese name)"),
@@ -208,3 +209,9 @@ class HcExtensionHumanName(models.Model):
         vals['family'] = full_family
 
         return super(HcExtensionHumanName, self).create(vals)
+
+    
+    # class ObjectHumanName(models.AbstractModel): 
+    #     _name = "hc.object.human.name"    
+    #     _description = "Object Human Name"        
+    #     _inherit = ["hc.basic.association", "hc.human.name"]

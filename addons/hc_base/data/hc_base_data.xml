@@ -511,7 +511,7 @@
         <record id="identifier_type_AMA" model="hc.vs.identifier.type"> 
             <field name="code">AMA</field>
             <field name="name">American Medical Association Number</field>
-            <field name="system"></field>
+            <field name="system">commerce.ama-assn.org/membership/</field>
             <field name="definition">A physician identifier assigned by the AMA.</field>
         </record>   
         <record id="identifier_type_ASID" model="hc.vs.identifier.type">    

@@ -36,7 +36,7 @@
         'views/hc_attachment_views.xml',
         'views/hc_human_name_views.xml',
         'views/hc_identifier_views.xml',
-        'views/hc_telecom_views.xml',
+        # 'views/hc_telecom_views.xml',
         'views/templates.xml',    
     ],
     # only loaded in demonstration mode

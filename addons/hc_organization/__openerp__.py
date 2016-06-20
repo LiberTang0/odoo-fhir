@@ -3,15 +3,18 @@
     'name': "Organization",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action. 
+        Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'description': """
+        This resource may be used in a shared registry of contact and other information for various organizations or it can be used merely as a support 
+        for other resources that need to reference organizations, perhaps as a document, message or as a contained resource. 
+        If using a registry approach, it's entirely possible for multiple registries to exist, each dealing with different types or levels of organization.
+    """,
+
+    'author': "Luigi Sison",
+    'website': "https://hl7-fhir.github.io/organization.html",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml

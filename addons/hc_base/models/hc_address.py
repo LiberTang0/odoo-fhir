@@ -391,10 +391,10 @@ class HcExtensionAddress(models.Model):
 
     #     return super(HcExtensionAddress, self).write(vals)
 
-class EntityAddress(models.Model):
+class ObjectAddress(models.Model):
 
-    _name = "hc.entity.address" 
-    _description = "Entity Address"
+    _name = "hc.object.address" 
+    _description = "Object Address"
     _inherit = ["hc.basic.association"]
     _inherits = {"hc.address": "address_id"}
 
@@ -403,7 +403,7 @@ class EntityAddress(models.Model):
         string="Address", 
         required=True,
         ondelete="restrict", 
-        help="Address associated with this entity.") 
+        help="Address associated with this object.") 
     use = fields.Selection(string="Use",
         selection=[
             ("home", "Home"), 
