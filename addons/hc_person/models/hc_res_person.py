@@ -178,6 +178,10 @@ class PersonTelecom(models.Model):
         string="Person", 
         help="Entity associated with this telecom contact point.")
     telecom_id = fields.Many2one(
+        comodel_name="hc.human.name",
+        string="Human Name",
+        required=True,
+        ondelete="restrict",
         help="Telecom contact point associated with this person.")
     use = fields.Selection(string="Telecom Use", 
         selection=[
