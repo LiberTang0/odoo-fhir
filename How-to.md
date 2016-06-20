@@ -80,7 +80,7 @@ addons_path=/odoo/enterprise/addons,/odoo/odoo-server/addons,/odoo/odoo-fhir/add
 
 ### Upload changes
 ```
-cd odoo-fhir
+cd /odoo/odoo-fhir
 sudo git add .
 sudo git commit -m "Initial Commit" -a
 sudo git push origin master
